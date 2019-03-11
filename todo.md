@@ -9,8 +9,8 @@ https://www.muzieklerenlezen.nl/muzieknoten-oefenen/noten-namen-oefenen
 2.3 noot goed -> volgende noot  
     2.4 noot goed -> noot groen -> volgende noot  
 
-3.0 audio output
-    3.0.1 buzzer
+3.0 audio output  
+    3.0.1 buzzer  
 3.1 noot verschijnt -> toon speelt ±3s  
 3.2 noot precisie: ±6 Hz  
 3.3 switch voor sound enable/disable  
