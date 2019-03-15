@@ -5,45 +5,57 @@
 #include <stdint.h>
 #include <math.h>
 
-#define TONE_DURATION       3
-#define TONE_SAMPLERATE     8000
+//TODO: klopt sampleCount??
+
+#define TONE_SAMPLERATE     500000
+#define TONE_SINE_SLACK     2
 #define TONE_AMPLITUDE      INT8_MAX
 
-int buildSine(float frequency)
+struct note {
+  float     frequency;
+  char      name;
+  size_t    sampleCount;
+};
+
+int buildSine(struct note *currentNote)
 {
-    const size_t    totalSamples    = TONE_SAMPLERATE * TONE_DURATION;
     double          angle           = 0.0;
+    uint8_t         sample          = 0;
+    size_t          sampleCount     = 0;
 
-    for (size_t i = 1; i <= totalSamples; i++) {
-        uint8_t sample = (TONE_AMPLITUDE * sin(angle))+TONE_AMPLITUDE;
-        printf("%02X,", sample);
-
-        if (0 == (i % 24))
-            printf("\n");
-
-        angle += (2 * M_PI * frequency) / TONE_SAMPLERATE;
+    while (!(sample > (INT8_MAX - TONE_SINE_SLACK) &&
+             sample < (INT8_MAX + TONE_SINE_SLACK) &&
+             angle  > 6)) {
+      sample = (TONE_AMPLITUDE * sin(angle))+TONE_AMPLITUDE;
+      printf("%02X,", sample);
+      if (0 == (++currentNote->sampleCount % 24))
+        printf("\n");
+      angle += (2 * M_PI * currentNote->frequency) / TONE_SAMPLERATE;
     }
     return 0;
 }
 
-
-const float notes[8] = {
-    349.2,   // f
-    391.9,   // g
-    440,     // a
-    493.8,   // b
-    523.2,   // c
-    587.3,   // d
-    659.2,   // e
-    698.4,   // f
+struct note notes[8] = {
+  { 349.2,  'f', 0 },
+  { 391.9,  'g', 0 },
+  { 440,    'a', 0 },
+  { 493.8,  'b', 0 },
+  { 523.2,  'c', 0 },
+  { 587.3,  'd', 0 },
+  { 659.2,  'e', 0 },
+  { 698.4,  'f', 0 }
 };
 
 int main(int argc, char *argv[])
 {
-    printf("; note trainer sine data.\n");
+    size_t i;
+    printf("; tone sine data\n");
     printf("memory_initialization_radix=16;\nmemory_initialization_vector=\n");
-    for (size_t i = 0; i < sizeof(notes)/sizeof(float); i++) {
-        buildSine(notes[i]);
+    for (i = 0; i < sizeof(notes)/sizeof(struct note); i++) {
+        buildSine(&notes[i]);
     }
-    printf(";\n");
+    printf("\n;\n");
+    for (i = 0; i < sizeof(notes)/sizeof(struct note); i++) {
+        printf("; Note: %c Freq: %f Samples: %u\n", notes[i].name, notes[i].frequency, notes[i].sampleCount);
+    }
 }
