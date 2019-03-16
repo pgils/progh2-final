@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <math.h>
 
-//TODO: klopt sampleCount??
 
 #define TONE_SAMPLERATE     500000
 #define TONE_SINE_SLACK     1
@@ -15,6 +14,17 @@ struct note {
   double    frequency;
   char      name;
   size_t    sampleCount;
+};
+
+static struct note notes[8] = {
+  { 349.2,  'f', 0 },
+  { 391.9,  'g', 0 },
+  { 440,    'a', 0 },
+  { 493.8,  'b', 0 },
+  { 523.2,  'c', 0 },
+  { 587.3,  'd', 0 },
+  { 659.2,  'e', 0 },
+  { 698.4,  'f', 0 }
 };
 
 int buildSine(struct note *currentNote)
@@ -34,17 +44,6 @@ int buildSine(struct note *currentNote)
     printf("\n");
     return 0;
 }
-
-static struct note notes[8] = {
-  { 349.2,  'f', 0 },
-  { 391.9,  'g', 0 },
-  { 440,    'a', 0 },
-  { 493.8,  'b', 0 },
-  { 523.2,  'c', 0 },
-  { 587.3,  'd', 0 },
-  { 659.2,  'e', 0 },
-  { 698.4,  'f', 0 }
-};
 
 int main()
 {
