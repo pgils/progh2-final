@@ -1,0 +1,14 @@
+#include "peripheral.h"
+#include <stdio.h>
+
+void timerCallback()
+{
+	xil_printf("timer tick!");
+}
+
+int main(void)
+{
+	timerSetup(&timerCallback());
+
+	for(;;);
+}

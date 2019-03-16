@@ -1,0 +1,8 @@
+#include "peripheral.h"
+
+int main(void)
+{
+	timerSetup();
+
+	for(;;);
+}

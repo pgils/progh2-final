@@ -1,0 +1,29 @@
+#include "peripheral.h"
+#include "xgpio.h"
+#include <stdio.h>
+#include <math.h>
+
+#define REQ_FREQ 300
+#define FREQ 44100
+#define AMPLITUDE 255
+
+XGpio gpio;
+double angle;
+
+void timerCallback()
+{
+//	xil_printf("timer tick!");
+	XGpio_DiscreteWrite(&gpio, 1, ((AMPLITUDE * sin(angle))+AMPLITUDE));
+}
+
+int main(void)
+{
+	timerSetup(&timerCallback);
+
+	XGpio_Initialize(&gpio, 1);
+	XGpio_SetDataDirection(&gpio, 1, 0x00000000);
+
+	angle = 0.0;
+
+	for(;;);
+}

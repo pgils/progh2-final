@@ -1,0 +1,19 @@
+#include "peripheral.h"
+#include "xgpio.h"
+#include <stdio.h>
+
+XGpio gpio;
+
+void timerCallback()
+{
+	xil_printf("timer tick!");
+}
+
+int main(void)
+{
+	timerSetup(&timerCallback);
+
+	XGpio_Initialize(&gpio, 1);
+
+	for(;;);
+}
