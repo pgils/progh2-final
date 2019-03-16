@@ -8,7 +8,7 @@
 //TODO: klopt sampleCount??
 
 #define TONE_SAMPLERATE     500000
-#define TONE_SINE_SLACK     2
+#define TONE_SINE_SLACK     1
 #define TONE_AMPLITUDE      INT8_MAX
 
 struct note {
@@ -48,14 +48,20 @@ static struct note notes[8] = {
 
 int main()
 {
-    size_t i;
+    size_t  i;
+    size_t  index   = 0;
+
     printf("; tone sine data\n");
     printf("memory_initialization_radix=16;\nmemory_initialization_vector=\n");
     for (i = 0; i < sizeof(notes)/sizeof(struct note); i++) {
         buildSine(&notes[i]);
     }
-    printf(";\n");
+    printf(";\n; | Note | Frequency | Samples | StartIndex |\n");
+    printf("; -------------------------------------------\n");
     for (i = 0; i < sizeof(notes)/sizeof(struct note); i++) {
-        printf("; Note: %c Freq: %f Samples: %lu\n", notes[i].name, notes[i].frequency, notes[i].sampleCount);
+        printf("; |   %c  |   %04.1f   |  %05lu  |    %05lu   |\n", notes[i].name, notes[i].frequency, notes[i].sampleCount, index);
+        index += notes[i].sampleCount;
     }
+    printf(";\n; Samplerate: %d/s\n", TONE_SAMPLERATE);
+    printf("; BlockMemory size needed: %lu\n", index+1);
 }
