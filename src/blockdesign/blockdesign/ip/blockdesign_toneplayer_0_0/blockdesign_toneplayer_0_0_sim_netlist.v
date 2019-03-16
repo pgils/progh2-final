@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sat Mar 16 21:26:22 2019
+// Date        : Sat Mar 16 21:53:41 2019
 // Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_toneplayer_0_0/blockdesign_toneplayer_0_0_sim_netlist.v
@@ -22,14 +22,14 @@ module blockdesign_toneplayer_0_0
     romAddr,
     pin_mono);
   (* x_interface_info = "xilinx.com:signal:clock:1.0 clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *) input clk;
-  input ena;
+  input [1:0]ena;
   input [3:0]tone;
   input [7:0]toneData;
   output [12:0]romAddr;
   output pin_mono;
 
   wire clk;
-  wire ena;
+  wire [1:0]ena;
   wire pin_mono;
   wire [12:0]romAddr;
   wire [3:0]tone;
@@ -55,12 +55,12 @@ module blockdesign_toneplayer_0_0_toneplayer
   output [12:0]romAddr;
   output pin_mono;
   input [2:0]tone;
-  input ena;
+  input [1:0]ena;
   input clk;
   input [7:0]toneData;
 
   wire clk;
-  wire ena;
+  wire [1:0]ena;
   wire pin_mono;
   wire pin_mono0;
   wire pin_mono1;
@@ -225,6 +225,7 @@ module blockdesign_toneplayer_0_0_toneplayer
   wire \pwmCounter_reg[8]_i_1_n_6 ;
   wire \pwmCounter_reg[8]_i_1_n_7 ;
   wire [12:0]romAddr;
+  wire \romAddr[12]_i_1_n_0 ;
   wire sampRateCounter0;
   wire sampRateCounter1_carry__0_i_1_n_0;
   wire sampRateCounter1_carry__0_i_2_n_0;
@@ -743,13 +744,14 @@ module blockdesign_toneplayer_0_0_toneplayer
         .I2(pwmCounter_reg[1]),
         .I3(toneData[1]),
         .O(pin_mono1_carry_i_8_n_0));
-  LUT4 #(
-    .INIT(16'hF4CC)) 
+  LUT5 #(
+    .INIT(32'hF4CCCCCC)) 
     pin_mono_i_1
        (.I0(pin_mono1),
         .I1(pin_mono),
         .I2(pwmCounter1),
-        .I3(ena),
+        .I3(ena[0]),
+        .I4(ena[1]),
         .O(pin_mono_i_1_n_0));
   FDRE pin_mono_reg
        (.C(clk),
@@ -971,11 +973,12 @@ module blockdesign_toneplayer_0_0_toneplayer
        (.I0(pwmCounter_reg[0]),
         .I1(pwmCounter_reg[1]),
         .O(pwmCounter1_carry_i_8_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \pwmCounter[0]_i_1 
-       (.I0(ena),
-        .I1(pwmCounter1),
+       (.I0(ena[1]),
+        .I1(ena[0]),
+        .I2(pwmCounter1),
         .O(pin_mono0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -986,7 +989,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[0] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[0]_i_2_n_7 ),
         .Q(pwmCounter_reg[0]),
         .R(pin_mono0));
@@ -1001,7 +1004,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[10] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[8]_i_1_n_5 ),
         .Q(pwmCounter_reg[10]),
         .R(pin_mono0));
@@ -1009,7 +1012,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[11] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[8]_i_1_n_4 ),
         .Q(pwmCounter_reg[11]),
         .R(pin_mono0));
@@ -1017,7 +1020,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[12] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[12]_i_1_n_7 ),
         .Q(pwmCounter_reg[12]),
         .R(pin_mono0));
@@ -1032,7 +1035,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[13] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[12]_i_1_n_6 ),
         .Q(pwmCounter_reg[13]),
         .R(pin_mono0));
@@ -1040,7 +1043,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[14] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[12]_i_1_n_5 ),
         .Q(pwmCounter_reg[14]),
         .R(pin_mono0));
@@ -1048,7 +1051,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[15] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[12]_i_1_n_4 ),
         .Q(pwmCounter_reg[15]),
         .R(pin_mono0));
@@ -1056,7 +1059,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[16] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[16]_i_1_n_7 ),
         .Q(pwmCounter_reg[16]),
         .R(pin_mono0));
@@ -1071,7 +1074,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[17] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[16]_i_1_n_6 ),
         .Q(pwmCounter_reg[17]),
         .R(pin_mono0));
@@ -1079,7 +1082,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[18] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[16]_i_1_n_5 ),
         .Q(pwmCounter_reg[18]),
         .R(pin_mono0));
@@ -1087,7 +1090,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[19] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[16]_i_1_n_4 ),
         .Q(pwmCounter_reg[19]),
         .R(pin_mono0));
@@ -1095,7 +1098,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[1] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[0]_i_2_n_6 ),
         .Q(pwmCounter_reg[1]),
         .R(pin_mono0));
@@ -1103,7 +1106,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[20] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[20]_i_1_n_7 ),
         .Q(pwmCounter_reg[20]),
         .R(pin_mono0));
@@ -1118,7 +1121,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[21] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[20]_i_1_n_6 ),
         .Q(pwmCounter_reg[21]),
         .R(pin_mono0));
@@ -1126,7 +1129,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[22] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[20]_i_1_n_5 ),
         .Q(pwmCounter_reg[22]),
         .R(pin_mono0));
@@ -1134,7 +1137,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[23] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[20]_i_1_n_4 ),
         .Q(pwmCounter_reg[23]),
         .R(pin_mono0));
@@ -1142,7 +1145,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[24] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[24]_i_1_n_7 ),
         .Q(pwmCounter_reg[24]),
         .R(pin_mono0));
@@ -1157,7 +1160,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[25] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[24]_i_1_n_6 ),
         .Q(pwmCounter_reg[25]),
         .R(pin_mono0));
@@ -1165,7 +1168,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[26] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[24]_i_1_n_5 ),
         .Q(pwmCounter_reg[26]),
         .R(pin_mono0));
@@ -1173,7 +1176,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[27] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[24]_i_1_n_4 ),
         .Q(pwmCounter_reg[27]),
         .R(pin_mono0));
@@ -1181,7 +1184,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[28] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[28]_i_1_n_7 ),
         .Q(pwmCounter_reg[28]),
         .R(pin_mono0));
@@ -1196,7 +1199,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[29] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[28]_i_1_n_6 ),
         .Q(pwmCounter_reg[29]),
         .R(pin_mono0));
@@ -1204,7 +1207,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[2] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[0]_i_2_n_5 ),
         .Q(pwmCounter_reg[2]),
         .R(pin_mono0));
@@ -1212,7 +1215,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[30] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[28]_i_1_n_5 ),
         .Q(pwmCounter_reg[30]),
         .R(pin_mono0));
@@ -1220,7 +1223,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[31] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[28]_i_1_n_4 ),
         .Q(pwmCounter_reg[31]),
         .R(pin_mono0));
@@ -1228,7 +1231,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[3] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[0]_i_2_n_4 ),
         .Q(pwmCounter_reg[3]),
         .R(pin_mono0));
@@ -1236,7 +1239,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[4] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[4]_i_1_n_7 ),
         .Q(pwmCounter_reg[4]),
         .R(pin_mono0));
@@ -1251,7 +1254,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[5] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[4]_i_1_n_6 ),
         .Q(pwmCounter_reg[5]),
         .R(pin_mono0));
@@ -1259,7 +1262,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[6] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[4]_i_1_n_5 ),
         .Q(pwmCounter_reg[6]),
         .R(pin_mono0));
@@ -1267,7 +1270,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[7] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[4]_i_1_n_4 ),
         .Q(pwmCounter_reg[7]),
         .R(pin_mono0));
@@ -1275,7 +1278,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[8] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[8]_i_1_n_7 ),
         .Q(pwmCounter_reg[8]),
         .R(pin_mono0));
@@ -1290,85 +1293,91 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \pwmCounter_reg[9] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\pwmCounter_reg[8]_i_1_n_6 ),
         .Q(pwmCounter_reg[9]),
         .R(pin_mono0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \romAddr[12]_i_1 
+       (.I0(ena[0]),
+        .I1(ena[1]),
+        .O(\romAddr[12]_i_1_n_0 ));
   FDRE \romAddr_reg[0] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[0]),
         .Q(romAddr[0]),
         .R(1'b0));
   FDRE \romAddr_reg[10] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[10]),
         .Q(romAddr[10]),
         .R(1'b0));
   FDRE \romAddr_reg[11] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[11]),
         .Q(romAddr[11]),
         .R(1'b0));
   FDRE \romAddr_reg[12] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[12]),
         .Q(romAddr[12]),
         .R(1'b0));
   FDRE \romAddr_reg[1] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[1]),
         .Q(romAddr[1]),
         .R(1'b0));
   FDRE \romAddr_reg[2] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[2]),
         .Q(romAddr[2]),
         .R(1'b0));
   FDRE \romAddr_reg[3] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[3]),
         .Q(romAddr[3]),
         .R(1'b0));
   FDRE \romAddr_reg[4] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[4]),
         .Q(romAddr[4]),
         .R(1'b0));
   FDRE \romAddr_reg[5] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[5]),
         .Q(romAddr[5]),
         .R(1'b0));
   FDRE \romAddr_reg[6] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[6]),
         .Q(romAddr[6]),
         .R(1'b0));
   FDRE \romAddr_reg[7] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[7]),
         .Q(romAddr[7]),
         .R(1'b0));
   FDRE \romAddr_reg[8] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[8]),
         .Q(romAddr[8]),
         .R(1'b0));
   FDRE \romAddr_reg[9] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(sigRomAddr_reg[9]),
         .Q(romAddr[9]),
         .R(1'b0));
@@ -1586,11 +1595,12 @@ module blockdesign_toneplayer_0_0_toneplayer
        (.I0(sampRateCounter_reg[1]),
         .I1(sampRateCounter_reg[0]),
         .O(sampRateCounter1_carry_i_7_n_0));
-  LUT2 #(
-    .INIT(4'h8)) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \sampRateCounter[0]_i_1 
-       (.I0(ena),
-        .I1(sampRateCounter1_carry__2_n_0),
+       (.I0(ena[1]),
+        .I1(ena[0]),
+        .I2(sampRateCounter1_carry__2_n_0),
         .O(sampRateCounter0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -1601,7 +1611,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[0] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[0]_i_2_n_7 ),
         .Q(sampRateCounter_reg[0]),
         .R(sampRateCounter0));
@@ -1616,7 +1626,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[10] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[8]_i_1_n_5 ),
         .Q(sampRateCounter_reg[10]),
         .R(sampRateCounter0));
@@ -1624,7 +1634,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[11] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[8]_i_1_n_4 ),
         .Q(sampRateCounter_reg[11]),
         .R(sampRateCounter0));
@@ -1632,7 +1642,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[12] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[12]_i_1_n_7 ),
         .Q(sampRateCounter_reg[12]),
         .R(sampRateCounter0));
@@ -1647,7 +1657,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[13] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[12]_i_1_n_6 ),
         .Q(sampRateCounter_reg[13]),
         .R(sampRateCounter0));
@@ -1655,7 +1665,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[14] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[12]_i_1_n_5 ),
         .Q(sampRateCounter_reg[14]),
         .R(sampRateCounter0));
@@ -1663,7 +1673,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[15] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[12]_i_1_n_4 ),
         .Q(sampRateCounter_reg[15]),
         .R(sampRateCounter0));
@@ -1671,7 +1681,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[16] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[16]_i_1_n_7 ),
         .Q(sampRateCounter_reg[16]),
         .R(sampRateCounter0));
@@ -1686,7 +1696,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[17] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[16]_i_1_n_6 ),
         .Q(sampRateCounter_reg[17]),
         .R(sampRateCounter0));
@@ -1694,7 +1704,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[18] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[16]_i_1_n_5 ),
         .Q(sampRateCounter_reg[18]),
         .R(sampRateCounter0));
@@ -1702,7 +1712,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[19] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[16]_i_1_n_4 ),
         .Q(sampRateCounter_reg[19]),
         .R(sampRateCounter0));
@@ -1710,7 +1720,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[1] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[0]_i_2_n_6 ),
         .Q(sampRateCounter_reg[1]),
         .R(sampRateCounter0));
@@ -1718,7 +1728,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[20] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[20]_i_1_n_7 ),
         .Q(sampRateCounter_reg[20]),
         .R(sampRateCounter0));
@@ -1733,7 +1743,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[21] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[20]_i_1_n_6 ),
         .Q(sampRateCounter_reg[21]),
         .R(sampRateCounter0));
@@ -1741,7 +1751,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[22] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[20]_i_1_n_5 ),
         .Q(sampRateCounter_reg[22]),
         .R(sampRateCounter0));
@@ -1749,7 +1759,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[23] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[20]_i_1_n_4 ),
         .Q(sampRateCounter_reg[23]),
         .R(sampRateCounter0));
@@ -1757,7 +1767,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[24] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[24]_i_1_n_7 ),
         .Q(sampRateCounter_reg[24]),
         .R(sampRateCounter0));
@@ -1772,7 +1782,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[25] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[24]_i_1_n_6 ),
         .Q(sampRateCounter_reg[25]),
         .R(sampRateCounter0));
@@ -1780,7 +1790,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[26] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[24]_i_1_n_5 ),
         .Q(sampRateCounter_reg[26]),
         .R(sampRateCounter0));
@@ -1788,7 +1798,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[27] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[24]_i_1_n_4 ),
         .Q(sampRateCounter_reg[27]),
         .R(sampRateCounter0));
@@ -1796,7 +1806,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[28] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[28]_i_1_n_7 ),
         .Q(sampRateCounter_reg[28]),
         .R(sampRateCounter0));
@@ -1811,7 +1821,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[29] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[28]_i_1_n_6 ),
         .Q(sampRateCounter_reg[29]),
         .R(sampRateCounter0));
@@ -1819,7 +1829,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[2] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[0]_i_2_n_5 ),
         .Q(sampRateCounter_reg[2]),
         .R(sampRateCounter0));
@@ -1827,7 +1837,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[30] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[28]_i_1_n_5 ),
         .Q(sampRateCounter_reg[30]),
         .R(sampRateCounter0));
@@ -1835,7 +1845,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[31] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[28]_i_1_n_4 ),
         .Q(sampRateCounter_reg[31]),
         .R(sampRateCounter0));
@@ -1843,7 +1853,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[3] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[0]_i_2_n_4 ),
         .Q(sampRateCounter_reg[3]),
         .R(sampRateCounter0));
@@ -1851,7 +1861,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[4] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[4]_i_1_n_7 ),
         .Q(sampRateCounter_reg[4]),
         .R(sampRateCounter0));
@@ -1866,7 +1876,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[5] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[4]_i_1_n_6 ),
         .Q(sampRateCounter_reg[5]),
         .R(sampRateCounter0));
@@ -1874,7 +1884,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[6] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[4]_i_1_n_5 ),
         .Q(sampRateCounter_reg[6]),
         .R(sampRateCounter0));
@@ -1882,7 +1892,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[7] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[4]_i_1_n_4 ),
         .Q(sampRateCounter_reg[7]),
         .R(sampRateCounter0));
@@ -1890,7 +1900,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[8] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[8]_i_1_n_7 ),
         .Q(sampRateCounter_reg[8]),
         .R(sampRateCounter0));
@@ -1905,7 +1915,7 @@ module blockdesign_toneplayer_0_0_toneplayer
     .INIT(1'b0)) 
     \sampRateCounter_reg[9] 
        (.C(clk),
-        .CE(ena),
+        .CE(\romAddr[12]_i_1_n_0 ),
         .D(\sampRateCounter_reg[8]_i_1_n_6 ),
         .Q(sampRateCounter_reg[9]),
         .R(sampRateCounter0));
@@ -2171,12 +2181,13 @@ module blockdesign_toneplayer_0_0_toneplayer
         .I3(tone[0]),
         .I4(tone[1]),
         .O(sigRomAddr1_carry_i_8_n_0));
-  LUT3 #(
-    .INIT(8'hA8)) 
+  LUT4 #(
+    .INIT(16'h8880)) 
     \sigRomAddr[0]_i_1 
-       (.I0(ena),
-        .I1(sampRateCounter1_carry__2_n_0),
-        .I2(sigRomAddr1_carry__2_n_0),
+       (.I0(ena[1]),
+        .I1(ena[0]),
+        .I2(sampRateCounter1_carry__2_n_0),
+        .I3(sigRomAddr1_carry__2_n_0),
         .O(sigRomAddr0));
   LUT5 #(
     .INIT(32'h0EFF0E00)) 

@@ -26,7 +26,7 @@ entity toneplayer is
     );
     port (
         clk         : in  std_logic;
-        ena         : in  std_logic;
+        ena         : in  std_logic_vector(1 downto 0);
         tone        : in  std_logic_vector(3 downto 0);
         toneData    : in  std_logic_vector(sampleSize-1 downto 0);
         romAddr     : out std_logic_vector(12 downto 0);
@@ -80,7 +80,7 @@ begin
 -- Set audio output
 setPwmAudioOut : process( clk )
 begin
-    if rising_edge(clk) and ena = '1' then
+    if rising_edge(clk) and ena = "11" then
         -- always increase the counters
         pwmCounter      <= (pwmCounter + 1);
         sampRateCounter <= (sampRateCounter + 1);

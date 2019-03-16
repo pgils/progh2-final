@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sat Mar 16 21:26:22 2019
+-- Date        : Sat Mar 16 21:53:41 2019
 -- Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_toneplayer_0_0/blockdesign_toneplayer_0_0_sim_netlist.vhdl
@@ -19,7 +19,7 @@ entity blockdesign_toneplayer_0_0_toneplayer is
     romAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
     pin_mono : out STD_LOGIC;
     tone : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    ena : in STD_LOGIC;
+    ena : in STD_LOGIC_VECTOR ( 1 downto 0 );
     clk : in STD_LOGIC;
     toneData : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
@@ -191,6 +191,7 @@ architecture STRUCTURE of blockdesign_toneplayer_0_0_toneplayer is
   signal \pwmCounter_reg[8]_i_1_n_5\ : STD_LOGIC;
   signal \pwmCounter_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \pwmCounter_reg[8]_i_1_n_7\ : STD_LOGIC;
+  signal \romAddr[12]_i_1_n_0\ : STD_LOGIC;
   signal sampRateCounter0 : STD_LOGIC;
   signal \sampRateCounter1_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \sampRateCounter1_carry__0_i_2_n_0\ : STD_LOGIC;
@@ -848,15 +849,16 @@ pin_mono1_carry_i_8: unisim.vcomponents.LUT4
       I3 => toneData(1),
       O => pin_mono1_carry_i_8_n_0
     );
-pin_mono_i_1: unisim.vcomponents.LUT4
+pin_mono_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"F4CC"
+      INIT => X"F4CCCCCC"
     )
         port map (
       I0 => pin_mono1,
       I1 => \^pin_mono\,
       I2 => pwmCounter1,
-      I3 => ena,
+      I3 => ena(0),
+      I4 => ena(1),
       O => pin_mono_i_1_n_0
     );
 pin_mono_reg: unisim.vcomponents.FDRE
@@ -1218,13 +1220,14 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
       I1 => pwmCounter_reg(1),
       O => pwmCounter1_carry_i_8_n_0
     );
-\pwmCounter[0]_i_1\: unisim.vcomponents.LUT2
+\pwmCounter[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"8"
+      INIT => X"80"
     )
         port map (
-      I0 => ena,
-      I1 => pwmCounter1,
+      I0 => ena(1),
+      I1 => ena(0),
+      I2 => pwmCounter1,
       O => pin_mono0
     );
 \pwmCounter[0]_i_3\: unisim.vcomponents.LUT1
@@ -1241,7 +1244,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[0]_i_2_n_7\,
       Q => pwmCounter_reg(0),
       R => pin_mono0
@@ -1268,7 +1271,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[8]_i_1_n_5\,
       Q => pwmCounter_reg(10),
       R => pin_mono0
@@ -1279,7 +1282,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[8]_i_1_n_4\,
       Q => pwmCounter_reg(11),
       R => pin_mono0
@@ -1290,7 +1293,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[12]_i_1_n_7\,
       Q => pwmCounter_reg(12),
       R => pin_mono0
@@ -1316,7 +1319,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[12]_i_1_n_6\,
       Q => pwmCounter_reg(13),
       R => pin_mono0
@@ -1327,7 +1330,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[12]_i_1_n_5\,
       Q => pwmCounter_reg(14),
       R => pin_mono0
@@ -1338,7 +1341,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[12]_i_1_n_4\,
       Q => pwmCounter_reg(15),
       R => pin_mono0
@@ -1349,7 +1352,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[16]_i_1_n_7\,
       Q => pwmCounter_reg(16),
       R => pin_mono0
@@ -1375,7 +1378,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[16]_i_1_n_6\,
       Q => pwmCounter_reg(17),
       R => pin_mono0
@@ -1386,7 +1389,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[16]_i_1_n_5\,
       Q => pwmCounter_reg(18),
       R => pin_mono0
@@ -1397,7 +1400,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[16]_i_1_n_4\,
       Q => pwmCounter_reg(19),
       R => pin_mono0
@@ -1408,7 +1411,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[0]_i_2_n_6\,
       Q => pwmCounter_reg(1),
       R => pin_mono0
@@ -1419,7 +1422,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[20]_i_1_n_7\,
       Q => pwmCounter_reg(20),
       R => pin_mono0
@@ -1445,7 +1448,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[20]_i_1_n_6\,
       Q => pwmCounter_reg(21),
       R => pin_mono0
@@ -1456,7 +1459,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[20]_i_1_n_5\,
       Q => pwmCounter_reg(22),
       R => pin_mono0
@@ -1467,7 +1470,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[20]_i_1_n_4\,
       Q => pwmCounter_reg(23),
       R => pin_mono0
@@ -1478,7 +1481,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[24]_i_1_n_7\,
       Q => pwmCounter_reg(24),
       R => pin_mono0
@@ -1504,7 +1507,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[24]_i_1_n_6\,
       Q => pwmCounter_reg(25),
       R => pin_mono0
@@ -1515,7 +1518,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[24]_i_1_n_5\,
       Q => pwmCounter_reg(26),
       R => pin_mono0
@@ -1526,7 +1529,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[24]_i_1_n_4\,
       Q => pwmCounter_reg(27),
       R => pin_mono0
@@ -1537,7 +1540,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[28]_i_1_n_7\,
       Q => pwmCounter_reg(28),
       R => pin_mono0
@@ -1563,7 +1566,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[28]_i_1_n_6\,
       Q => pwmCounter_reg(29),
       R => pin_mono0
@@ -1574,7 +1577,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[0]_i_2_n_5\,
       Q => pwmCounter_reg(2),
       R => pin_mono0
@@ -1585,7 +1588,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[28]_i_1_n_5\,
       Q => pwmCounter_reg(30),
       R => pin_mono0
@@ -1596,7 +1599,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[28]_i_1_n_4\,
       Q => pwmCounter_reg(31),
       R => pin_mono0
@@ -1607,7 +1610,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[0]_i_2_n_4\,
       Q => pwmCounter_reg(3),
       R => pin_mono0
@@ -1618,7 +1621,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[4]_i_1_n_7\,
       Q => pwmCounter_reg(4),
       R => pin_mono0
@@ -1644,7 +1647,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[4]_i_1_n_6\,
       Q => pwmCounter_reg(5),
       R => pin_mono0
@@ -1655,7 +1658,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[4]_i_1_n_5\,
       Q => pwmCounter_reg(6),
       R => pin_mono0
@@ -1666,7 +1669,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[4]_i_1_n_4\,
       Q => pwmCounter_reg(7),
       R => pin_mono0
@@ -1677,7 +1680,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[8]_i_1_n_7\,
       Q => pwmCounter_reg(8),
       R => pin_mono0
@@ -1703,15 +1706,24 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \pwmCounter_reg[8]_i_1_n_6\,
       Q => pwmCounter_reg(9),
       R => pin_mono0
     );
+\romAddr[12]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => ena(0),
+      I1 => ena(1),
+      O => \romAddr[12]_i_1_n_0\
+    );
 \romAddr_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(0),
       Q => romAddr(0),
       R => '0'
@@ -1719,7 +1731,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(10),
       Q => romAddr(10),
       R => '0'
@@ -1727,7 +1739,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(11),
       Q => romAddr(11),
       R => '0'
@@ -1735,7 +1747,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(12),
       Q => romAddr(12),
       R => '0'
@@ -1743,7 +1755,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(1),
       Q => romAddr(1),
       R => '0'
@@ -1751,7 +1763,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(2),
       Q => romAddr(2),
       R => '0'
@@ -1759,7 +1771,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(3),
       Q => romAddr(3),
       R => '0'
@@ -1767,7 +1779,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(4),
       Q => romAddr(4),
       R => '0'
@@ -1775,7 +1787,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(5),
       Q => romAddr(5),
       R => '0'
@@ -1783,7 +1795,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(6),
       Q => romAddr(6),
       R => '0'
@@ -1791,7 +1803,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(7),
       Q => romAddr(7),
       R => '0'
@@ -1799,7 +1811,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(8),
       Q => romAddr(8),
       R => '0'
@@ -1807,7 +1819,7 @@ pwmCounter1_carry_i_8: unisim.vcomponents.LUT2
 \romAddr_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => sigRomAddr_reg(9),
       Q => romAddr(9),
       R => '0'
@@ -2163,13 +2175,14 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
       I1 => sampRateCounter_reg(0),
       O => sampRateCounter1_carry_i_7_n_0
     );
-\sampRateCounter[0]_i_1\: unisim.vcomponents.LUT2
+\sampRateCounter[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"8"
+      INIT => X"80"
     )
         port map (
-      I0 => ena,
-      I1 => \sampRateCounter1_carry__2_n_0\,
+      I0 => ena(1),
+      I1 => ena(0),
+      I2 => \sampRateCounter1_carry__2_n_0\,
       O => sampRateCounter0
     );
 \sampRateCounter[0]_i_3\: unisim.vcomponents.LUT1
@@ -2186,7 +2199,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[0]_i_2_n_7\,
       Q => sampRateCounter_reg(0),
       R => sampRateCounter0
@@ -2213,7 +2226,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[8]_i_1_n_5\,
       Q => sampRateCounter_reg(10),
       R => sampRateCounter0
@@ -2224,7 +2237,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[8]_i_1_n_4\,
       Q => sampRateCounter_reg(11),
       R => sampRateCounter0
@@ -2235,7 +2248,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[12]_i_1_n_7\,
       Q => sampRateCounter_reg(12),
       R => sampRateCounter0
@@ -2261,7 +2274,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[12]_i_1_n_6\,
       Q => sampRateCounter_reg(13),
       R => sampRateCounter0
@@ -2272,7 +2285,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[12]_i_1_n_5\,
       Q => sampRateCounter_reg(14),
       R => sampRateCounter0
@@ -2283,7 +2296,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[12]_i_1_n_4\,
       Q => sampRateCounter_reg(15),
       R => sampRateCounter0
@@ -2294,7 +2307,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[16]_i_1_n_7\,
       Q => sampRateCounter_reg(16),
       R => sampRateCounter0
@@ -2320,7 +2333,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[16]_i_1_n_6\,
       Q => sampRateCounter_reg(17),
       R => sampRateCounter0
@@ -2331,7 +2344,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[16]_i_1_n_5\,
       Q => sampRateCounter_reg(18),
       R => sampRateCounter0
@@ -2342,7 +2355,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[16]_i_1_n_4\,
       Q => sampRateCounter_reg(19),
       R => sampRateCounter0
@@ -2353,7 +2366,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[0]_i_2_n_6\,
       Q => sampRateCounter_reg(1),
       R => sampRateCounter0
@@ -2364,7 +2377,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[20]_i_1_n_7\,
       Q => sampRateCounter_reg(20),
       R => sampRateCounter0
@@ -2390,7 +2403,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[20]_i_1_n_6\,
       Q => sampRateCounter_reg(21),
       R => sampRateCounter0
@@ -2401,7 +2414,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[20]_i_1_n_5\,
       Q => sampRateCounter_reg(22),
       R => sampRateCounter0
@@ -2412,7 +2425,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[20]_i_1_n_4\,
       Q => sampRateCounter_reg(23),
       R => sampRateCounter0
@@ -2423,7 +2436,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[24]_i_1_n_7\,
       Q => sampRateCounter_reg(24),
       R => sampRateCounter0
@@ -2449,7 +2462,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[24]_i_1_n_6\,
       Q => sampRateCounter_reg(25),
       R => sampRateCounter0
@@ -2460,7 +2473,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[24]_i_1_n_5\,
       Q => sampRateCounter_reg(26),
       R => sampRateCounter0
@@ -2471,7 +2484,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[24]_i_1_n_4\,
       Q => sampRateCounter_reg(27),
       R => sampRateCounter0
@@ -2482,7 +2495,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[28]_i_1_n_7\,
       Q => sampRateCounter_reg(28),
       R => sampRateCounter0
@@ -2508,7 +2521,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[28]_i_1_n_6\,
       Q => sampRateCounter_reg(29),
       R => sampRateCounter0
@@ -2519,7 +2532,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[0]_i_2_n_5\,
       Q => sampRateCounter_reg(2),
       R => sampRateCounter0
@@ -2530,7 +2543,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[28]_i_1_n_5\,
       Q => sampRateCounter_reg(30),
       R => sampRateCounter0
@@ -2541,7 +2554,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[28]_i_1_n_4\,
       Q => sampRateCounter_reg(31),
       R => sampRateCounter0
@@ -2552,7 +2565,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[0]_i_2_n_4\,
       Q => sampRateCounter_reg(3),
       R => sampRateCounter0
@@ -2563,7 +2576,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[4]_i_1_n_7\,
       Q => sampRateCounter_reg(4),
       R => sampRateCounter0
@@ -2589,7 +2602,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[4]_i_1_n_6\,
       Q => sampRateCounter_reg(5),
       R => sampRateCounter0
@@ -2600,7 +2613,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[4]_i_1_n_5\,
       Q => sampRateCounter_reg(6),
       R => sampRateCounter0
@@ -2611,7 +2624,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[4]_i_1_n_4\,
       Q => sampRateCounter_reg(7),
       R => sampRateCounter0
@@ -2622,7 +2635,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[8]_i_1_n_7\,
       Q => sampRateCounter_reg(8),
       R => sampRateCounter0
@@ -2648,7 +2661,7 @@ sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
     )
         port map (
       C => clk,
-      CE => ena,
+      CE => \romAddr[12]_i_1_n_0\,
       D => \sampRateCounter_reg[8]_i_1_n_6\,
       Q => sampRateCounter_reg(9),
       R => sampRateCounter0
@@ -3055,14 +3068,15 @@ sigRomAddr1_carry_i_8: unisim.vcomponents.LUT5
       I4 => tone(1),
       O => sigRomAddr1_carry_i_8_n_0
     );
-\sigRomAddr[0]_i_1\: unisim.vcomponents.LUT3
+\sigRomAddr[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"A8"
+      INIT => X"8880"
     )
         port map (
-      I0 => ena,
-      I1 => \sampRateCounter1_carry__2_n_0\,
-      I2 => \sigRomAddr1_carry__2_n_0\,
+      I0 => ena(1),
+      I1 => ena(0),
+      I2 => \sampRateCounter1_carry__2_n_0\,
+      I3 => \sigRomAddr1_carry__2_n_0\,
       O => sigRomAddr0
     );
 \sigRomAddr[0]_i_3\: unisim.vcomponents.LUT5
@@ -3899,7 +3913,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity blockdesign_toneplayer_0_0 is
   port (
     clk : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    ena : in STD_LOGIC_VECTOR ( 1 downto 0 );
     tone : in STD_LOGIC_VECTOR ( 3 downto 0 );
     toneData : in STD_LOGIC_VECTOR ( 7 downto 0 );
     romAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
@@ -3924,7 +3938,7 @@ begin
 U0: entity work.blockdesign_toneplayer_0_0_toneplayer
      port map (
       clk => clk,
-      ena => ena,
+      ena(1 downto 0) => ena(1 downto 0),
       pin_mono => pin_mono,
       romAddr(12 downto 0) => romAddr(12 downto 0),
       tone(2 downto 0) => tone(2 downto 0),

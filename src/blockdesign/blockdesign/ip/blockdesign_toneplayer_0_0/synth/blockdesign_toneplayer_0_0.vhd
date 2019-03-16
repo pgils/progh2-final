@@ -56,7 +56,7 @@ USE ieee.numeric_std.ALL;
 ENTITY blockdesign_toneplayer_0_0 IS
   PORT (
     clk : IN STD_LOGIC;
-    ena : IN STD_LOGIC;
+    ena : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     tone : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     toneData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     romAddr : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
@@ -74,7 +74,7 @@ ARCHITECTURE blockdesign_toneplayer_0_0_arch OF blockdesign_toneplayer_0_0 IS
     );
     PORT (
       clk : IN STD_LOGIC;
-      ena : IN STD_LOGIC;
+      ena : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       tone : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       toneData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       romAddr : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);

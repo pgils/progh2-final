@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
---Date        : Sat Mar 16 21:25:02 2019
+--Date        : Sat Mar 16 21:57:50 2019
 --Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target blockdesign.bd
 --Design      : blockdesign
@@ -2065,14 +2065,14 @@ use UNISIM.VCOMPONENTS.ALL;
 entity blockdesign is
   port (
     PIN_MONO : out STD_LOGIC;
-    dip_switches_16bits_tri_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    SW_MUTE : in STD_LOGIC;
     reset : in STD_LOGIC;
     sys_clock : in STD_LOGIC;
     usb_uart_rxd : in STD_LOGIC;
     usb_uart_txd : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of blockdesign : entity is "blockdesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=blockdesign,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=26,numReposBlks=18,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=3,da_clkrst_cnt=1,da_mb_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of blockdesign : entity is "blockdesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=blockdesign,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=3,da_clkrst_cnt=1,da_mb_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of blockdesign : entity is "blockdesign.hwdef";
 end blockdesign;
@@ -2319,17 +2319,24 @@ architecture STRUCTURE of blockdesign is
     douta : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component blockdesign_blk_mem_gen_0_0;
+  component blockdesign_xlconcat_0_0 is
+  port (
+    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
+  );
+  end component blockdesign_xlconcat_0_0;
   component blockdesign_toneplayer_0_0 is
   port (
     clk : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    ena : in STD_LOGIC_VECTOR ( 1 downto 0 );
     tone : in STD_LOGIC_VECTOR ( 3 downto 0 );
     toneData : in STD_LOGIC_VECTOR ( 7 downto 0 );
     romAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
     pin_mono : out STD_LOGIC
   );
   end component blockdesign_toneplayer_0_0;
-  signal axi_gpio_0_GPIO_TRI_I : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal SW_MUTE_1 : STD_LOGIC;
   signal axi_gpio_0_ip2intc_irpt : STD_LOGIC;
   signal axi_gpio_1_gpio2_io_o : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axi_gpio_1_gpio_io_o : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -2484,6 +2491,7 @@ architecture STRUCTURE of blockdesign is
   signal sys_clock_1 : STD_LOGIC;
   signal toneplayer_0_pin_mono : STD_LOGIC;
   signal toneplayer_0_romAddr : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_axi_timer_0_generateout0_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_0_generateout1_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_0_pwm0_UNCONNECTED : STD_LOGIC;
@@ -2497,23 +2505,24 @@ architecture STRUCTURE of blockdesign is
   attribute X_INTERFACE_INFO of PIN_MONO : signal is "xilinx.com:signal:data:1.0 DATA.PIN_MONO DATA";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of PIN_MONO : signal is "XIL_INTERFACENAME DATA.PIN_MONO, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of SW_MUTE : signal is "xilinx.com:signal:data:1.0 DATA.SW_MUTE DATA";
+  attribute X_INTERFACE_PARAMETER of SW_MUTE : signal is "XIL_INTERFACENAME DATA.SW_MUTE, LAYERED_METADATA undef, PortType data, PortType.PROP_SRC false";
   attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
   attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME RST.RESET, POLARITY ACTIVE_HIGH";
   attribute X_INTERFACE_INFO of sys_clock : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
   attribute X_INTERFACE_PARAMETER of sys_clock : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN blockdesign_sys_clock, FREQ_HZ 100000000, PHASE 0.000";
   attribute X_INTERFACE_INFO of usb_uart_rxd : signal is "xilinx.com:interface:uart:1.0 usb_uart RxD";
   attribute X_INTERFACE_INFO of usb_uart_txd : signal is "xilinx.com:interface:uart:1.0 usb_uart TxD";
-  attribute X_INTERFACE_INFO of dip_switches_16bits_tri_i : signal is "xilinx.com:interface:gpio:1.0 dip_switches_16bits TRI_I";
 begin
   PIN_MONO <= toneplayer_0_pin_mono;
-  axi_gpio_0_GPIO_TRI_I(15 downto 0) <= dip_switches_16bits_tri_i(15 downto 0);
+  SW_MUTE_1 <= SW_MUTE;
   axi_uartlite_0_UART_RxD <= usb_uart_rxd;
   reset_1 <= reset;
   sys_clock_1 <= sys_clock;
   usb_uart_txd <= axi_uartlite_0_UART_TxD;
 axi_gpio_0: component blockdesign_axi_gpio_0_0
      port map (
-      gpio_io_i(15 downto 0) => axi_gpio_0_GPIO_TRI_I(15 downto 0),
+      gpio_io_i(15 downto 0) => B"0000000000000000",
       ip2intc_irpt => axi_gpio_0_ip2intc_irpt,
       s_axi_aclk => microblaze_0_Clk,
       s_axi_araddr(8 downto 0) => microblaze_0_axi_periph_M02_AXI_ARADDR(8 downto 0),
@@ -2921,10 +2930,16 @@ rst_clk_wiz_0_100M: component blockdesign_rst_clk_wiz_0_100M_0
 toneplayer_0: component blockdesign_toneplayer_0_0
      port map (
       clk => microblaze_0_Clk,
-      ena => axi_gpio_1_gpio2_io_o(0),
+      ena(1 downto 0) => xlconcat_0_dout(1 downto 0),
       pin_mono => toneplayer_0_pin_mono,
       romAddr(12 downto 0) => toneplayer_0_romAddr(12 downto 0),
       tone(3 downto 0) => axi_gpio_1_gpio_io_o(3 downto 0),
       toneData(7 downto 0) => blk_mem_gen_0_douta(7 downto 0)
+    );
+xlconcat_0: component blockdesign_xlconcat_0_0
+     port map (
+      In0(0) => axi_gpio_1_gpio2_io_o(0),
+      In1(0) => SW_MUTE_1,
+      dout(1 downto 0) => xlconcat_0_dout(1 downto 0)
     );
 end STRUCTURE;
