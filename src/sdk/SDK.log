@@ -4345,3 +4345,156 @@ con
 ----------------End of Script----------------
 
 21:15:56 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+21:30:44 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552768232000,  Project:1552766941000
+21:30:44 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:30:45 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+21:30:46 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:30:48 INFO  : 
+21:30:49 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+21:30:49 INFO  : Clearing existing target manager status.
+21:30:49 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:30:50 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:31:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:31:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:31:36 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:31:41 INFO  : Disconnected from the channel tcfchan#35.
+21:31:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:31:43 INFO  : 'fpga -state' command is executed.
+21:31:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:31:43 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:31:43 INFO  : 'jtag frequency' command is executed.
+21:31:43 INFO  : Context for processor 'microblaze_0' is selected.
+21:31:43 INFO  : Processor reset is completed for 'microblaze_0'.
+21:31:43 INFO  : Context for processor 'microblaze_0' is selected.
+21:31:44 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:31:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:31:44 INFO  : Memory regions updated for context MicroBlaze #0
+21:31:44 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:31:44 INFO  : Context for processor 'microblaze_0' is selected.
+21:31:44 INFO  : 'con' command is executed.
+21:31:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:31:44 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+21:32:13 INFO  : Disconnected from the channel tcfchan#36.
+21:32:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:32:15 INFO  : 'fpga -state' command is executed.
+21:32:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:32:15 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:32:15 INFO  : 'jtag frequency' command is executed.
+21:32:15 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:15 INFO  : Processor reset is completed for 'microblaze_0'.
+21:32:15 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:16 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:32:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:32:16 INFO  : Memory regions updated for context MicroBlaze #0
+21:32:16 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:32:16 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:16 INFO  : 'con' command is executed.
+21:32:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:32:16 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+21:32:41 INFO  : Disconnected from the channel tcfchan#37.
+21:32:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:32:42 INFO  : 'fpga -state' command is executed.
+21:32:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:32:42 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:32:42 INFO  : 'jtag frequency' command is executed.
+21:32:42 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:42 INFO  : Processor reset is completed for 'microblaze_0'.
+21:32:42 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:43 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:32:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:32:43 INFO  : Memory regions updated for context MicroBlaze #0
+21:32:43 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:32:43 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:43 INFO  : 'con' command is executed.
+21:32:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:32:43 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+21:32:58 INFO  : Disconnected from the channel tcfchan#38.
+21:32:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:32:59 INFO  : 'fpga -state' command is executed.
+21:32:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:32:59 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:32:59 INFO  : 'jtag frequency' command is executed.
+21:32:59 INFO  : Context for processor 'microblaze_0' is selected.
+21:32:59 INFO  : Processor reset is completed for 'microblaze_0'.
+21:32:59 INFO  : Context for processor 'microblaze_0' is selected.
+21:33:00 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:33:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:33:00 INFO  : Memory regions updated for context MicroBlaze #0
+21:33:00 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:33:00 INFO  : Context for processor 'microblaze_0' is selected.
+21:33:00 INFO  : 'con' command is executed.
+21:33:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:33:00 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+21:33:08 INFO  : Disconnected from the channel tcfchan#39.
+21:33:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:33:10 INFO  : 'fpga -state' command is executed.
+21:33:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:33:10 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:33:10 INFO  : 'jtag frequency' command is executed.
+21:33:10 INFO  : Context for processor 'microblaze_0' is selected.
+21:33:10 INFO  : Processor reset is completed for 'microblaze_0'.
+21:33:10 INFO  : Context for processor 'microblaze_0' is selected.
+21:33:11 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:33:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:33:11 INFO  : Memory regions updated for context MicroBlaze #0
+21:33:11 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:33:11 INFO  : Context for processor 'microblaze_0' is selected.
+21:33:11 INFO  : 'con' command is executed.
+21:33:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:33:11 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'

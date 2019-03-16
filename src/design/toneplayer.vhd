@@ -80,7 +80,7 @@ begin
 -- Set audio output
 setPwmAudioOut : process( clk )
 begin
-    if rising_edge(clk) then
+    if rising_edge(clk) and ena = '1' then
         -- always increase the counters
         pwmCounter      <= (pwmCounter + 1);
         sampRateCounter <= (sampRateCounter + 1);

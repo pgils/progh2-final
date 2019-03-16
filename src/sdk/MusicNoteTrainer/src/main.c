@@ -30,7 +30,9 @@ int main(void)
 
 	XGpio_Initialize(&gpio, 1);
 	XGpio_SetDataDirection(&gpio, 1, 0x00000000);
-	XGpio_DiscreteWrite(&gpio, 1, 0x5);
+	XGpio_SetDataDirection(&gpio, 2, 0x00000000);
+	XGpio_DiscreteWrite(&gpio, 1, 0x7);
+	XGpio_DiscreteWrite(&gpio, 2, 0x1);
 
 	angle = 0.0;
 
