@@ -12,7 +12,7 @@
 #define TONE_AMPLITUDE      INT8_MAX
 
 struct note {
-  float     frequency;
+  double    frequency;
   char      name;
   size_t    sampleCount;
 };
@@ -21,21 +21,21 @@ int buildSine(struct note *currentNote)
 {
     double          angle           = 0.0;
     uint8_t         sample          = 0;
-    size_t          sampleCount     = 0;
 
     while (!(sample > (INT8_MAX - TONE_SINE_SLACK) &&
              sample < (INT8_MAX + TONE_SINE_SLACK) &&
              angle  > 6)) {
-      sample = (TONE_AMPLITUDE * sin(angle))+TONE_AMPLITUDE;
+      sample = (uint8_t)(TONE_AMPLITUDE * sin(angle))+TONE_AMPLITUDE;
       printf("%02X,", sample);
       if (0 == (++currentNote->sampleCount % 24))
         printf("\n");
       angle += (2 * M_PI * currentNote->frequency) / TONE_SAMPLERATE;
     }
+    printf("\n");
     return 0;
 }
 
-struct note notes[8] = {
+static struct note notes[8] = {
   { 349.2,  'f', 0 },
   { 391.9,  'g', 0 },
   { 440,    'a', 0 },
@@ -46,7 +46,7 @@ struct note notes[8] = {
   { 698.4,  'f', 0 }
 };
 
-int main(int argc, char *argv[])
+int main()
 {
     size_t i;
     printf("; tone sine data\n");
@@ -54,8 +54,8 @@ int main(int argc, char *argv[])
     for (i = 0; i < sizeof(notes)/sizeof(struct note); i++) {
         buildSine(&notes[i]);
     }
-    printf("\n;\n");
+    printf(";\n");
     for (i = 0; i < sizeof(notes)/sizeof(struct note); i++) {
-        printf("; Note: %c Freq: %f Samples: %u\n", notes[i].name, notes[i].frequency, notes[i].sampleCount);
+        printf("; Note: %c Freq: %f Samples: %lu\n", notes[i].name, notes[i].frequency, notes[i].sampleCount);
     }
 }
