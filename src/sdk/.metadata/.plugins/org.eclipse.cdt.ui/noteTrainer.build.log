@@ -1,6 +1,6 @@
-14:25:49 **** Incremental Build of configuration Debug for project noteTrainer ****
+14:36:35 **** Incremental Build of configuration Debug for project noteTrainer ****
 make all 
 make: Nothing to be done for 'all'.
 
-14:25:49 Build Finished (took 519ms)
+14:36:35 Build Finished (took 488ms)
 
