@@ -1,13 +1,9 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: pg
 -- 
 -- Create Date: 03/11/2019 08:12:14 PM
--- Design Name: 
 -- Module Name: toneplayer - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
+-- Project Name: MusicNoteTrainer
 -- Description: 
 -- 
 -- Dependencies: 
@@ -44,33 +40,33 @@ architecture Behavioral of toneplayer is
 -- indexed for `tone`'s value
 type T_address_lut is array (7 downto 0, 1 downto 0) of integer;
 constant    toneAddress     : T_address_lut := (
---  start   end
-    (00000, 01431),
+-- start(1) end(0)
+    (00000, 01431), -- 7
     (01432, 02707),
     (02708, 03843),
     (03844, 04856),
     (04857, 05812),
     (05813, 06664),
     (06665, 07423),
-    (07424, 08141)
+    (07424, 08141)  -- 0
 );
 
 -- getters to help with the conversion
 function getStartAddress(currentTone: in std_logic_vector(tone'HIGH downto 0))
     return integer is
 begin
-    return toneAddress(to_integer(unsigned(currentTone)), 0);   
+    return toneAddress(to_integer(unsigned(currentTone)), 1);   
 end getStartAddress;
 
 function getEndAddress(currentTone: in std_logic_vector(tone'HIGH downto 0))
     return integer is
 begin
-    return toneAddress(to_integer(unsigned(currentTone)), 1);  
+    return toneAddress(to_integer(unsigned(currentTone)), 0);  
 end getEndAddress;
 
 -- when to increment the sample index
 -- (sysclk/sample rate)
-constant    SAMP_CTR_TOP    : integer   := (100**6)/sampleRate;
+constant    SAMP_CTR_TOP    : integer   := (25*10**6)/sampleRate;
 
 -- counter signals used for creating intevals
 signal      pwmCounter      : integer   := 0;
@@ -91,17 +87,15 @@ begin
         
         -- increate the sample index
         if (sampRateCounter >= SAMP_CTR_TOP) then
-            sigRomAddr  <= (sigRomAddr + 1);
+            sigRomAddr      <= (sigRomAddr + 1);
+            sampRateCounter <= 0;
         end if;
         
         -- reset the sine period if needed
-        -- checking 'both sides' should take care of `tone` changing as well.
-        if (sigRomAddr > getEndAddress(tone) or
-            sigRomAddr < getStartAddress(tone))
-            then
+        if (sigRomAddr >= getEndAddress(tone)) then
             sigRomAddr  <= getStartAddress(tone);
         end if;
-                
+
         romAddr         <= std_logic_vector(to_unsigned(sigRomAddr, romAddr'LENGTH));
         
         -- determine the duty cycle
