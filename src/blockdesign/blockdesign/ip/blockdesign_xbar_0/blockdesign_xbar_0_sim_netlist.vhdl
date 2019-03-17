@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sun Mar 17 14:04:55 2019
+-- Date        : Sun Mar 17 14:04:54 2019
 -- Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_xbar_0/blockdesign_xbar_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top blockdesign_xbar_0 -prefix
+--               blockdesign_xbar_0_ blockdesign_xbar_0_sim_netlist.vhdl
 -- Design      : blockdesign_xbar_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -79,8 +79,6 @@ entity blockdesign_xbar_0_axi_crossbar_v2_1_16_addr_arbiter_sasd is
     mi_wready : in STD_LOGIC_VECTOR ( 0 to 0 );
     mi_bvalid : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blockdesign_xbar_0_axi_crossbar_v2_1_16_addr_arbiter_sasd : entity is "axi_crossbar_v2_1_16_addr_arbiter_sasd";
 end blockdesign_xbar_0_axi_crossbar_v2_1_16_addr_arbiter_sasd;
 
 architecture STRUCTURE of blockdesign_xbar_0_axi_crossbar_v2_1_16_addr_arbiter_sasd is
@@ -1835,8 +1833,6 @@ entity blockdesign_xbar_0_axi_crossbar_v2_1_16_decerr_slave is
     \gen_no_arbiter.grant_rnw_reg\ : in STD_LOGIC;
     \m_ready_d_reg[2]_0\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blockdesign_xbar_0_axi_crossbar_v2_1_16_decerr_slave : entity is "axi_crossbar_v2_1_16_decerr_slave";
 end blockdesign_xbar_0_axi_crossbar_v2_1_16_decerr_slave;
 
 architecture STRUCTURE of blockdesign_xbar_0_axi_crossbar_v2_1_16_decerr_slave is
@@ -2057,8 +2053,6 @@ entity blockdesign_xbar_0_axi_crossbar_v2_1_16_splitter is
     \m_atarget_enc_reg[1]\ : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blockdesign_xbar_0_axi_crossbar_v2_1_16_splitter : entity is "axi_crossbar_v2_1_16_splitter";
 end blockdesign_xbar_0_axi_crossbar_v2_1_16_splitter;
 
 architecture STRUCTURE of blockdesign_xbar_0_axi_crossbar_v2_1_16_splitter is
@@ -2419,8 +2413,6 @@ entity blockdesign_xbar_0_axi_register_slice_v2_1_15_axic_register_slice is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blockdesign_xbar_0_axi_register_slice_v2_1_15_axic_register_slice : entity is "axi_register_slice_v2_1_15_axic_register_slice";
 end blockdesign_xbar_0_axi_register_slice_v2_1_15_axic_register_slice;
 
 architecture STRUCTURE of blockdesign_xbar_0_axi_register_slice_v2_1_15_axic_register_slice is
@@ -4903,8 +4895,6 @@ entity blockdesign_xbar_0_axi_crossbar_v2_1_16_crossbar_sasd is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blockdesign_xbar_0_axi_crossbar_v2_1_16_crossbar_sasd : entity is "axi_crossbar_v2_1_16_crossbar_sasd";
 end blockdesign_xbar_0_axi_crossbar_v2_1_16_crossbar_sasd;
 
 architecture STRUCTURE of blockdesign_xbar_0_axi_crossbar_v2_1_16_crossbar_sasd is
@@ -5507,8 +5497,6 @@ entity blockdesign_xbar_0_axi_crossbar_v2_1_16_axi_crossbar is
   attribute C_S_AXI_WRITE_ACCEPTANCE of blockdesign_xbar_0_axi_crossbar_v2_1_16_axi_crossbar : entity is 1;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of blockdesign_xbar_0_axi_crossbar_v2_1_16_axi_crossbar : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blockdesign_xbar_0_axi_crossbar_v2_1_16_axi_crossbar : entity is "axi_crossbar_v2_1_16_axi_crossbar";
   attribute P_ADDR_DECODE : integer;
   attribute P_ADDR_DECODE of blockdesign_xbar_0_axi_crossbar_v2_1_16_axi_crossbar : entity is 1;
   attribute P_AXI3 : integer;

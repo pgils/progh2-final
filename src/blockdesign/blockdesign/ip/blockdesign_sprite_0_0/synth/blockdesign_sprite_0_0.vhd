@@ -61,7 +61,7 @@ ENTITY blockdesign_sprite_0_0 IS
     vcount_in : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
     bgRomAddr : OUT STD_LOGIC_VECTOR(18 DOWNTO 0);
     bgRomData : IN STD_LOGIC;
-    noteData : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    noteData : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
     sprRomAddr : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
     sprRomData : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
@@ -78,7 +78,7 @@ ARCHITECTURE blockdesign_sprite_0_0_arch OF blockdesign_sprite_0_0 IS
       vcount_in : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
       bgRomAddr : OUT STD_LOGIC_VECTOR(18 DOWNTO 0);
       bgRomData : IN STD_LOGIC;
-      noteData : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      noteData : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
       sprRomAddr : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
       sprRomData : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
     );

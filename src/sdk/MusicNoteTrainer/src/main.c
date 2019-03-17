@@ -13,7 +13,8 @@ void timerCallback()
 	toneIndex++;
 	if (toneIndex > 7)
 		toneIndex = 0;
-	XGpio_DiscreteWrite(&spriteGpio, 1, toneIndex);
+	u8 mask = (((toneIndex+1)%2)<<5)|((toneIndex%3)<<3)|toneIndex;
+	XGpio_DiscreteWrite(&spriteGpio, 1, mask);
 
 }
 

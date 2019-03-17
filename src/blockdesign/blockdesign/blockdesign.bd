@@ -156,7 +156,7 @@
             <spirit:value>data</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
+                <bd:configElementInfo bd:valueSource="default"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -165,7 +165,7 @@
             <spirit:value>false</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default_prop"/>
+                <bd:configElementInfo bd:valueSource="default"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -214,35 +214,6 @@
             </spirit:logicalPort>
             <spirit:physicalPort>
               <spirit:name>PS2Data</spirit:name>
-            </spirit:physicalPort>
-          </spirit:portMap>
-        </spirit:portMaps>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>LAYERED_METADATA</spirit:name>
-            <spirit:value>undef</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>DATA.VGARGB</spirit:name>
-        <spirit:displayName>Data</spirit:displayName>
-        <spirit:description>Data</spirit:description>
-        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:slave/>
-        <spirit:portMaps>
-          <spirit:portMap>
-            <spirit:logicalPort>
-              <spirit:name>DATA</spirit:name>
-            </spirit:logicalPort>
-            <spirit:physicalPort>
-              <spirit:name>vgaRGB</spirit:name>
             </spirit:physicalPort>
           </spirit:portMap>
         </spirit:portMaps>
@@ -316,6 +287,35 @@
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DATA.VGARGB</spirit:name>
+        <spirit:displayName>Data</spirit:displayName>
+        <spirit:description>Data</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="data" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="data_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>DATA</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>vgaRGB</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>LAYERED_METADATA</spirit:name>
+            <spirit:value>undef</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:model>
       <spirit:views>
@@ -363,16 +363,6 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>vgaRGB</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-            <spirit:vector>
-              <spirit:left>2</spirit:left>
-              <spirit:right>0</spirit:right>
-            </spirit:vector>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>Hsync</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
@@ -382,6 +372,16 @@
           <spirit:name>Vsync</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>vgaRGB</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>2</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -578,7 +578,7 @@
         <spirit:componentRef spirit:library="ip" spirit:name="axi_gpio" spirit:vendor="xilinx.com" spirit:version="2.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">blockdesign_axi_gpio_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_GPIO_WIDTH">5</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_GPIO_WIDTH">6</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_ALL_OUTPUTS">1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
@@ -712,6 +712,11 @@
         <spirit:internalPortReference spirit:componentRef="axi_gpio_1_toneOut" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0_tones" spirit:portRef="clka"/>
         <spirit:internalPortReference spirit:componentRef="toneplayer_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="keyboardHandler_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="VGA_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_gpio_2_noteOut" spirit:portRef="s_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1_background" spirit:portRef="clka"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2_noteSprite" spirit:portRef="clka"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ACLK"/>
@@ -720,12 +725,7 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M02_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M04_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="keyboardHandler_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="VGA_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="axi_gpio_2_noteOut" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M05_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1_background" spirit:portRef="clka"/>
-        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2_noteSprite" spirit:portRef="clka"/>
         <spirit:internalPortReference spirit:componentRef="sprite_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -757,13 +757,13 @@
         <spirit:internalPortReference spirit:componentRef="axi_gpio_0_kbdIn" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_timer_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_gpio_1_toneOut" spirit:portRef="s_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_gpio_2_noteOut" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M02_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M04_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="axi_gpio_2_noteOut" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M05_ARESETN"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -3163,20 +3163,20 @@
     <spirit:version>10.0</spirit:version>
     <spirit:busInterfaces>
       <spirit:busInterface>
-        <spirit:name>DLMB</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>M_AXI_DP</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DLMB</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
         <spirit:name>ILMB</spirit:name>

@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sun Mar 17 22:00:39 2019
+// Date        : Mon Mar 18 00:25:57 2019
 // Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_sprite_0_0/blockdesign_sprite_0_0_sim_netlist.v
@@ -30,7 +30,7 @@ module blockdesign_sprite_0_0
   input [9:0]vcount_in;
   output [18:0]bgRomAddr;
   input bgRomData;
-  input [4:0]noteData;
+  input [5:0]noteData;
   output [12:0]sprRomAddr;
   input [3:0]sprRomData;
 
@@ -38,22 +38,19 @@ module blockdesign_sprite_0_0
   wire bgRomData;
   wire clk;
   wire [9:0]hcount_in;
-  wire [4:0]noteData;
-  wire [1:1]\^rgb_out ;
+  wire [5:0]noteData;
+  wire [2:0]rgb_out;
   wire [12:0]sprRomAddr;
   wire [3:0]sprRomData;
   wire [9:0]vcount_in;
 
-  assign rgb_out[2] = \^rgb_out [1];
-  assign rgb_out[1] = \^rgb_out [1];
-  assign rgb_out[0] = \^rgb_out [1];
   blockdesign_sprite_0_0_sprite U0
        (.bgRomAddr(bgRomAddr),
         .bgRomData(bgRomData),
         .clk(clk),
-        .hcount_in(hcount_in[9:1]),
-        .noteData(noteData[2:0]),
-        .rgb_out(\^rgb_out ),
+        .hcount_in(hcount_in),
+        .noteData(noteData),
+        .rgb_out(rgb_out),
         .sprRomAddr(sprRomAddr),
         .sprRomData(sprRomData[2:0]),
         .vcount_in(vcount_in));
@@ -68,57 +65,162 @@ module blockdesign_sprite_0_0_sprite
     hcount_in,
     clk,
     vcount_in,
-    sprRomData,
-    bgRomData);
-  output [0:0]rgb_out;
+    bgRomData,
+    sprRomData);
+  output [2:0]rgb_out;
   output [18:0]bgRomAddr;
   output [12:0]sprRomAddr;
-  input [2:0]noteData;
-  input [8:0]hcount_in;
+  input [5:0]noteData;
+  input [9:0]hcount_in;
   input clk;
   input [9:0]vcount_in;
-  input [2:0]sprRomData;
   input bgRomData;
+  input [2:0]sprRomData;
 
-  wire \_inferred__0/i__carry__0_n_0 ;
-  wire \_inferred__0/i__carry__0_n_1 ;
-  wire \_inferred__0/i__carry__0_n_2 ;
-  wire \_inferred__0/i__carry__0_n_3 ;
-  wire \_inferred__0/i__carry__1_n_2 ;
-  wire \_inferred__0/i__carry__1_n_3 ;
-  wire \_inferred__0/i__carry_n_0 ;
-  wire \_inferred__0/i__carry_n_1 ;
-  wire \_inferred__0/i__carry_n_2 ;
-  wire \_inferred__0/i__carry_n_3 ;
+  wire __16_carry__0_i_1_n_0;
+  wire __16_carry__0_i_2_n_0;
+  wire __16_carry__0_i_3_n_0;
+  wire __16_carry__0_i_4_n_0;
+  wire __16_carry__0_i_5_n_0;
+  wire __16_carry__0_n_0;
+  wire __16_carry__0_n_1;
+  wire __16_carry__0_n_2;
+  wire __16_carry__0_n_3;
+  wire __16_carry__1_i_1_n_0;
+  wire __16_carry__1_i_2_n_0;
+  wire __16_carry__1_n_2;
+  wire __16_carry__1_n_3;
+  wire __16_carry_i_1_n_0;
+  wire __16_carry_i_2_n_0;
+  wire __16_carry_i_3_n_0;
+  wire __16_carry_i_4_n_0;
+  wire __16_carry_n_0;
+  wire __16_carry_n_1;
+  wire __16_carry_n_2;
+  wire __16_carry_n_3;
+  wire _carry__0_i_1_n_0;
+  wire _carry__0_i_2_n_0;
+  wire _carry__0_i_3_n_0;
+  wire _carry__0_i_4_n_0;
+  wire _carry__0_i_5_n_0;
+  wire _carry__0_i_6_n_0;
+  wire _carry__0_n_0;
+  wire _carry__0_n_1;
+  wire _carry__0_n_2;
+  wire _carry__0_n_3;
+  wire _carry__1_i_1_n_0;
+  wire _carry__1_i_2_n_0;
+  wire _carry__1_n_2;
+  wire _carry__1_n_3;
+  wire _carry_i_1_n_0;
+  wire _carry_i_2_n_0;
+  wire _carry_i_3_n_0;
+  wire _carry_i_4_n_0;
+  wire _carry_n_0;
+  wire _carry_n_1;
+  wire _carry_n_2;
+  wire _carry_n_3;
   wire [18:0]bgRomAddr;
   wire bgRomData;
   wire clk;
-  wire [9:1]hcount;
-  wire [8:0]hcount_in;
-  wire i__carry__0_i_1_n_0;
-  wire i__carry__0_i_2_n_0;
-  wire i__carry__0_i_3_n_0;
-  wire i__carry__0_i_4_n_0;
-  wire i__carry__0_i_5_n_0;
-  wire i__carry__1_i_1_n_0;
-  wire i__carry__1_i_2_n_0;
-  wire i__carry_i_1_n_0;
-  wire i__carry_i_2_n_0;
-  wire i__carry_i_3_n_0;
-  wire i__carry_i_4_n_0;
-  wire [2:0]noteData;
+  wire [9:0]hcount;
+  wire [9:0]hcount_in;
+  wire [1:0]noteColor;
+  wire [5:0]noteData;
   wire [8:0]\noteSpriteLoc[7] ;
   wire [8:0]noteposY;
   wire \noteposY[4]_i_1_n_0 ;
   wire \noteposY[5]_i_1_n_0 ;
-  wire [0:0]rgb_out;
-  wire rgb_out1__14;
+  wire [2:0]rgb_out;
+  wire rgb_out413_in;
+  wire rgb_out4_carry__0_i_1_n_0;
+  wire rgb_out4_carry__0_i_2_n_0;
+  wire rgb_out4_carry_i_1_n_0;
+  wire rgb_out4_carry_i_2_n_0;
+  wire rgb_out4_carry_i_3_n_0;
+  wire rgb_out4_carry_i_4_n_0;
+  wire rgb_out4_carry_i_5_n_0;
+  wire rgb_out4_carry_i_6_n_0;
+  wire rgb_out4_carry_i_7_n_0;
+  wire rgb_out4_carry_i_8_n_0;
+  wire rgb_out4_carry_n_0;
+  wire rgb_out4_carry_n_1;
+  wire rgb_out4_carry_n_2;
+  wire rgb_out4_carry_n_3;
+  wire rgb_out5;
+  wire rgb_out512_in;
+  wire rgb_out5__4_carry__0_i_1_n_0;
+  wire rgb_out5__4_carry__0_i_2_n_0;
+  wire rgb_out5__4_carry__0_i_3_n_0;
+  wire rgb_out5__4_carry__0_i_4_n_0;
+  wire rgb_out5__4_carry__0_i_5_n_0;
+  wire rgb_out5__4_carry__0_i_6_n_0;
+  wire rgb_out5__4_carry__0_n_0;
+  wire rgb_out5__4_carry__0_n_1;
+  wire rgb_out5__4_carry__0_n_2;
+  wire rgb_out5__4_carry__0_n_3;
+  wire rgb_out5__4_carry__1_i_1_n_0;
+  wire rgb_out5__4_carry__1_i_2_n_0;
+  wire rgb_out5__4_carry__1_i_3_n_0;
+  wire rgb_out5__4_carry__1_i_4_n_0;
+  wire rgb_out5__4_carry__1_n_0;
+  wire rgb_out5__4_carry__1_n_1;
+  wire rgb_out5__4_carry__1_n_2;
+  wire rgb_out5__4_carry__1_n_3;
+  wire rgb_out5__4_carry__2_i_1_n_0;
+  wire rgb_out5__4_carry__2_i_2_n_0;
+  wire rgb_out5__4_carry__2_i_3_n_0;
+  wire rgb_out5__4_carry__2_i_4_n_0;
+  wire rgb_out5__4_carry__2_i_5_n_0;
+  wire rgb_out5__4_carry__2_n_1;
+  wire rgb_out5__4_carry__2_n_2;
+  wire rgb_out5__4_carry__2_n_3;
+  wire rgb_out5__4_carry_i_1_n_0;
+  wire rgb_out5__4_carry_i_2_n_0;
+  wire rgb_out5__4_carry_i_3_n_0;
+  wire rgb_out5__4_carry_i_4_n_0;
+  wire rgb_out5__4_carry_i_5_n_0;
+  wire rgb_out5__4_carry_i_6_n_0;
+  wire rgb_out5__4_carry_i_7_n_0;
+  wire rgb_out5__4_carry_i_8_n_0;
+  wire rgb_out5__4_carry_i_9_n_0;
+  wire rgb_out5__4_carry_n_0;
+  wire rgb_out5__4_carry_n_1;
+  wire rgb_out5__4_carry_n_2;
+  wire rgb_out5__4_carry_n_3;
+  wire rgb_out5_carry__0_i_1_n_0;
+  wire rgb_out5_carry__0_i_2_n_0;
+  wire rgb_out5_carry_i_10_n_0;
+  wire rgb_out5_carry_i_11_n_0;
+  wire rgb_out5_carry_i_1_n_0;
+  wire rgb_out5_carry_i_2_n_0;
+  wire rgb_out5_carry_i_3_n_0;
+  wire rgb_out5_carry_i_4_n_0;
+  wire rgb_out5_carry_i_5_n_0;
+  wire rgb_out5_carry_i_6_n_0;
+  wire rgb_out5_carry_i_7_n_0;
+  wire rgb_out5_carry_i_8_n_0;
+  wire rgb_out5_carry_i_9_n_0;
+  wire rgb_out5_carry_n_0;
+  wire rgb_out5_carry_n_1;
+  wire rgb_out5_carry_n_2;
+  wire rgb_out5_carry_n_3;
+  wire \rgb_out[0]_i_1_n_0 ;
+  wire \rgb_out[1]_i_1_n_0 ;
+  wire \rgb_out[2]_i_10_n_0 ;
+  wire \rgb_out[2]_i_11_n_0 ;
+  wire \rgb_out[2]_i_12_n_0 ;
+  wire \rgb_out[2]_i_13_n_0 ;
+  wire \rgb_out[2]_i_14_n_0 ;
   wire \rgb_out[2]_i_1_n_0 ;
   wire \rgb_out[2]_i_2_n_0 ;
+  wire \rgb_out[2]_i_3_n_0 ;
   wire \rgb_out[2]_i_4_n_0 ;
   wire \rgb_out[2]_i_5_n_0 ;
   wire \rgb_out[2]_i_6_n_0 ;
   wire \rgb_out[2]_i_7_n_0 ;
+  wire \rgb_out[2]_i_8_n_0 ;
+  wire \rgb_out[2]_i_9_n_0 ;
   wire sigBgRomAddr0;
   wire sigBgRomAddr04_out;
   wire \sigBgRomAddr[0]_i_10_n_0 ;
@@ -184,8 +286,6 @@ module blockdesign_sprite_0_0_sprite
   wire sigSprRomAddr2_carry_n_3;
   wire \sigSprRomAddr[0]_i_3_n_0 ;
   wire \sigSprRomAddr[0]_i_4_n_0 ;
-  wire \sigSprRomAddr[0]_i_5_n_0 ;
-  wire \sigSprRomAddr[0]_i_6_n_0 ;
   wire [12:0]sigSprRomAddr_reg;
   wire \sigSprRomAddr_reg[0]_i_2_n_0 ;
   wire \sigSprRomAddr_reg[0]_i_2_n_1 ;
@@ -216,10 +316,24 @@ module blockdesign_sprite_0_0_sprite
   wire [2:0]sprRomData;
   wire [9:0]vcount;
   wire [9:0]vcount_in;
-  wire [3:0]\NLW__inferred__0/i__carry_O_UNCONNECTED ;
-  wire [3:0]\NLW__inferred__0/i__carry__0_O_UNCONNECTED ;
-  wire [3:2]\NLW__inferred__0/i__carry__1_CO_UNCONNECTED ;
-  wire [3:0]\NLW__inferred__0/i__carry__1_O_UNCONNECTED ;
+  wire [3:0]NLW___16_carry_O_UNCONNECTED;
+  wire [3:0]NLW___16_carry__0_O_UNCONNECTED;
+  wire [3:2]NLW___16_carry__1_CO_UNCONNECTED;
+  wire [3:0]NLW___16_carry__1_O_UNCONNECTED;
+  wire [3:0]NLW__carry_O_UNCONNECTED;
+  wire [3:0]NLW__carry__0_O_UNCONNECTED;
+  wire [3:2]NLW__carry__1_CO_UNCONNECTED;
+  wire [3:0]NLW__carry__1_O_UNCONNECTED;
+  wire [3:0]NLW_rgb_out4_carry_O_UNCONNECTED;
+  wire [3:1]NLW_rgb_out4_carry__0_CO_UNCONNECTED;
+  wire [3:0]NLW_rgb_out4_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_rgb_out5__4_carry_O_UNCONNECTED;
+  wire [3:0]NLW_rgb_out5__4_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_rgb_out5__4_carry__1_O_UNCONNECTED;
+  wire [3:0]NLW_rgb_out5__4_carry__2_O_UNCONNECTED;
+  wire [3:0]NLW_rgb_out5_carry_O_UNCONNECTED;
+  wire [3:1]NLW_rgb_out5_carry__0_CO_UNCONNECTED;
+  wire [3:0]NLW_rgb_out5_carry__0_O_UNCONNECTED;
   wire [3:2]\NLW_sigBgRomAddr_reg[16]_i_1_CO_UNCONNECTED ;
   wire [3:3]\NLW_sigBgRomAddr_reg[16]_i_1_O_UNCONNECTED ;
   wire [3:0]NLW_sigSprRomAddr2_carry_O_UNCONNECTED;
@@ -228,27 +342,237 @@ module blockdesign_sprite_0_0_sprite
   wire [3:0]\NLW_sigSprRomAddr_reg[12]_i_1_CO_UNCONNECTED ;
   wire [3:1]\NLW_sigSprRomAddr_reg[12]_i_1_O_UNCONNECTED ;
 
-  CARRY4 \_inferred__0/i__carry 
+  CARRY4 __16_carry
        (.CI(1'b0),
-        .CO({\_inferred__0/i__carry_n_0 ,\_inferred__0/i__carry_n_1 ,\_inferred__0/i__carry_n_2 ,\_inferred__0/i__carry_n_3 }),
+        .CO({__16_carry_n_0,__16_carry_n_1,__16_carry_n_2,__16_carry_n_3}),
         .CYINIT(1'b1),
         .DI(vcount[3:0]),
-        .O(\NLW__inferred__0/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0}));
-  CARRY4 \_inferred__0/i__carry__0 
-       (.CI(\_inferred__0/i__carry_n_0 ),
-        .CO({\_inferred__0/i__carry__0_n_0 ,\_inferred__0/i__carry__0_n_1 ,\_inferred__0/i__carry__0_n_2 ,\_inferred__0/i__carry__0_n_3 }),
+        .O(NLW___16_carry_O_UNCONNECTED[3:0]),
+        .S({__16_carry_i_1_n_0,__16_carry_i_2_n_0,__16_carry_i_3_n_0,__16_carry_i_4_n_0}));
+  CARRY4 __16_carry__0
+       (.CI(__16_carry_n_0),
+        .CO({__16_carry__0_n_0,__16_carry__0_n_1,__16_carry__0_n_2,__16_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI(vcount[7:4]),
-        .O(\NLW__inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({i__carry__0_i_1_n_0,i__carry__0_i_2_n_0,i__carry__0_i_3_n_0,i__carry__0_i_4_n_0}));
-  CARRY4 \_inferred__0/i__carry__1 
-       (.CI(\_inferred__0/i__carry__0_n_0 ),
-        .CO({\NLW__inferred__0/i__carry__1_CO_UNCONNECTED [3:2],\_inferred__0/i__carry__1_n_2 ,\_inferred__0/i__carry__1_n_3 }),
+        .O(NLW___16_carry__0_O_UNCONNECTED[3:0]),
+        .S({__16_carry__0_i_1_n_0,__16_carry__0_i_2_n_0,__16_carry__0_i_3_n_0,__16_carry__0_i_4_n_0}));
+  LUT5 #(
+    .INIT(32'hAA6A5595)) 
+    __16_carry__0_i_1
+       (.I0(vcount[7]),
+        .I1(noteposY[6]),
+        .I2(noteposY[5]),
+        .I3(__16_carry__0_i_5_n_0),
+        .I4(noteposY[7]),
+        .O(__16_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h66A6AAAA99595555)) 
+    __16_carry__0_i_2
+       (.I0(vcount[6]),
+        .I1(noteposY[4]),
+        .I2(_carry__0_i_6_n_0),
+        .I3(noteposY[3]),
+        .I4(noteposY[5]),
+        .I5(noteposY[6]),
+        .O(__16_carry__0_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h5666AAAAA9995555)) 
+    __16_carry__0_i_3
+       (.I0(vcount[5]),
+        .I1(noteposY[3]),
+        .I2(noteposY[1]),
+        .I3(noteposY[2]),
+        .I4(noteposY[4]),
+        .I5(noteposY[5]),
+        .O(__16_carry__0_i_3_n_0));
+  LUT5 #(
+    .INIT(32'h556AAA95)) 
+    __16_carry__0_i_4
+       (.I0(vcount[4]),
+        .I1(noteposY[2]),
+        .I2(noteposY[1]),
+        .I3(noteposY[3]),
+        .I4(noteposY[4]),
+        .O(__16_carry__0_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h15FF)) 
+    __16_carry__0_i_5
+       (.I0(noteposY[3]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .I3(noteposY[4]),
+        .O(__16_carry__0_i_5_n_0));
+  CARRY4 __16_carry__1
+       (.CI(__16_carry__0_n_0),
+        .CO({NLW___16_carry__1_CO_UNCONNECTED[3:2],__16_carry__1_n_2,__16_carry__1_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,vcount[9:8]}),
-        .O(\NLW__inferred__0/i__carry__1_O_UNCONNECTED [3:0]),
-        .S({1'b0,1'b0,i__carry__1_i_1_n_0,i__carry__1_i_2_n_0}));
+        .O(NLW___16_carry__1_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,__16_carry__1_i_1_n_0,__16_carry__1_i_2_n_0}));
+  LUT6 #(
+    .INIT(64'hAAAAAAAA65555555)) 
+    __16_carry__1_i_1
+       (.I0(vcount[9]),
+        .I1(__16_carry__0_i_5_n_0),
+        .I2(noteposY[6]),
+        .I3(noteposY[5]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(__16_carry__1_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h655555559AAAAAAA)) 
+    __16_carry__1_i_2
+       (.I0(vcount[8]),
+        .I1(__16_carry__0_i_5_n_0),
+        .I2(noteposY[6]),
+        .I3(noteposY[5]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(__16_carry__1_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h956A)) 
+    __16_carry_i_1
+       (.I0(vcount[3]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .I3(noteposY[3]),
+        .O(__16_carry_i_1_n_0));
+  LUT3 #(
+    .INIT(8'h69)) 
+    __16_carry_i_2
+       (.I0(vcount[2]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .O(__16_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    __16_carry_i_3
+       (.I0(vcount[1]),
+        .I1(noteposY[1]),
+        .O(__16_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    __16_carry_i_4
+       (.I0(vcount[0]),
+        .I1(noteposY[0]),
+        .O(__16_carry_i_4_n_0));
+  CARRY4 _carry
+       (.CI(1'b0),
+        .CO({_carry_n_0,_carry_n_1,_carry_n_2,_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI(vcount[3:0]),
+        .O(NLW__carry_O_UNCONNECTED[3:0]),
+        .S({_carry_i_1_n_0,_carry_i_2_n_0,_carry_i_3_n_0,_carry_i_4_n_0}));
+  CARRY4 _carry__0
+       (.CI(_carry_n_0),
+        .CO({_carry__0_n_0,_carry__0_n_1,_carry__0_n_2,_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI(vcount[7:4]),
+        .O(NLW__carry__0_O_UNCONNECTED[3:0]),
+        .S({_carry__0_i_1_n_0,_carry__0_i_2_n_0,_carry__0_i_3_n_0,_carry__0_i_4_n_0}));
+  LUT3 #(
+    .INIT(8'h96)) 
+    _carry__0_i_1
+       (.I0(vcount[7]),
+        .I1(_carry__0_i_5_n_0),
+        .I2(noteposY[7]),
+        .O(_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h55955555AA6AAAAA)) 
+    _carry__0_i_2
+       (.I0(vcount[6]),
+        .I1(noteposY[3]),
+        .I2(noteposY[4]),
+        .I3(_carry__0_i_6_n_0),
+        .I4(noteposY[5]),
+        .I5(noteposY[6]),
+        .O(_carry__0_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h6AAAAAAA95555555)) 
+    _carry__0_i_3
+       (.I0(vcount[5]),
+        .I1(noteposY[2]),
+        .I2(noteposY[1]),
+        .I3(noteposY[4]),
+        .I4(noteposY[3]),
+        .I5(noteposY[5]),
+        .O(_carry__0_i_3_n_0));
+  LUT5 #(
+    .INIT(32'h6AAA9555)) 
+    _carry__0_i_4
+       (.I0(vcount[4]),
+        .I1(noteposY[3]),
+        .I2(noteposY[2]),
+        .I3(noteposY[1]),
+        .I4(noteposY[4]),
+        .O(_carry__0_i_4_n_0));
+  LUT6 #(
+    .INIT(64'h1555555555555555)) 
+    _carry__0_i_5
+       (.I0(noteposY[6]),
+        .I1(noteposY[5]),
+        .I2(noteposY[2]),
+        .I3(noteposY[1]),
+        .I4(noteposY[4]),
+        .I5(noteposY[3]),
+        .O(_carry__0_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    _carry__0_i_6
+       (.I0(noteposY[1]),
+        .I1(noteposY[2]),
+        .O(_carry__0_i_6_n_0));
+  CARRY4 _carry__1
+       (.CI(_carry__0_n_0),
+        .CO({NLW__carry__1_CO_UNCONNECTED[3:2],_carry__1_n_2,_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,vcount[9:8]}),
+        .O(NLW__carry__1_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,_carry__1_i_1_n_0,_carry__1_i_2_n_0}));
+  LUT4 #(
+    .INIT(16'h5955)) 
+    _carry__1_i_1
+       (.I0(vcount[9]),
+        .I1(noteposY[7]),
+        .I2(_carry__0_i_5_n_0),
+        .I3(noteposY[8]),
+        .O(_carry__1_i_1_n_0));
+  LUT4 #(
+    .INIT(16'hA659)) 
+    _carry__1_i_2
+       (.I0(vcount[8]),
+        .I1(noteposY[7]),
+        .I2(_carry__0_i_5_n_0),
+        .I3(noteposY[8]),
+        .O(_carry__1_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h6A95)) 
+    _carry_i_1
+       (.I0(noteposY[3]),
+        .I1(noteposY[2]),
+        .I2(noteposY[1]),
+        .I3(vcount[3]),
+        .O(_carry_i_1_n_0));
+  LUT3 #(
+    .INIT(8'h69)) 
+    _carry_i_2
+       (.I0(vcount[2]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .O(_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    _carry_i_3
+       (.I0(vcount[1]),
+        .I1(noteposY[1]),
+        .O(_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h9)) 
+    _carry_i_4
+       (.I0(vcount[0]),
+        .I1(noteposY[0]),
+        .O(_carry_i_4_n_0));
   FDRE \bgRomAddr_reg[0] 
        (.C(clk),
         .CE(1'b1),
@@ -365,10 +689,18 @@ module blockdesign_sprite_0_0_sprite
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
-    \hcount_reg[1] 
+    \hcount_reg[0] 
        (.C(clk),
         .CE(1'b1),
         .D(hcount_in[0]),
+        .Q(hcount[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \hcount_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(hcount_in[1]),
         .Q(hcount[1]),
         .R(1'b0));
   FDRE #(
@@ -376,7 +708,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[2] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[1]),
+        .D(hcount_in[2]),
         .Q(hcount[2]),
         .R(1'b0));
   FDRE #(
@@ -384,7 +716,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[3] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[2]),
+        .D(hcount_in[3]),
         .Q(hcount[3]),
         .R(1'b0));
   FDRE #(
@@ -392,7 +724,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[4] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[3]),
+        .D(hcount_in[4]),
         .Q(hcount[4]),
         .R(1'b0));
   FDRE #(
@@ -400,7 +732,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[5] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[4]),
+        .D(hcount_in[5]),
         .Q(hcount[5]),
         .R(1'b0));
   FDRE #(
@@ -408,7 +740,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[6] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[5]),
+        .D(hcount_in[6]),
         .Q(hcount[6]),
         .R(1'b0));
   FDRE #(
@@ -416,7 +748,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[7] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[6]),
+        .D(hcount_in[7]),
         .Q(hcount[7]),
         .R(1'b0));
   FDRE #(
@@ -424,7 +756,7 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[8] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[7]),
+        .D(hcount_in[8]),
         .Q(hcount[8]),
         .R(1'b0));
   FDRE #(
@@ -432,98 +764,26 @@ module blockdesign_sprite_0_0_sprite
     \hcount_reg[9] 
        (.C(clk),
         .CE(1'b1),
-        .D(hcount_in[8]),
+        .D(hcount_in[9]),
         .Q(hcount[9]),
         .R(1'b0));
-  LUT4 #(
-    .INIT(16'h59A6)) 
-    i__carry__0_i_1
-       (.I0(vcount[7]),
-        .I1(i__carry__0_i_5_n_0),
-        .I2(noteposY[6]),
-        .I3(noteposY[7]),
-        .O(i__carry__0_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h69)) 
-    i__carry__0_i_2
-       (.I0(vcount[6]),
-        .I1(noteposY[6]),
-        .I2(i__carry__0_i_5_n_0),
-        .O(i__carry__0_i_2_n_0));
-  LUT6 #(
-    .INIT(64'h6AAAAAAA95555555)) 
-    i__carry__0_i_3
-       (.I0(vcount[5]),
-        .I1(noteposY[4]),
-        .I2(noteposY[3]),
-        .I3(noteposY[1]),
-        .I4(noteposY[2]),
-        .I5(noteposY[5]),
-        .O(i__carry__0_i_3_n_0));
-  LUT5 #(
-    .INIT(32'h6AAA9555)) 
-    i__carry__0_i_4
-       (.I0(vcount[4]),
-        .I1(noteposY[2]),
-        .I2(noteposY[1]),
-        .I3(noteposY[3]),
-        .I4(noteposY[4]),
-        .O(i__carry__0_i_4_n_0));
-  LUT5 #(
-    .INIT(32'h7FFFFFFF)) 
-    i__carry__0_i_5
-       (.I0(noteposY[4]),
-        .I1(noteposY[3]),
-        .I2(noteposY[1]),
-        .I3(noteposY[2]),
-        .I4(noteposY[5]),
-        .O(i__carry__0_i_5_n_0));
-  LUT5 #(
-    .INIT(32'h99595555)) 
-    i__carry__1_i_1
-       (.I0(vcount[9]),
-        .I1(noteposY[8]),
-        .I2(i__carry__0_i_5_n_0),
-        .I3(noteposY[6]),
-        .I4(noteposY[7]),
-        .O(i__carry__1_i_1_n_0));
-  LUT5 #(
-    .INIT(32'h66969999)) 
-    i__carry__1_i_2
-       (.I0(vcount[8]),
-        .I1(noteposY[8]),
-        .I2(i__carry__0_i_5_n_0),
-        .I3(noteposY[6]),
-        .I4(noteposY[7]),
-        .O(i__carry__1_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h6999)) 
-    i__carry_i_1
-       (.I0(vcount[3]),
-        .I1(noteposY[3]),
-        .I2(noteposY[2]),
-        .I3(noteposY[1]),
-        .O(i__carry_i_1_n_0));
-  LUT3 #(
-    .INIT(8'h69)) 
-    i__carry_i_2
-       (.I0(vcount[2]),
-        .I1(noteposY[2]),
-        .I2(noteposY[1]),
-        .O(i__carry_i_2_n_0));
-  LUT2 #(
-    .INIT(4'h6)) 
-    i__carry_i_3
-       (.I0(vcount[1]),
-        .I1(noteposY[1]),
-        .O(i__carry_i_3_n_0));
-  LUT2 #(
-    .INIT(4'h9)) 
-    i__carry_i_4
-       (.I0(vcount[0]),
-        .I1(noteposY[0]),
-        .O(i__carry_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \noteColor_reg[0] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(noteData[3]),
+        .Q(noteColor[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \noteColor_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(noteData[4]),
+        .Q(noteColor[1]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h61)) 
     \noteposY[0]_i_1 
@@ -531,7 +791,7 @@ module blockdesign_sprite_0_0_sprite
         .I1(noteData[1]),
         .I2(noteData[2]),
         .O(\noteSpriteLoc[7] [0]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'h24)) 
     \noteposY[1]_i_1 
@@ -539,7 +799,7 @@ module blockdesign_sprite_0_0_sprite
         .I1(noteData[2]),
         .I2(noteData[1]),
         .O(\noteSpriteLoc[7] [1]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'hCB)) 
     \noteposY[2]_i_1 
@@ -547,7 +807,7 @@ module blockdesign_sprite_0_0_sprite
         .I1(noteData[1]),
         .I2(noteData[2]),
         .O(\noteSpriteLoc[7] [2]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hC7)) 
     \noteposY[3]_i_1 
@@ -561,7 +821,7 @@ module blockdesign_sprite_0_0_sprite
        (.I0(noteData[1]),
         .I1(noteData[2]),
         .O(\noteposY[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \noteposY[5]_i_1 
@@ -569,7 +829,7 @@ module blockdesign_sprite_0_0_sprite
         .I1(noteData[1]),
         .I2(noteData[2]),
         .O(\noteposY[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'hCB)) 
     \noteposY[6]_i_1 
@@ -577,7 +837,7 @@ module blockdesign_sprite_0_0_sprite
         .I1(noteData[1]),
         .I2(noteData[0]),
         .O(\noteSpriteLoc[7] [6]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'h38)) 
     \noteposY[7]_i_1 
@@ -585,7 +845,7 @@ module blockdesign_sprite_0_0_sprite
         .I1(noteData[1]),
         .I2(noteData[2]),
         .O(\noteSpriteLoc[7] [7]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'h07)) 
     \noteposY[8]_i_1 
@@ -665,150 +925,731 @@ module blockdesign_sprite_0_0_sprite
         .D(\noteSpriteLoc[7] [8]),
         .Q(noteposY[8]),
         .R(1'b0));
+  CARRY4 rgb_out4_carry
+       (.CI(1'b0),
+        .CO({rgb_out4_carry_n_0,rgb_out4_carry_n_1,rgb_out4_carry_n_2,rgb_out4_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({rgb_out4_carry_i_1_n_0,rgb_out4_carry_i_2_n_0,rgb_out4_carry_i_3_n_0,rgb_out4_carry_i_4_n_0}),
+        .O(NLW_rgb_out4_carry_O_UNCONNECTED[3:0]),
+        .S({rgb_out4_carry_i_5_n_0,rgb_out4_carry_i_6_n_0,rgb_out4_carry_i_7_n_0,rgb_out4_carry_i_8_n_0}));
+  CARRY4 rgb_out4_carry__0
+       (.CI(rgb_out4_carry_n_0),
+        .CO({NLW_rgb_out4_carry__0_CO_UNCONNECTED[3:1],rgb_out413_in}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,rgb_out4_carry__0_i_1_n_0}),
+        .O(NLW_rgb_out4_carry__0_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,1'b0,rgb_out4_carry__0_i_2_n_0}));
+  LUT6 #(
+    .INIT(64'h1010311010101010)) 
+    rgb_out4_carry__0_i_1
+       (.I0(vcount[8]),
+        .I1(vcount[9]),
+        .I2(noteposY[8]),
+        .I3(noteposY[7]),
+        .I4(rgb_out5_carry_i_9_n_0),
+        .I5(noteposY[6]),
+        .O(rgb_out4_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h4414444411811111)) 
+    rgb_out4_carry__0_i_2
+       (.I0(vcount[9]),
+        .I1(noteposY[8]),
+        .I2(noteposY[7]),
+        .I3(rgb_out5_carry_i_9_n_0),
+        .I4(noteposY[6]),
+        .I5(vcount[8]),
+        .O(rgb_out4_carry__0_i_2_n_0));
   LUT5 #(
-    .INIT(32'hAAAAAAA2)) 
+    .INIT(32'h09BB004D)) 
+    rgb_out4_carry_i_1
+       (.I0(rgb_out5_carry_i_9_n_0),
+        .I1(noteposY[6]),
+        .I2(vcount[6]),
+        .I3(vcount[7]),
+        .I4(noteposY[7]),
+        .O(rgb_out4_carry_i_1_n_0));
+  LUT4 #(
+    .INIT(16'h022F)) 
+    rgb_out4_carry_i_2
+       (.I0(rgb_out5_carry_i_10_n_0),
+        .I1(vcount[4]),
+        .I2(vcount[5]),
+        .I3(rgb_out5_carry_i_11_n_0),
+        .O(rgb_out4_carry_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h00787F7F000080F8)) 
+    rgb_out4_carry_i_3
+       (.I0(noteposY[0]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .I3(vcount[2]),
+        .I4(vcount[3]),
+        .I5(noteposY[3]),
+        .O(rgb_out4_carry_i_3_n_0));
+  LUT4 #(
+    .INIT(16'h114D)) 
+    rgb_out4_carry_i_4
+       (.I0(vcount[1]),
+        .I1(noteposY[1]),
+        .I2(vcount[0]),
+        .I3(noteposY[0]),
+        .O(rgb_out4_carry_i_4_n_0));
+  LUT5 #(
+    .INIT(32'h92040492)) 
+    rgb_out4_carry_i_5
+       (.I0(rgb_out5_carry_i_9_n_0),
+        .I1(noteposY[6]),
+        .I2(vcount[6]),
+        .I3(vcount[7]),
+        .I4(noteposY[7]),
+        .O(rgb_out4_carry_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h0990)) 
+    rgb_out4_carry_i_6
+       (.I0(rgb_out5_carry_i_10_n_0),
+        .I1(vcount[4]),
+        .I2(vcount[5]),
+        .I3(rgb_out5_carry_i_11_n_0),
+        .O(rgb_out4_carry_i_6_n_0));
+  LUT6 #(
+    .INIT(64'h7807008000807807)) 
+    rgb_out4_carry_i_7
+       (.I0(noteposY[0]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .I3(vcount[2]),
+        .I4(vcount[3]),
+        .I5(noteposY[3]),
+        .O(rgb_out4_carry_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h0960)) 
+    rgb_out4_carry_i_8
+       (.I0(noteposY[1]),
+        .I1(vcount[1]),
+        .I2(noteposY[0]),
+        .I3(vcount[0]),
+        .O(rgb_out4_carry_i_8_n_0));
+  CARRY4 rgb_out5__4_carry
+       (.CI(1'b0),
+        .CO({rgb_out5__4_carry_n_0,rgb_out5__4_carry_n_1,rgb_out5__4_carry_n_2,rgb_out5__4_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI({rgb_out5__4_carry_i_1_n_0,rgb_out5__4_carry_i_2_n_0,rgb_out5__4_carry_i_3_n_0,rgb_out5__4_carry_i_4_n_0}),
+        .O(NLW_rgb_out5__4_carry_O_UNCONNECTED[3:0]),
+        .S({rgb_out5__4_carry_i_5_n_0,rgb_out5__4_carry_i_6_n_0,rgb_out5__4_carry_i_7_n_0,rgb_out5__4_carry_i_8_n_0}));
+  CARRY4 rgb_out5__4_carry__0
+       (.CI(rgb_out5__4_carry_n_0),
+        .CO({rgb_out5__4_carry__0_n_0,rgb_out5__4_carry__0_n_1,rgb_out5__4_carry__0_n_2,rgb_out5__4_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,rgb_out5__4_carry__0_i_1_n_0}),
+        .O(NLW_rgb_out5__4_carry__0_O_UNCONNECTED[3:0]),
+        .S({rgb_out5__4_carry__0_i_2_n_0,rgb_out5__4_carry__0_i_3_n_0,rgb_out5__4_carry__0_i_4_n_0,rgb_out5__4_carry__0_i_5_n_0}));
+  LUT4 #(
+    .INIT(16'hCEE0)) 
+    rgb_out5__4_carry__0_i_1
+       (.I0(vcount[8]),
+        .I1(vcount[9]),
+        .I2(noteposY[8]),
+        .I3(rgb_out5__4_carry__0_i_6_n_0),
+        .O(rgb_out5__4_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__0_i_2
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__0_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__0_i_3
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__0_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__0_i_4
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__0_i_4_n_0));
+  LUT4 #(
+    .INIT(16'h4214)) 
+    rgb_out5__4_carry__0_i_5
+       (.I0(vcount[9]),
+        .I1(noteposY[8]),
+        .I2(rgb_out5__4_carry__0_i_6_n_0),
+        .I3(vcount[8]),
+        .O(rgb_out5__4_carry__0_i_5_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    rgb_out5__4_carry__0_i_6
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .O(rgb_out5__4_carry__0_i_6_n_0));
+  CARRY4 rgb_out5__4_carry__1
+       (.CI(rgb_out5__4_carry__0_n_0),
+        .CO({rgb_out5__4_carry__1_n_0,rgb_out5__4_carry__1_n_1,rgb_out5__4_carry__1_n_2,rgb_out5__4_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_rgb_out5__4_carry__1_O_UNCONNECTED[3:0]),
+        .S({rgb_out5__4_carry__1_i_1_n_0,rgb_out5__4_carry__1_i_2_n_0,rgb_out5__4_carry__1_i_3_n_0,rgb_out5__4_carry__1_i_4_n_0}));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__1_i_1
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__1_i_1_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__1_i_2
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__1_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__1_i_3
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__1_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__1_i_4
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__1_i_4_n_0));
+  CARRY4 rgb_out5__4_carry__2
+       (.CI(rgb_out5__4_carry__1_n_0),
+        .CO({rgb_out512_in,rgb_out5__4_carry__2_n_1,rgb_out5__4_carry__2_n_2,rgb_out5__4_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({rgb_out5__4_carry__2_i_1_n_0,1'b0,1'b0,1'b0}),
+        .O(NLW_rgb_out5__4_carry__2_O_UNCONNECTED[3:0]),
+        .S({rgb_out5__4_carry__2_i_2_n_0,rgb_out5__4_carry__2_i_3_n_0,rgb_out5__4_carry__2_i_4_n_0,rgb_out5__4_carry__2_i_5_n_0}));
+  LUT6 #(
+    .INIT(64'h1515151515151555)) 
+    rgb_out5__4_carry__2_i_1
+       (.I0(noteposY[8]),
+        .I1(noteposY[7]),
+        .I2(noteposY[6]),
+        .I3(noteposY[3]),
+        .I4(noteposY[4]),
+        .I5(noteposY[5]),
+        .O(rgb_out5__4_carry__2_i_1_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__2_i_2
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__2_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__2_i_3
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__2_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__2_i_4
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__2_i_4_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFE000000)) 
+    rgb_out5__4_carry__2_i_5
+       (.I0(noteposY[5]),
+        .I1(noteposY[4]),
+        .I2(noteposY[3]),
+        .I3(noteposY[6]),
+        .I4(noteposY[7]),
+        .I5(noteposY[8]),
+        .O(rgb_out5__4_carry__2_i_5_n_0));
+  LUT6 #(
+    .INIT(64'hCCC2AAAB8880222A)) 
+    rgb_out5__4_carry_i_1
+       (.I0(vcount[7]),
+        .I1(noteposY[6]),
+        .I2(rgb_out5__4_carry_i_9_n_0),
+        .I3(noteposY[5]),
+        .I4(noteposY[7]),
+        .I5(vcount[6]),
+        .O(rgb_out5__4_carry_i_1_n_0));
+  LUT5 #(
+    .INIT(32'h2ABC02A8)) 
+    rgb_out5__4_carry_i_2
+       (.I0(vcount[5]),
+        .I1(noteposY[3]),
+        .I2(noteposY[4]),
+        .I3(noteposY[5]),
+        .I4(vcount[4]),
+        .O(rgb_out5__4_carry_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h88E8)) 
+    rgb_out5__4_carry_i_3
+       (.I0(vcount[3]),
+        .I1(noteposY[3]),
+        .I2(vcount[2]),
+        .I3(noteposY[2]),
+        .O(rgb_out5__4_carry_i_3_n_0));
+  LUT4 #(
+    .INIT(16'h22B2)) 
+    rgb_out5__4_carry_i_4
+       (.I0(vcount[1]),
+        .I1(noteposY[1]),
+        .I2(vcount[0]),
+        .I3(noteposY[0]),
+        .O(rgb_out5__4_carry_i_4_n_0));
+  LUT6 #(
+    .INIT(64'h0909099060606009)) 
+    rgb_out5__4_carry_i_5
+       (.I0(noteposY[7]),
+        .I1(vcount[7]),
+        .I2(noteposY[6]),
+        .I3(rgb_out5__4_carry_i_9_n_0),
+        .I4(noteposY[5]),
+        .I5(vcount[6]),
+        .O(rgb_out5__4_carry_i_5_n_0));
+  LUT5 #(
+    .INIT(32'h90060990)) 
+    rgb_out5__4_carry_i_6
+       (.I0(noteposY[5]),
+        .I1(vcount[5]),
+        .I2(noteposY[3]),
+        .I3(noteposY[4]),
+        .I4(vcount[4]),
+        .O(rgb_out5__4_carry_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h6006)) 
+    rgb_out5__4_carry_i_7
+       (.I0(noteposY[3]),
+        .I1(vcount[3]),
+        .I2(noteposY[2]),
+        .I3(vcount[2]),
+        .O(rgb_out5__4_carry_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    rgb_out5__4_carry_i_8
+       (.I0(noteposY[0]),
+        .I1(vcount[0]),
+        .I2(noteposY[1]),
+        .I3(vcount[1]),
+        .O(rgb_out5__4_carry_i_8_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    rgb_out5__4_carry_i_9
+       (.I0(noteposY[3]),
+        .I1(noteposY[4]),
+        .O(rgb_out5__4_carry_i_9_n_0));
+  CARRY4 rgb_out5_carry
+       (.CI(1'b0),
+        .CO({rgb_out5_carry_n_0,rgb_out5_carry_n_1,rgb_out5_carry_n_2,rgb_out5_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI({rgb_out5_carry_i_1_n_0,rgb_out5_carry_i_2_n_0,rgb_out5_carry_i_3_n_0,rgb_out5_carry_i_4_n_0}),
+        .O(NLW_rgb_out5_carry_O_UNCONNECTED[3:0]),
+        .S({rgb_out5_carry_i_5_n_0,rgb_out5_carry_i_6_n_0,rgb_out5_carry_i_7_n_0,rgb_out5_carry_i_8_n_0}));
+  CARRY4 rgb_out5_carry__0
+       (.CI(rgb_out5_carry_n_0),
+        .CO({NLW_rgb_out5_carry__0_CO_UNCONNECTED[3:1],rgb_out5}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,rgb_out5_carry__0_i_1_n_0}),
+        .O(NLW_rgb_out5_carry__0_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,1'b0,rgb_out5_carry__0_i_2_n_0}));
+  LUT6 #(
+    .INIT(64'hFFFFDFFF00DF0000)) 
+    rgb_out5_carry__0_i_1
+       (.I0(noteposY[6]),
+        .I1(rgb_out5_carry_i_9_n_0),
+        .I2(noteposY[7]),
+        .I3(noteposY[8]),
+        .I4(vcount[8]),
+        .I5(vcount[9]),
+        .O(rgb_out5_carry__0_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h4414444411811111)) 
+    rgb_out5_carry__0_i_2
+       (.I0(vcount[9]),
+        .I1(noteposY[8]),
+        .I2(noteposY[7]),
+        .I3(rgb_out5_carry_i_9_n_0),
+        .I4(noteposY[6]),
+        .I5(vcount[8]),
+        .O(rgb_out5_carry__0_i_2_n_0));
+  LUT5 #(
+    .INIT(32'h38EF2008)) 
+    rgb_out5_carry_i_1
+       (.I0(vcount[6]),
+        .I1(rgb_out5_carry_i_9_n_0),
+        .I2(noteposY[6]),
+        .I3(noteposY[7]),
+        .I4(vcount[7]),
+        .O(rgb_out5_carry_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'h6AAAAAAA)) 
+    rgb_out5_carry_i_10
+       (.I0(noteposY[4]),
+        .I1(noteposY[0]),
+        .I2(noteposY[3]),
+        .I3(noteposY[2]),
+        .I4(noteposY[1]),
+        .O(rgb_out5_carry_i_10_n_0));
+  LUT6 #(
+    .INIT(64'h6AAAAAAAAAAAAAAA)) 
+    rgb_out5_carry_i_11
+       (.I0(noteposY[5]),
+        .I1(noteposY[3]),
+        .I2(noteposY[4]),
+        .I3(noteposY[0]),
+        .I4(noteposY[2]),
+        .I5(noteposY[1]),
+        .O(rgb_out5_carry_i_11_n_0));
+  LUT4 #(
+    .INIT(16'hF220)) 
+    rgb_out5_carry_i_2
+       (.I0(vcount[4]),
+        .I1(rgb_out5_carry_i_10_n_0),
+        .I2(vcount[5]),
+        .I3(rgb_out5_carry_i_11_n_0),
+        .O(rgb_out5_carry_i_2_n_0));
+  LUT6 #(
+    .INIT(64'hC02ABFFF8000002A)) 
+    rgb_out5_carry_i_3
+       (.I0(vcount[2]),
+        .I1(noteposY[0]),
+        .I2(noteposY[1]),
+        .I3(noteposY[2]),
+        .I4(noteposY[3]),
+        .I5(vcount[3]),
+        .O(rgb_out5_carry_i_3_n_0));
+  LUT4 #(
+    .INIT(16'hD890)) 
+    rgb_out5_carry_i_4
+       (.I0(noteposY[1]),
+        .I1(noteposY[0]),
+        .I2(vcount[1]),
+        .I3(vcount[0]),
+        .O(rgb_out5_carry_i_4_n_0));
+  LUT5 #(
+    .INIT(32'h92040492)) 
+    rgb_out5_carry_i_5
+       (.I0(rgb_out5_carry_i_9_n_0),
+        .I1(noteposY[6]),
+        .I2(vcount[6]),
+        .I3(vcount[7]),
+        .I4(noteposY[7]),
+        .O(rgb_out5_carry_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h0990)) 
+    rgb_out5_carry_i_6
+       (.I0(rgb_out5_carry_i_10_n_0),
+        .I1(vcount[4]),
+        .I2(vcount[5]),
+        .I3(rgb_out5_carry_i_11_n_0),
+        .O(rgb_out5_carry_i_6_n_0));
+  LUT6 #(
+    .INIT(64'h7807008000807807)) 
+    rgb_out5_carry_i_7
+       (.I0(noteposY[0]),
+        .I1(noteposY[1]),
+        .I2(noteposY[2]),
+        .I3(vcount[2]),
+        .I4(vcount[3]),
+        .I5(noteposY[3]),
+        .O(rgb_out5_carry_i_7_n_0));
+  LUT4 #(
+    .INIT(16'h0960)) 
+    rgb_out5_carry_i_8
+       (.I0(noteposY[1]),
+        .I1(vcount[1]),
+        .I2(noteposY[0]),
+        .I3(vcount[0]),
+        .O(rgb_out5_carry_i_8_n_0));
+  LUT6 #(
+    .INIT(64'h1555555555555555)) 
+    rgb_out5_carry_i_9
+       (.I0(noteposY[5]),
+        .I1(noteposY[3]),
+        .I2(noteposY[4]),
+        .I3(noteposY[0]),
+        .I4(noteposY[2]),
+        .I5(noteposY[1]),
+        .O(rgb_out5_carry_i_9_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[0]_i_1 
+       (.I0(noteColor[0]),
+        .I1(\rgb_out[2]_i_3_n_0 ),
+        .I2(\rgb_out[2]_i_2_n_0 ),
+        .O(\rgb_out[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[1]_i_1 
+       (.I0(noteColor[1]),
+        .I1(\rgb_out[2]_i_3_n_0 ),
+        .I2(\rgb_out[2]_i_2_n_0 ),
+        .O(\rgb_out[1]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h2)) 
     \rgb_out[2]_i_1 
        (.I0(\rgb_out[2]_i_2_n_0 ),
-        .I1(rgb_out1__14),
-        .I2(sprRomData[0]),
-        .I3(sprRomData[1]),
-        .I4(sprRomData[2]),
+        .I1(\rgb_out[2]_i_3_n_0 ),
         .O(\rgb_out[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h0800)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
+    \rgb_out[2]_i_10 
+       (.I0(hcount[0]),
+        .I1(hcount[2]),
+        .I2(hcount[1]),
+        .O(\rgb_out[2]_i_10_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
+    \rgb_out[2]_i_11 
+       (.I0(hcount[3]),
+        .I1(hcount[5]),
+        .I2(hcount[6]),
+        .O(\rgb_out[2]_i_11_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT5 #(
+    .INIT(32'hFE000000)) 
+    \rgb_out[2]_i_12 
+       (.I0(hcount[6]),
+        .I1(hcount[5]),
+        .I2(hcount[4]),
+        .I3(hcount[8]),
+        .I4(hcount[7]),
+        .O(\rgb_out[2]_i_12_n_0 ));
+  LUT6 #(
+    .INIT(64'h8000000000000000)) 
+    \rgb_out[2]_i_13 
+       (.I0(noteposY[1]),
+        .I1(noteposY[2]),
+        .I2(noteposY[0]),
+        .I3(noteposY[6]),
+        .I4(noteposY[5]),
+        .I5(noteposY[7]),
+        .O(\rgb_out[2]_i_13_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'h8000AAAA)) 
+    \rgb_out[2]_i_14 
+       (.I0(\rgb_out[2]_i_12_n_0 ),
+        .I1(hcount[0]),
+        .I2(hcount[2]),
+        .I3(hcount[1]),
+        .I4(\rgb_out[2]_i_11_n_0 ),
+        .O(\rgb_out[2]_i_14_n_0 ));
+  LUT6 #(
+    .INIT(64'h0888088008808880)) 
     \rgb_out[2]_i_2 
-       (.I0(bgRomData),
-        .I1(\rgb_out[2]_i_4_n_0 ),
-        .I2(vcount[9]),
-        .I3(\rgb_out[2]_i_5_n_0 ),
+       (.I0(\sigBgRomAddr[0]_i_6_n_0 ),
+        .I1(bgRomData),
+        .I2(hcount[9]),
+        .I3(hcount[8]),
+        .I4(hcount[7]),
+        .I5(\sigBgRomAddr[0]_i_7_n_0 ),
         .O(\rgb_out[2]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0020200000000000)) 
+    .INIT(64'hA2F200F0FFFF00F0)) 
     \rgb_out[2]_i_3 
-       (.I0(\rgb_out[2]_i_6_n_0 ),
-        .I1(\_inferred__0/i__carry__1_n_2 ),
-        .I2(sigSprRomAddr2),
-        .I3(hcount[8]),
-        .I4(hcount[9]),
-        .I5(\rgb_out[2]_i_7_n_0 ),
-        .O(rgb_out1__14));
+       (.I0(\rgb_out[2]_i_4_n_0 ),
+        .I1(hcount[9]),
+        .I2(\rgb_out[2]_i_5_n_0 ),
+        .I3(\rgb_out[2]_i_6_n_0 ),
+        .I4(\rgb_out[2]_i_7_n_0 ),
+        .I5(\rgb_out[2]_i_8_n_0 ),
+        .O(\rgb_out[2]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFF7FFFFEFEFFFE)) 
+    .INIT(64'h0000000B00000000)) 
     \rgb_out[2]_i_4 
-       (.I0(vcount[7]),
-        .I1(vcount[8]),
-        .I2(vcount[6]),
-        .I3(vcount[4]),
-        .I4(\sigBgRomAddr[0]_i_10_n_0 ),
-        .I5(vcount[5]),
+       (.I0(noteData[5]),
+        .I1(sprRomData[0]),
+        .I2(sprRomData[2]),
+        .I3(sprRomData[1]),
+        .I4(_carry__1_n_2),
+        .I5(sigSprRomAddr2),
         .O(\rgb_out[2]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h55555557EEEEEEEA)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'h0000007F)) 
     \rgb_out[2]_i_5 
-       (.I0(hcount[8]),
-        .I1(hcount[7]),
-        .I2(hcount[5]),
-        .I3(hcount[6]),
-        .I4(hcount[4]),
-        .I5(hcount[9]),
+       (.I0(hcount[3]),
+        .I1(hcount[1]),
+        .I2(hcount[2]),
+        .I3(\sigBgRomAddr[0]_i_5_n_0 ),
+        .I4(hcount[8]),
         .O(\rgb_out[2]_i_5_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFDFFFFFFFFFFFB)) 
+    .INIT(64'hFFFFFFFFBFFFFFFF)) 
     \rgb_out[2]_i_6 
-       (.I0(hcount[3]),
-        .I1(hcount[4]),
-        .I2(hcount[6]),
-        .I3(hcount[5]),
-        .I4(hcount[1]),
-        .I5(hcount[2]),
+       (.I0(\rgb_out[2]_i_9_n_0 ),
+        .I1(rgb_out413_in),
+        .I2(hcount[9]),
+        .I3(rgb_out512_in),
+        .I4(hcount[3]),
+        .I5(\rgb_out[2]_i_10_n_0 ),
         .O(\rgb_out[2]_i_6_n_0 ));
   LUT5 #(
-    .INIT(32'hFE000001)) 
+    .INIT(32'hFFFBAAAA)) 
     \rgb_out[2]_i_7 
-       (.I0(hcount[5]),
-        .I1(hcount[6]),
-        .I2(hcount[4]),
-        .I3(hcount[7]),
-        .I4(hcount[8]),
+       (.I0(hcount[9]),
+        .I1(\rgb_out[2]_i_11_n_0 ),
+        .I2(hcount[2]),
+        .I3(hcount[1]),
+        .I4(\rgb_out[2]_i_12_n_0 ),
         .O(\rgb_out[2]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFEFFFFF)) 
+    \rgb_out[2]_i_8 
+       (.I0(\rgb_out[2]_i_13_n_0 ),
+        .I1(hcount[9]),
+        .I2(rgb_out5),
+        .I3(__16_carry__1_n_2),
+        .I4(\rgb_out[2]_i_9_n_0 ),
+        .I5(\rgb_out[2]_i_14_n_0 ),
+        .O(\rgb_out[2]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'h1555155515555555)) 
+    \rgb_out[2]_i_9 
+       (.I0(noteposY[8]),
+        .I1(noteposY[7]),
+        .I2(noteposY[5]),
+        .I3(noteposY[6]),
+        .I4(noteposY[3]),
+        .I5(noteposY[4]),
+        .O(\rgb_out[2]_i_9_n_0 ));
+  FDRE \rgb_out_reg[0] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\rgb_out[0]_i_1_n_0 ),
+        .Q(rgb_out[0]),
+        .R(1'b0));
+  FDRE \rgb_out_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\rgb_out[1]_i_1_n_0 ),
+        .Q(rgb_out[1]),
+        .R(1'b0));
   FDRE \rgb_out_reg[2] 
        (.C(clk),
         .CE(1'b1),
         .D(\rgb_out[2]_i_1_n_0 ),
-        .Q(rgb_out),
+        .Q(rgb_out[2]),
         .R(1'b0));
-  LUT5 #(
-    .INIT(32'h0F000200)) 
-    \sigBgRomAddr[0]_i_1 
-       (.I0(vcount[6]),
-        .I1(\sigBgRomAddr[0]_i_4_n_0 ),
-        .I2(\sigBgRomAddr[0]_i_5_n_0 ),
-        .I3(hcount[8]),
-        .I4(vcount[9]),
-        .O(sigBgRomAddr0));
   LUT4 #(
-    .INIT(16'h7FFF)) 
+    .INIT(16'h8000)) 
+    \sigBgRomAddr[0]_i_1 
+       (.I0(\sigBgRomAddr[0]_i_4_n_0 ),
+        .I1(hcount[9]),
+        .I2(hcount[8]),
+        .I3(\sigBgRomAddr[0]_i_5_n_0 ),
+        .O(sigBgRomAddr0));
+  LUT5 #(
+    .INIT(32'h7FFFFFFF)) 
     \sigBgRomAddr[0]_i_10 
        (.I0(vcount[0]),
         .I1(vcount[1]),
-        .I2(vcount[3]),
-        .I3(vcount[2]),
+        .I2(vcount[2]),
+        .I3(vcount[4]),
+        .I4(vcount[3]),
         .O(\sigBgRomAddr[0]_i_10_n_0 ));
   LUT6 #(
-    .INIT(64'h22A8222A2A8822A8)) 
+    .INIT(64'h2A2828A82A282A28)) 
     \sigBgRomAddr[0]_i_2 
        (.I0(\sigBgRomAddr[0]_i_6_n_0 ),
-        .I1(hcount[9]),
-        .I2(\sigBgRomAddr[0]_i_7_n_0 ),
-        .I3(hcount[8]),
-        .I4(\sigBgRomAddr[0]_i_8_n_0 ),
-        .I5(hcount[7]),
+        .I1(hcount[8]),
+        .I2(hcount[9]),
+        .I3(hcount[7]),
+        .I4(\sigBgRomAddr[0]_i_7_n_0 ),
+        .I5(\sigBgRomAddr[0]_i_8_n_0 ),
         .O(sigBgRomAddr04_out));
-  LUT5 #(
-    .INIT(32'hFFFF7FFF)) 
+  LUT6 #(
+    .INIT(64'hBAAAAAAAAAAAAAAA)) 
     \sigBgRomAddr[0]_i_4 
-       (.I0(vcount[4]),
-        .I1(vcount[5]),
+       (.I0(vcount[9]),
+        .I1(\sigBgRomAddr[0]_i_10_n_0 ),
         .I2(vcount[8]),
-        .I3(vcount[7]),
-        .I4(\sigBgRomAddr[0]_i_10_n_0 ),
+        .I3(vcount[5]),
+        .I4(vcount[7]),
+        .I5(vcount[6]),
         .O(\sigBgRomAddr[0]_i_4_n_0 ));
-  LUT5 #(
-    .INIT(32'h0001FFFF)) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     \sigBgRomAddr[0]_i_5 
        (.I0(hcount[7]),
+        .I1(hcount[6]),
+        .I2(hcount[5]),
+        .I3(hcount[4]),
+        .O(\sigBgRomAddr[0]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'h5555555415555555)) 
+    \sigBgRomAddr[0]_i_6 
+       (.I0(vcount[9]),
+        .I1(vcount[8]),
+        .I2(vcount[5]),
+        .I3(vcount[7]),
+        .I4(vcount[6]),
+        .I5(\sigBgRomAddr[0]_i_10_n_0 ),
+        .O(\sigBgRomAddr[0]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \sigBgRomAddr[0]_i_7 
+       (.I0(hcount[4]),
         .I1(hcount[5]),
         .I2(hcount[6]),
-        .I3(hcount[4]),
-        .I4(hcount[9]),
-        .O(\sigBgRomAddr[0]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
-    \sigBgRomAddr[0]_i_6 
-       (.I0(\rgb_out[2]_i_4_n_0 ),
-        .I1(vcount[9]),
-        .O(\sigBgRomAddr[0]_i_6_n_0 ));
-  LUT6 #(
-    .INIT(64'h7FFEFEFEFEFEFEFE)) 
-    \sigBgRomAddr[0]_i_7 
-       (.I0(hcount[5]),
-        .I1(hcount[6]),
-        .I2(hcount[4]),
-        .I3(hcount[1]),
-        .I4(hcount[2]),
-        .I5(hcount[3]),
         .O(\sigBgRomAddr[0]_i_7_n_0 ));
-  LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'h7F)) 
     \sigBgRomAddr[0]_i_8 
-       (.I0(hcount[6]),
-        .I1(hcount[3]),
-        .I2(hcount[2]),
-        .I3(hcount[1]),
-        .I4(hcount[4]),
-        .I5(hcount[5]),
+       (.I0(hcount[2]),
+        .I1(hcount[1]),
+        .I2(hcount[3]),
         .O(\sigBgRomAddr[0]_i_8_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
@@ -1017,18 +1858,18 @@ module blockdesign_sprite_0_0_sprite
         .O(NLW_sigSprRomAddr2_carry__0_O_UNCONNECTED[3:0]),
         .S({1'b0,1'b0,1'b0,sigSprRomAddr2_carry__0_i_2_n_0}));
   LUT3 #(
-    .INIT(8'hF4)) 
+    .INIT(8'hBA)) 
     sigSprRomAddr2_carry__0_i_1
-       (.I0(noteposY[8]),
-        .I1(vcount[8]),
-        .I2(vcount[9]),
+       (.I0(vcount[9]),
+        .I1(noteposY[8]),
+        .I2(vcount[8]),
         .O(sigSprRomAddr2_carry__0_i_1_n_0));
   LUT3 #(
-    .INIT(8'h09)) 
+    .INIT(8'h41)) 
     sigSprRomAddr2_carry__0_i_2
-       (.I0(noteposY[8]),
-        .I1(vcount[8]),
-        .I2(vcount[9]),
+       (.I0(vcount[9]),
+        .I1(noteposY[8]),
+        .I2(vcount[8]),
         .O(sigSprRomAddr2_carry__0_i_2_n_0));
   LUT4 #(
     .INIT(16'h22B2)) 
@@ -1039,28 +1880,28 @@ module blockdesign_sprite_0_0_sprite
         .I3(noteposY[6]),
         .O(sigSprRomAddr2_carry_i_1_n_0));
   LUT4 #(
-    .INIT(16'h7510)) 
+    .INIT(16'h22B2)) 
     sigSprRomAddr2_carry_i_2
-       (.I0(noteposY[5]),
-        .I1(noteposY[4]),
+       (.I0(vcount[5]),
+        .I1(noteposY[5]),
         .I2(vcount[4]),
-        .I3(vcount[5]),
+        .I3(noteposY[4]),
         .O(sigSprRomAddr2_carry_i_2_n_0));
   LUT4 #(
-    .INIT(16'h7510)) 
+    .INIT(16'h22B2)) 
     sigSprRomAddr2_carry_i_3
-       (.I0(noteposY[3]),
-        .I1(noteposY[2]),
+       (.I0(vcount[3]),
+        .I1(noteposY[3]),
         .I2(vcount[2]),
-        .I3(vcount[3]),
+        .I3(noteposY[2]),
         .O(sigSprRomAddr2_carry_i_3_n_0));
   LUT4 #(
-    .INIT(16'h2F02)) 
+    .INIT(16'h22B2)) 
     sigSprRomAddr2_carry_i_4
-       (.I0(vcount[0]),
-        .I1(noteposY[0]),
-        .I2(noteposY[1]),
-        .I3(vcount[1]),
+       (.I0(vcount[1]),
+        .I1(noteposY[1]),
+        .I2(vcount[0]),
+        .I3(noteposY[0]),
         .O(sigSprRomAddr2_carry_i_4_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -1089,50 +1930,33 @@ module blockdesign_sprite_0_0_sprite
   LUT4 #(
     .INIT(16'h9009)) 
     sigSprRomAddr2_carry_i_8
-       (.I0(vcount[1]),
-        .I1(noteposY[1]),
-        .I2(noteposY[0]),
-        .I3(vcount[0]),
+       (.I0(noteposY[0]),
+        .I1(vcount[0]),
+        .I2(noteposY[1]),
+        .I3(vcount[1]),
         .O(sigSprRomAddr2_carry_i_8_n_0));
-  LUT5 #(
-    .INIT(32'h82002008)) 
+  LUT3 #(
+    .INIT(8'h08)) 
     \sigSprRomAddr[0]_i_1 
        (.I0(\sigSprRomAddr[0]_i_3_n_0 ),
-        .I1(\sigBgRomAddr[0]_i_8_n_0 ),
-        .I2(hcount[7]),
-        .I3(hcount[8]),
-        .I4(\sigBgRomAddr[0]_i_7_n_0 ),
+        .I1(sigSprRomAddr2),
+        .I2(_carry__1_n_2),
         .O(sigSprRomAddr0));
   LUT6 #(
-    .INIT(64'h0020002020000020)) 
+    .INIT(64'h00000007F0000000)) 
     \sigSprRomAddr[0]_i_3 
-       (.I0(\sigSprRomAddr[0]_i_5_n_0 ),
-        .I1(\_inferred__0/i__carry__1_n_2 ),
-        .I2(sigSprRomAddr2),
-        .I3(hcount[9]),
-        .I4(\sigSprRomAddr[0]_i_6_n_0 ),
-        .I5(hcount[8]),
+       (.I0(hcount[2]),
+        .I1(hcount[3]),
+        .I2(\sigBgRomAddr[0]_i_7_n_0 ),
+        .I3(hcount[8]),
+        .I4(hcount[7]),
+        .I5(hcount[9]),
         .O(\sigSprRomAddr[0]_i_3_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     \sigSprRomAddr[0]_i_4 
        (.I0(sigSprRomAddr_reg[0]),
         .O(\sigSprRomAddr[0]_i_4_n_0 ));
-  LUT5 #(
-    .INIT(32'hFEFFFFFF)) 
-    \sigSprRomAddr[0]_i_5 
-       (.I0(hcount[6]),
-        .I1(hcount[5]),
-        .I2(hcount[4]),
-        .I3(hcount[2]),
-        .I4(hcount[3]),
-        .O(\sigSprRomAddr[0]_i_5_n_0 ));
-  LUT2 #(
-    .INIT(4'hB)) 
-    \sigSprRomAddr[0]_i_6 
-       (.I0(\sigBgRomAddr[0]_i_8_n_0 ),
-        .I1(hcount[7]),
-        .O(\sigSprRomAddr[0]_i_6_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \sigSprRomAddr_reg[0] 

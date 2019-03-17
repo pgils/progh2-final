@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
---Date        : Sun Mar 17 21:58:59 2019
+--Date        : Mon Mar 18 00:24:23 2019
 --Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target blockdesign_wrapper.bd
 --Design      : blockdesign_wrapper
@@ -38,9 +38,9 @@ architecture STRUCTURE of blockdesign_wrapper is
     SW_MUTE : in STD_LOGIC;
     PS2Clk : in STD_LOGIC;
     PS2Data : in STD_LOGIC;
-    vgaRGB : out STD_LOGIC_VECTOR ( 2 downto 0 );
     Hsync : out STD_LOGIC;
-    Vsync : out STD_LOGIC
+    Vsync : out STD_LOGIC;
+    vgaRGB : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component blockdesign;
 begin

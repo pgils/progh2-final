@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
---Date        : Sun Mar 17 21:58:58 2019
+--Date        : Mon Mar 18 00:24:23 2019
 --Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target blockdesign.bd
 --Design      : blockdesign
@@ -2616,7 +2616,7 @@ architecture STRUCTURE of blockdesign is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    gpio_io_o : out STD_LOGIC_VECTOR ( 4 downto 0 )
+    gpio_io_o : out STD_LOGIC_VECTOR ( 5 downto 0 )
   );
   end component blockdesign_axi_gpio_0_1;
   component blockdesign_blk_mem_gen_1_0 is
@@ -2641,7 +2641,7 @@ architecture STRUCTURE of blockdesign is
     vcount_in : in STD_LOGIC_VECTOR ( 9 downto 0 );
     bgRomAddr : out STD_LOGIC_VECTOR ( 18 downto 0 );
     bgRomData : in STD_LOGIC;
-    noteData : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    noteData : in STD_LOGIC_VECTOR ( 5 downto 0 );
     sprRomAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
     sprRomData : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
@@ -2657,7 +2657,7 @@ architecture STRUCTURE of blockdesign is
   signal axi_gpio_0_ip2intc_irpt : STD_LOGIC;
   signal axi_gpio_1_gpio2_io_o : STD_LOGIC_VECTOR ( 0 to 0 );
   signal axi_gpio_1_gpio_io_o : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal axi_gpio_2_spriteOut_gpio_io_o : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal axi_gpio_2_spriteOut_gpio_io_o : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal axi_timer_0_interrupt : STD_LOGIC;
   signal axi_uartlite_0_UART_RxD : STD_LOGIC;
   signal axi_uartlite_0_UART_TxD : STD_LOGIC;
@@ -2938,7 +2938,7 @@ axi_gpio_1_toneOut: component blockdesign_axi_gpio_1_0
     );
 axi_gpio_2_noteOut: component blockdesign_axi_gpio_0_1
      port map (
-      gpio_io_o(4 downto 0) => axi_gpio_2_spriteOut_gpio_io_o(4 downto 0),
+      gpio_io_o(5 downto 0) => axi_gpio_2_spriteOut_gpio_io_o(5 downto 0),
       s_axi_aclk => microblaze_0_Clk,
       s_axi_araddr(8 downto 0) => microblaze_0_axi_periph_M05_AXI_ARADDR(8 downto 0),
       s_axi_aresetn => rst_clk_wiz_0_100M_peripheral_aresetn(0),
@@ -3363,7 +3363,7 @@ sprite_0: component blockdesign_sprite_0_0
       bgRomData => blk_mem_gen_1_background_douta(0),
       clk => microblaze_0_Clk,
       hcount_in(9 downto 0) => VGA_0_hcount_out(9 downto 0),
-      noteData(4 downto 0) => axi_gpio_2_spriteOut_gpio_io_o(4 downto 0),
+      noteData(5 downto 0) => axi_gpio_2_spriteOut_gpio_io_o(5 downto 0),
       rgb_out(2 downto 0) => sprite_0_rgb_out(2 downto 0),
       sprRomAddr(12 downto 0) => sprite_0_sprRomAddr(12 downto 0),
       sprRomData(3 downto 0) => blk_mem_gen_2_noteSprite_douta(3 downto 0),

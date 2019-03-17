@@ -25,7 +25,7 @@ entity sprite is
         vcount_in       : in  std_logic_vector(9 downto 0);
         bgRomAddr       : out std_logic_vector(18 downto 0);
         bgRomData       : in  std_logic;
-        noteData        : in  std_logic_vector(4 downto 0);
+        noteData        : in  std_logic_vector(5 downto 0);
         sprRomAddr      : out std_logic_vector(12 downto 0);
         sprRomData      : in  std_logic_vector(3 downto 0)
         );
@@ -41,9 +41,12 @@ architecture Behavioral of sprite is
     -- dimensions of the music not sprite
     constant NOTESPR_H  : positive  := 66;
     constant NOTESPR_W  : positive  := 124;
+    constant NOTEFLAG_L : positive  := 200;
+    constant NOTEFLAG_W : positive  := 5;
     constant NOTEPOS_X  : positive  := 402; -- center
     
     signal noteposY     : positive  := 0;
+    signal noteColor    : std_logic_vector(2 downto 0)  := "000";
     
     -- location map for the note sprite
     type T_noteloc_lut is array (7 downto 0) of integer;
@@ -71,7 +74,7 @@ begin
         hcount      <= to_integer(unsigned(hcount_in));
         vcount      <= to_integer(unsigned(vcount_in));
 
-        -- prefetch rgb data in rom.
+        -- prefetch background rgb data in rom.
         -- to compensate for delay caused by:
         -- 1. ROM read (1 cycle)
         -- 2. passing the rgb data between processes/entitys
@@ -80,6 +83,7 @@ begin
             sigBgRomAddr    <= sigBgRomAddr + 1;
         end if;
         
+        -- prefetch note sprite rgb data
         if ((hcount+BUFFERSIZE >= NOTEPOS_X) and (hcount+BUFFERSIZE < NOTEPOS_X+NOTESPR_W)) and
             (vcount >= noteposY) and (vcount < noteposY+NOTESPR_H) then
             sigSprRomAddr   <= sigSprRomAddr + 1;
@@ -101,11 +105,30 @@ begin
         end if;
         
         -- draw note sprite
+        noteColor       <= '0' & noteData(4 downto 3);
         if ((hcount >= NOTEPOS_X) and (hcount < NOTEPOS_X+NOTESPR_W)) and
             (vcount >= noteposY) and (vcount < noteposY+NOTESPR_H) then
-            if ("000" = sprRomData(2 downto 0)) then
-                rgb_out     <= sprRomData(2 downto 0);
+            if ("000" = sprRomData(2 downto 0)) or                              -- black
+               ("001" = sprRomData(2 downto 0) and ('1' = noteData(5))) then    -- red -> fullnote
+                rgb_out     <= noteColor;
             end if;
+        end if;
+        
+        -- draw note 'flag'
+        -- flag down
+        if ((hcount >= NOTEPOS_X+NOTESPR_W-NOTEFLAG_W) and 
+            (hcount < NOTEPOS_X+NOTESPR_W) and
+            (vcount >= noteposY-NOTEFLAG_L) and
+            (vcount < noteposY+(NOTESPR_H/2)) and
+            (noteposY > V_MIN+NOTEFLAG_L))
+            or
+        -- flag up
+            ((hcount >= NOTEPOS_X) and
+            (hcount < NOTEPOS_X+NOTEFLAG_W) and
+            (vcount >= noteposY+(NOTESPR_H/2)) and
+            (vcount < noteposY+NOTEFLAG_L+NOTESPR_H) and
+            (noteposY < V_MIN+NOTEFLAG_L)) then
+            rgb_out     <= noteColor;
         end if;
         
         -- position the note sprite on the ladder

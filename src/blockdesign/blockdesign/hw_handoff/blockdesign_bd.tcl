@@ -66,7 +66,7 @@ set run_remote_bd_flow 1
 if { $run_remote_bd_flow == 1 } {
   # Set the reference directory for source file relative paths (by default 
   # the value is script directory path)
-  set origin_dir ./src/blockdesign
+  set origin_dir ./blockdesign
 
   # Use origin directory path location variable, if specified in the tcl shell
   if { [info exists ::origin_dir_loc] } {
@@ -302,7 +302,7 @@ proc create_root_design { parentCell } {
   set axi_gpio_2_noteOut [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2_noteOut ]
   set_property -dict [ list \
    CONFIG.C_ALL_OUTPUTS {1} \
-   CONFIG.C_GPIO_WIDTH {5} \
+   CONFIG.C_GPIO_WIDTH {6} \
  ] $axi_gpio_2_noteOut
 
   # Create instance: axi_timer_0, and set properties

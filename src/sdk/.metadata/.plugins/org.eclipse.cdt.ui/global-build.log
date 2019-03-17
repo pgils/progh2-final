@@ -9898,3 +9898,943 @@ Finished building: MusicNoteTrainer.elf.size
 22:06:23 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
 make all 
 make: Nothing to be done for 'all'.
+22:23:30 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'timerCallback':
+../src/main.c:16:5: warning: unused variable 'mask' [-Wunused-variable]
+  u8 mask = (toneIndex&1<<5)|toneIndex;
+     ^~~~
+In file included from ../src/main.c:1:0:
+../src/main.c: At top level:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12580	    388	   3376	  16344	   3fd8	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:23:39 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12576	    388	   3372	  16336	   3fd0	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:32:21 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+22:32:22 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+22:32:23 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+22:32:26 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12576	    388	   3372	  16336	   3fd0	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:33:05 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+22:33:32 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12612	    388	   3376	  16376	   3ff8	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:33:37 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+22:36:53 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12608	    388	   3372	  16368	   3ff0	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:36:58 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12628	    388	   3376	  16392	   4008	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:42:01 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+22:42:02 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+22:42:03 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+22:42:07 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12628	    388	   3376	  16392	   4008	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+22:42:33 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+23:11:07 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+23:11:08 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+23:11:09 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+23:11:13 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12628	    388	   3376	  16392	   4008	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+23:11:51 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+23:31:47 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+23:31:48 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+23:31:49 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+23:31:53 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12628	    388	   3376	  16392	   4008	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+23:32:28 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+23:57:06 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+23:57:07 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+23:57:08 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+23:57:12 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12628	    388	   3376	  16392	   4008	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+23:57:47 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+00:06:51 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12680	    388	   3372	  16440	   4038	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+00:07:16 **** Auto Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12684	    388	   3376	  16448	   4040	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+00:10:51 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+00:10:52 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+00:10:53 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+00:10:56 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12684	    388	   3376	  16448	   4040	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+00:11:25 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+00:20:41 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+00:20:41 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+00:20:43 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+00:20:47 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12684	    388	   3376	  16448	   4040	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+00:21:11 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
+00:33:26 **** Clean-only build of project MusicNoteTrainer_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/cpu_v2_6/src -s clean 
+make -C microblaze_0/libsrc/standalone_v6_5/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+rm -f microblaze_0/lib/libxil.a
+00:33:27 **** Clean-only build of configuration Debug for project MusicNoteTrainer ****
+make clean 
+rm -rf  ./src/main.o ./src/peripheral.o  ./src/main.d ./src/peripheral.d  MusicNoteTrainer.elf.size  MusicNoteTrainer.elf
+ 
+00:33:28 **** Build of project MusicNoteTrainer_bsp ****
+make -k all 
+Running Make include in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Running Make libs in microblaze_0/libsrc/cpu_v2_6/src
+make -C microblaze_0/libsrc/cpu_v2_6/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling cpu
+mb-ar: creating ../../../lib/libxil.a
+Running Make libs in microblaze_0/libsrc/standalone_v6_5/src
+make -C microblaze_0/libsrc/standalone_v6_5/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling standalone
+Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling uartlite
+Running Make libs in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling bram
+Running Make libs in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling gpio
+Running Make libs in microblaze_0/libsrc/intc_v3_7/src
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling intc
+Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v10.0 -mlittle-endian -mno-xl-reorder -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+Compiling tmrctr
+Finished building libraries
+00:33:32 **** Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/main.c:1:0:
+../src/peripheral.h:15:13: warning: 'TimerCounterHandler' declared 'static' but never defined [-Wunused-function]
+ static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:17:13: warning: 'KbdInterruptHandler' declared 'static' but never defined [-Wunused-function]
+ static void KbdInterruptHandler(void *CallbackRef);
+             ^~~~~~~~~~~~~~~~~~~
+../src/peripheral.h:19:13: warning: 'TmrCtrDisableIntr' declared 'static' but never defined [-Wunused-function]
+ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
+             ^~~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/peripheral.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/peripheral.o" -I../../MusicNoteTrainer_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/peripheral.d" -MT"src/peripheral.o" -o "src/peripheral.o" "../src/peripheral.c"
+../src/peripheral.c:306:6: warning: 'TmrCtrDisableIntr' defined but not used [-Wunused-function]
+ void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId)
+      ^~~~~~~~~~~~~~~~~
+Finished building: ../src/peripheral.c
+ 
+Building target: MusicNoteTrainer.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../MusicNoteTrainer_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v10.0 -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "MusicNoteTrainer.elf"  ./src/main.o ./src/peripheral.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: MusicNoteTrainer.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size MusicNoteTrainer.elf  |tee "MusicNoteTrainer.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  12684	    388	   3376	  16448	   4040	MusicNoteTrainer.elf
+Finished building: MusicNoteTrainer.elf.size
+ 
+00:33:56 **** Incremental Build of configuration Debug for project MusicNoteTrainer ****
+make all 
+make: Nothing to be done for 'all'.
