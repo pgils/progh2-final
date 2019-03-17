@@ -20,6 +20,7 @@ static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
 
 XGpio	kbdGpio;
 XGpio	toneGpio;
+XGpio	spriteGpio;
 void	(*timerCallbackFunc)();
 void	(*kbdCallbackFunc)(u8 data);
 int 	gpioSetup(void (*timerCallback), void (*kbdCallback));

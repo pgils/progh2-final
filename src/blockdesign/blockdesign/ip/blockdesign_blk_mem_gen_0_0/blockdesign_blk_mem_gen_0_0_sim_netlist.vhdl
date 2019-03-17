@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sat Mar 16 14:52:00 2019
+-- Date        : Sun Mar 17 20:00:25 2019
 -- Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_blk_mem_gen_0_0/blockdesign_blk_mem_gen_0_0_sim_netlist.vhdl
@@ -950,7 +950,7 @@ entity blockdesign_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 is
   attribute C_USE_BYTE_WEB : integer;
   attribute C_USE_BYTE_WEB of blockdesign_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of blockdesign_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_USE_DEFAULT_DATA of blockdesign_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_ECC : integer;
   attribute C_USE_ECC of blockdesign_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_SOFTECC : integer;
@@ -1223,7 +1223,7 @@ architecture STRUCTURE of blockdesign_blk_mem_gen_0_0 is
   attribute C_USE_BYTE_WEB : integer;
   attribute C_USE_BYTE_WEB of U0 : label is 0;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of U0 : label is 1;
+  attribute C_USE_DEFAULT_DATA of U0 : label is 0;
   attribute C_USE_ECC : integer;
   attribute C_USE_ECC of U0 : label is 0;
   attribute C_USE_SOFTECC : integer;

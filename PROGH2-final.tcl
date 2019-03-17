@@ -112,9 +112,13 @@ set obj [get_filesets sources_1]
 set files [list \
  "[file normalize "$origin_dir/src/design/toneplayer.vhd"]"\
  "[file normalize "$origin_dir/src/design/keyboardHandler.vhd"]"\
+ "[file normalize "$origin_dir/src/design/sprite.vhd"]"\
+ "[file normalize "$origin_dir/src/design/vga.vhd"]"\
  "[file normalize "$origin_dir/src/blockdesign/blockdesign/blockdesign.bd"]"\
  "[file normalize "$origin_dir/src/blockdesign/blockdesign/hdl/blockdesign_wrapper.vhd"]"\
  "[file normalize "$origin_dir/tones.coe"]"\
+ "[file normalize "$origin_dir/coegen/Notenbalk_640.coe"]"\
+ "[file normalize "$origin_dir/coegen/muzieknoot.coe"]"\
 ]
 add_files -norecurse -fileset $obj $files
 
@@ -125,6 +129,16 @@ set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 
 set file "$origin_dir/src/design/keyboardHandler.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL" -objects $file_obj
+
+set file "$origin_dir/src/design/sprite.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL" -objects $file_obj
+
+set file "$origin_dir/src/design/vga.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj

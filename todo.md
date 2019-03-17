@@ -20,3 +20,4 @@ https://www.muzieklerenlezen.nl/muzieknoten-oefenen/noten-namen-oefenen
 4.3 toon genratie door MicroBlaze  
 
 parity check @ keyboardHandler
+use byte-size COE for background rom

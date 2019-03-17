@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="blockdesign" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1552788567"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1552788567"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1552788567"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1552788567"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1552856340"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1552856340"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1552856340"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1552856340"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/blockdesign_clk_wiz_0_0/blockdesign_clk_wiz_0_0.xci" Type="IP">
         <Instance HierarchyPath="clk_wiz_0"/>
@@ -72,7 +72,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/blockdesign_axi_gpio_0_0/blockdesign_axi_gpio_0_0.xci" Type="IP">
-        <Instance HierarchyPath="axi_gpio_0"/>
+        <Instance HierarchyPath="axi_gpio_0_kbdIn"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -146,7 +146,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/blockdesign_axi_gpio_1_0/blockdesign_axi_gpio_1_0.xci" Type="IP">
-        <Instance HierarchyPath="axi_gpio_1"/>
+        <Instance HierarchyPath="axi_gpio_1_toneOut"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -162,7 +162,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/blockdesign_blk_mem_gen_0_0/blockdesign_blk_mem_gen_0_0.xci" Type="IP">
-        <Instance HierarchyPath="blk_mem_gen_0"/>
+        <Instance HierarchyPath="blk_mem_gen_0_tones"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -179,6 +179,46 @@
       </File>
       <File Name="ip/blockdesign_keyboardHandler_0_0/blockdesign_keyboardHandler_0_0.xci" Type="IP">
         <Instance HierarchyPath="keyboardHandler_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/blockdesign_sprite_0_0/blockdesign_sprite_0_0.xci" Type="IP">
+        <Instance HierarchyPath="sprite_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/blockdesign_VGA_0_0/blockdesign_VGA_0_0.xci" Type="IP">
+        <Instance HierarchyPath="VGA_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/blockdesign_axi_gpio_0_1/blockdesign_axi_gpio_0_1.xci" Type="IP">
+        <Instance HierarchyPath="axi_gpio_2_noteOut"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/blockdesign_blk_mem_gen_1_0/blockdesign_blk_mem_gen_1_0.xci" Type="IP">
+        <Instance HierarchyPath="blk_mem_gen_1_background"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip/blockdesign_blk_mem_gen_0_1/blockdesign_blk_mem_gen_0_1.xci" Type="IP">
+        <Instance HierarchyPath="blk_mem_gen_2_noteSprite"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

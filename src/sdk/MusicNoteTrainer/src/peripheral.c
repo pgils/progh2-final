@@ -54,6 +54,8 @@
 
 #define TONEGPIO_DEVICE_ID		XPAR_GPIO_1_DEVICE_ID
 
+#define SPRITEGPIO_DEVICE_ID	XPAR_GPIO_2_DEVICE_ID
+
 #define INTC_DEVICE_ID			XPAR_INTC_0_DEVICE_ID
 
 
@@ -136,8 +138,15 @@ int gpioSetup(void (*timerCallback), void (*kbdCallback))
 		return XST_FAILURE;
 	}
 
-	XGpio_SetDataDirection(&toneGpio, 1, 0x1);  // key pressed
-	XGpio_SetDataDirection(&toneGpio, 2, 0xF);  // key data
+	XGpio_SetDataDirection(&kbdGpio, 1, 0x1);  // key pressed
+	XGpio_SetDataDirection(&kbdGpio, 2, 0xF);  // key data
+
+	Status = XGpio_Initialize(&spriteGpio, SPRITEGPIO_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	XGpio_SetDataDirection(&spriteGpio, 1, 0x1F);  // note data
 
 	/*
 	 * Initialize the interrupt controller driver so that

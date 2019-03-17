@@ -5051,3 +5051,345 @@ con
 ----------------End of Script----------------
 
 03:16:24 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+14:19:16 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552828684000,  Project:1552788900000
+14:19:16 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+14:19:38 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+14:19:38 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+14:19:42 INFO  : 
+14:19:42 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+14:19:43 INFO  : Clearing existing target manager status.
+14:19:43 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+14:19:43 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+14:19:45 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+14:25:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:25:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:25:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+14:25:44 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+14:25:53 INFO  : Disconnected from the channel tcfchan#14.
+14:25:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+14:25:54 INFO  : 'fpga -state' command is executed.
+14:25:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:25:55 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+14:25:55 INFO  : 'jtag frequency' command is executed.
+14:25:55 INFO  : Context for processor 'microblaze_0' is selected.
+14:25:55 INFO  : Processor reset is completed for 'microblaze_0'.
+14:25:55 INFO  : Context for processor 'microblaze_0' is selected.
+14:25:56 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+14:25:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+14:25:56 INFO  : Memory regions updated for context MicroBlaze #0
+14:25:56 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+14:25:56 INFO  : Context for processor 'microblaze_0' is selected.
+14:25:56 INFO  : 'con' command is executed.
+14:25:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+14:25:56 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+16:46:20 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552837563000,  Project:1552828684000
+16:46:20 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+16:46:22 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+16:46:22 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+16:46:26 INFO  : 
+16:46:27 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+16:46:27 INFO  : Clearing existing target manager status.
+16:46:27 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+16:46:28 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+16:46:29 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+16:47:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:47:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+16:47:34 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+16:47:57 INFO  : Disconnected from the channel tcfchan#15.
+16:47:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+16:47:58 INFO  : 'fpga -state' command is executed.
+16:47:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:47:58 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+16:47:58 INFO  : 'jtag frequency' command is executed.
+16:47:58 INFO  : Context for processor 'microblaze_0' is selected.
+16:47:59 INFO  : Processor reset is completed for 'microblaze_0'.
+16:47:59 INFO  : Context for processor 'microblaze_0' is selected.
+16:47:59 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+16:47:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+16:47:59 INFO  : Memory regions updated for context MicroBlaze #0
+16:47:59 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+16:48:00 INFO  : Context for processor 'microblaze_0' is selected.
+16:48:00 INFO  : 'con' command is executed.
+16:48:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+16:48:00 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+17:07:21 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552838826000,  Project:1552837563000
+17:07:21 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+17:07:22 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+17:07:23 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:07:25 INFO  : 
+17:07:26 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+17:07:26 INFO  : Clearing existing target manager status.
+17:07:26 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+17:07:26 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:07:28 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:07:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:07:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+17:07:53 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+17:22:09 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552839711000,  Project:1552838826000
+17:22:09 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+17:22:10 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+17:22:10 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:22:13 INFO  : 
+17:22:14 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+17:22:19 INFO  : Clearing existing target manager status.
+17:22:19 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+17:22:20 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:22:25 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:22:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:22:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+17:22:46 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+17:33:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552840344000,  Project:1552839711000
+17:33:03 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+17:33:04 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+17:33:04 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:33:07 INFO  : 
+17:33:08 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+17:33:10 INFO  : Clearing existing target manager status.
+17:33:10 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+17:33:11 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:33:16 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:33:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:33:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+17:33:37 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+17:45:15 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552841088000,  Project:1552840344000
+17:45:15 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+17:45:17 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+17:45:17 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:45:20 INFO  : 
+17:45:21 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+17:45:29 INFO  : Clearing existing target manager status.
+17:45:29 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+17:45:29 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:45:34 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:45:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:45:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+17:46:01 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+18:16:16 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552842918000,  Project:1552841088000
+18:16:16 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+18:16:17 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+18:16:18 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:16:20 INFO  : 
+18:16:21 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+18:16:21 INFO  : Clearing existing target manager status.
+18:16:21 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+18:16:22 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+18:16:22 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+18:16:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:16:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+18:16:50 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+20:09:26 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552849680000,  Project:1552842918000
+20:09:26 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:09:28 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+20:09:29 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:09:34 INFO  : 
+20:09:35 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+20:09:35 INFO  : Clearing existing target manager status.
+20:09:35 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+20:09:36 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:09:38 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:10:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:10:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+20:10:16 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+20:42:20 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552851724000,  Project:1552849680000
+20:42:20 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:42:21 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+20:42:22 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:42:27 INFO  : 
+20:42:28 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+20:42:30 INFO  : Clearing existing target manager status.
+20:42:30 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+20:42:31 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:42:36 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:43:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:43:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+20:43:07 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:12:16 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552853516000,  Project:1552851724000
+21:12:16 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:12:17 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+21:12:18 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:12:20 INFO  : 
+21:12:21 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+21:12:22 INFO  : Clearing existing target manager status.
+21:12:22 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+21:12:22 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:12:24 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:12:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:13:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:13:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:13:17 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:24:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552854228000,  Project:1552853516000
+21:24:03 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:24:04 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+21:24:04 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:24:06 INFO  : 
+21:24:07 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+21:24:08 INFO  : Clearing existing target manager status.
+21:24:08 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+21:24:08 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:24:09 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:24:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:24:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:24:40 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:35:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552854887000,  Project:1552854228000
+21:35:03 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:35:10 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+21:35:11 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:35:13 INFO  : 
+21:35:14 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+21:35:16 INFO  : Clearing existing target manager status.
+21:35:16 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+21:35:16 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:35:21 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:36:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:36:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:36:58 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:54:09 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552855872000,  Project:1552854887000
+21:54:09 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:54:10 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+21:54:11 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:54:13 INFO  : 
+21:54:14 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+21:54:14 INFO  : Clearing existing target manager status.
+21:54:14 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+21:54:14 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:54:16 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:54:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:55:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:55:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:55:11 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:55:29 INFO  : Disconnected from the channel tcfchan#16.
+21:56:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:56:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:57:02 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+21:57:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:57:11 INFO  : 'fpga -state' command is executed.
+21:57:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:57:11 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:57:11 INFO  : 'jtag frequency' command is executed.
+21:57:11 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:11 INFO  : Processor reset is completed for 'microblaze_0'.
+21:57:11 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:12 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:57:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:57:12 INFO  : Memory regions updated for context MicroBlaze #0
+21:57:12 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:57:12 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:12 INFO  : 'con' command is executed.
+21:57:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:57:12 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+21:57:40 INFO  : Disconnected from the channel tcfchan#17.
+21:57:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+21:57:41 INFO  : 'fpga -state' command is executed.
+21:57:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:57:41 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+21:57:41 INFO  : 'jtag frequency' command is executed.
+21:57:41 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:42 INFO  : Processor reset is completed for 'microblaze_0'.
+21:57:42 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:42 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+21:57:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+21:57:42 INFO  : Memory regions updated for context MicroBlaze #0
+21:57:42 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+21:57:42 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:42 INFO  : 'con' command is executed.
+21:57:42 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+21:57:42 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+22:05:40 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1552856726000,  Project:1552855872000
+22:05:40 INFO  : Project blockdesign_wrapper_hw_platform_1's source hardware specification located at /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+22:05:42 INFO  : Copied contents of /media/sf_shared/PROGH2-final/vivado_project/PROGH2-final.sdk/blockdesign_wrapper.hdf into /blockdesign_wrapper_hw_platform_1/system.hdf.
+22:05:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:05:45 INFO  : 
+22:05:46 INFO  : Updating hardware inferred compiler options for MusicNoteTrainer.
+22:05:46 INFO  : Clearing existing target manager status.
+22:05:46 INFO  : Closing and re-opening the MSS file of ther project MusicNoteTrainer_bsp
+22:05:46 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+22:05:48 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:06:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:06:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+22:06:19 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+22:06:25 INFO  : Disconnected from the channel tcfchan#18.
+22:06:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+22:06:27 INFO  : 'fpga -state' command is executed.
+22:06:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:06:27 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+22:06:27 INFO  : 'jtag frequency' command is executed.
+22:06:27 INFO  : Context for processor 'microblaze_0' is selected.
+22:06:27 INFO  : Processor reset is completed for 'microblaze_0'.
+22:06:27 INFO  : Context for processor 'microblaze_0' is selected.
+22:06:28 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+22:06:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+22:06:28 INFO  : Memory regions updated for context MicroBlaze #0
+22:06:28 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+22:06:28 INFO  : Context for processor 'microblaze_0' is selected.
+22:06:28 INFO  : 'con' command is executed.
+22:06:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+22:06:28 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
