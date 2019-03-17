@@ -10,24 +10,18 @@
 
 #include "xintc.h"
 #include "xtmrctr.h"
-
-int TmrCtrIntrExample(XIntc *IntcInstancePtr,
-			XTmrCtr *InstancePtr,
-			u16 DeviceId,
-			u16 IntrId,
-			u8 TmrCtrNumber);
-
-static int TmrCtrSetupIntrSystem(XIntc *IntcInstancePtr,
-				XTmrCtr *InstancePtr,
-				u16 DeviceId,
-				u16 IntrId,
-				u8 TmrCtrNumber);
+#include "xgpio.h"
 
 static void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber);
 
+static void KbdInterruptHandler(void *CallbackRef);
+
 static void TmrCtrDisableIntr(XIntc *IntcInstancePtr, u16 IntrId);
 
+XGpio	kbdGpio;
+XGpio	toneGpio;
 void	(*timerCallbackFunc)();
-int 	timerSetup(void (*timerCallback));
+void	(*kbdCallbackFunc)(u8 data);
+int 	gpioSetup(void (*timerCallback), void (*kbdCallback));
 
 #endif /* SRC_PERIPHERAL_H_ */

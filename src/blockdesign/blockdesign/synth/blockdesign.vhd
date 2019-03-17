@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
---Date        : Sat Mar 16 21:57:50 2019
+--Date        : Sun Mar 17 03:09:25 2019
 --Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target blockdesign.bd
 --Design      : blockdesign
@@ -2065,6 +2065,8 @@ use UNISIM.VCOMPONENTS.ALL;
 entity blockdesign is
   port (
     PIN_MONO : out STD_LOGIC;
+    PS2Clk : in STD_LOGIC;
+    PS2Data : in STD_LOGIC;
     SW_MUTE : in STD_LOGIC;
     reset : in STD_LOGIC;
     sys_clock : in STD_LOGIC;
@@ -2072,7 +2074,7 @@ entity blockdesign is
     usb_uart_txd : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of blockdesign : entity is "blockdesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=blockdesign,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=3,da_clkrst_cnt=1,da_mb_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of blockdesign : entity is "blockdesign,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=blockdesign,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=28,numReposBlks=20,numNonXlnxBlks=0,numHierBlks=8,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=3,da_clkrst_cnt=2,da_mb_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of blockdesign : entity is "blockdesign.hwdef";
 end blockdesign;
@@ -2254,7 +2256,8 @@ architecture STRUCTURE of blockdesign is
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     ip2intc_irpt : out STD_LOGIC;
-    gpio_io_i : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    gpio_io_i : in STD_LOGIC_VECTOR ( 0 to 0 );
+    gpio2_io_i : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component blockdesign_axi_gpio_0_0;
   component blockdesign_axi_timer_0_1 is
@@ -2336,6 +2339,17 @@ architecture STRUCTURE of blockdesign is
     pin_mono : out STD_LOGIC
   );
   end component blockdesign_toneplayer_0_0;
+  component blockdesign_keyboardHandler_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    PS2Clk : in STD_LOGIC;
+    PS2Data : in STD_LOGIC;
+    keyPressed : out STD_LOGIC;
+    keyData : out STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  end component blockdesign_keyboardHandler_0_0;
+  signal PS2Clk_1 : STD_LOGIC;
+  signal PS2Data_1 : STD_LOGIC;
   signal SW_MUTE_1 : STD_LOGIC;
   signal axi_gpio_0_ip2intc_irpt : STD_LOGIC;
   signal axi_gpio_1_gpio2_io_o : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2345,6 +2359,8 @@ architecture STRUCTURE of blockdesign is
   signal axi_uartlite_0_UART_TxD : STD_LOGIC;
   signal blk_mem_gen_0_douta : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal clk_wiz_0_locked : STD_LOGIC;
+  signal keyboardHandler_0_keyData : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal keyboardHandler_0_keyPressed : STD_LOGIC;
   signal mdm_1_debug_sys_rst : STD_LOGIC;
   signal microblaze_0_Clk : STD_LOGIC;
   signal microblaze_0_axi_dp_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -2505,6 +2521,10 @@ architecture STRUCTURE of blockdesign is
   attribute X_INTERFACE_INFO of PIN_MONO : signal is "xilinx.com:signal:data:1.0 DATA.PIN_MONO DATA";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of PIN_MONO : signal is "XIL_INTERFACENAME DATA.PIN_MONO, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of PS2Clk : signal is "xilinx.com:signal:data:1.0 DATA.PS2CLK DATA";
+  attribute X_INTERFACE_PARAMETER of PS2Clk : signal is "XIL_INTERFACENAME DATA.PS2CLK, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of PS2Data : signal is "xilinx.com:signal:data:1.0 DATA.PS2DATA DATA";
+  attribute X_INTERFACE_PARAMETER of PS2Data : signal is "XIL_INTERFACENAME DATA.PS2DATA, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of SW_MUTE : signal is "xilinx.com:signal:data:1.0 DATA.SW_MUTE DATA";
   attribute X_INTERFACE_PARAMETER of SW_MUTE : signal is "XIL_INTERFACENAME DATA.SW_MUTE, LAYERED_METADATA undef, PortType data, PortType.PROP_SRC false";
   attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
@@ -2515,6 +2535,8 @@ architecture STRUCTURE of blockdesign is
   attribute X_INTERFACE_INFO of usb_uart_txd : signal is "xilinx.com:interface:uart:1.0 usb_uart TxD";
 begin
   PIN_MONO <= toneplayer_0_pin_mono;
+  PS2Clk_1 <= PS2Clk;
+  PS2Data_1 <= PS2Data;
   SW_MUTE_1 <= SW_MUTE;
   axi_uartlite_0_UART_RxD <= usb_uart_rxd;
   reset_1 <= reset;
@@ -2522,7 +2544,8 @@ begin
   usb_uart_txd <= axi_uartlite_0_UART_TxD;
 axi_gpio_0: component blockdesign_axi_gpio_0_0
      port map (
-      gpio_io_i(15 downto 0) => B"0000000000000000",
+      gpio2_io_i(3 downto 0) => keyboardHandler_0_keyData(3 downto 0),
+      gpio_io_i(0) => keyboardHandler_0_keyPressed,
       ip2intc_irpt => axi_gpio_0_ip2intc_irpt,
       s_axi_aclk => microblaze_0_Clk,
       s_axi_araddr(8 downto 0) => microblaze_0_axi_periph_M02_AXI_ARADDR(8 downto 0),
@@ -2634,6 +2657,14 @@ clk_wiz_0: component blockdesign_clk_wiz_0_0
       clk_out1 => microblaze_0_Clk,
       locked => clk_wiz_0_locked,
       reset => reset_1
+    );
+keyboardHandler_0: component blockdesign_keyboardHandler_0_0
+     port map (
+      PS2Clk => PS2Clk_1,
+      PS2Data => PS2Data_1,
+      clk => microblaze_0_Clk,
+      keyData(3 downto 0) => keyboardHandler_0_keyData(3 downto 0),
+      keyPressed => keyboardHandler_0_keyPressed
     );
 mdm_1: component blockdesign_mdm_1_0
      port map (

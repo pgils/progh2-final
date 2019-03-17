@@ -4,18 +4,11 @@
 #include <math.h>
 #include <stdint.h>
 
-#define REQ_FREQ 300
-#define FREQ 8000
-#define AMPLITUDE 0x7F
-
-XGpio gpio;
-double angle;
-
-char direction;
+//XGpio gpio;
 
 void timerCallback()
 {
-//	xil_printf("timer tick!");
+	xil_printf("timer tick!\r\n");
 //	unsigned char sample = (AMPLITUDE * sin(angle))+AMPLITUDE;
 //	xil_printf("%u\r\n", sample);
 //	XGpio_DiscreteWrite(&gpio, 1, sample);
@@ -24,19 +17,21 @@ void timerCallback()
 //	angle += (2 * M_PI * REQ_FREQ) / FREQ;
 }
 
+void keyboardCallback(uint8_t data)
+{
+	xil_printf("keyboard pressed: %d\r\n", data);
+}
+
 int main(void)
 {
-	timerSetup(&timerCallback);
+	xil_printf("starting MusicNoteTrainer\r\n");
 
-	XGpio_Initialize(&gpio, 1);
-	XGpio_SetDataDirection(&gpio, 1, 0x00000000);
-	XGpio_SetDataDirection(&gpio, 2, 0x00000000);
-	XGpio_DiscreteWrite(&gpio, 1, 0x7);
-	XGpio_DiscreteWrite(&gpio, 2, 0x1);
+	/* Initialize GPIO & set up interrupts */
+	if (XST_SUCCESS != gpioSetup(&timerCallback, &keyboardCallback))
+		xil_printf("gpioSetup failed.\r\n");
 
-	angle = 0.0;
-
-	direction = 1;
+//	XGpio_DiscreteWrite(&gpio, 1, 0x7);
+//	XGpio_DiscreteWrite(&gpio, 2, 0x1);
 
 	for(;;);
 }
