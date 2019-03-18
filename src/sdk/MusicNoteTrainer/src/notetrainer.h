@@ -16,7 +16,6 @@ enum GameState {
 	FEEDBACKROUND
 } gameState;
 
-//const u8 notes[8] = { 'F', 'G', 'A', 'B', 'C', 'D', 'E', 'F' };
 const u8 notes[8] = { 'F', 'E', 'D', 'C', 'B', 'A', 'G', 'F' };
 u8 currentNote;
 u8 currentNoteLength;

@@ -66,7 +66,7 @@ end getEndAddress;
 
 -- when to increment the sample index
 -- (sysclk/sample rate)
-constant    SAMP_CTR_TOP    : integer   := (25*10**6)/sampleRate;
+constant    SAMP_CTR_TOP    : integer   := ((25*10**6)/sampleRate)-1;
 
 -- counter signals used for creating intevals
 signal      pwmCounter      : integer   := 0;

@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sat Mar 16 21:53:41 2019
+-- Date        : Mon Mar 18 22:32:42 2019
 -- Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_toneplayer_0_0/blockdesign_toneplayer_0_0_sim_netlist.vhdl
@@ -235,7 +235,6 @@ architecture STRUCTURE of blockdesign_toneplayer_0_0_toneplayer is
   signal sampRateCounter1_carry_i_4_n_0 : STD_LOGIC;
   signal sampRateCounter1_carry_i_5_n_0 : STD_LOGIC;
   signal sampRateCounter1_carry_i_6_n_0 : STD_LOGIC;
-  signal sampRateCounter1_carry_i_7_n_0 : STD_LOGIC;
   signal sampRateCounter1_carry_n_0 : STD_LOGIC;
   signal sampRateCounter1_carry_n_1 : STD_LOGIC;
   signal sampRateCounter1_carry_n_2 : STD_LOGIC;
@@ -1835,12 +1834,12 @@ sampRateCounter1_carry: unisim.vcomponents.CARRY4
       DI(3) => sampRateCounter1_carry_i_1_n_0,
       DI(2) => '0',
       DI(1) => sampRateCounter1_carry_i_2_n_0,
-      DI(0) => sampRateCounter1_carry_i_3_n_0,
+      DI(0) => sampRateCounter_reg(1),
       O(3 downto 0) => NLW_sampRateCounter1_carry_O_UNCONNECTED(3 downto 0),
-      S(3) => sampRateCounter1_carry_i_4_n_0,
-      S(2) => sampRateCounter1_carry_i_5_n_0,
-      S(1) => sampRateCounter1_carry_i_6_n_0,
-      S(0) => sampRateCounter1_carry_i_7_n_0
+      S(3) => sampRateCounter1_carry_i_3_n_0,
+      S(2) => sampRateCounter1_carry_i_4_n_0,
+      S(1) => sampRateCounter1_carry_i_5_n_0,
+      S(0) => sampRateCounter1_carry_i_6_n_0
     );
 \sampRateCounter1_carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -2132,48 +2131,39 @@ sampRateCounter1_carry_i_2: unisim.vcomponents.LUT2
     );
 sampRateCounter1_carry_i_3: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => sampRateCounter_reg(0),
-      I1 => sampRateCounter_reg(1),
-      O => sampRateCounter1_carry_i_3_n_0
-    );
-sampRateCounter1_carry_i_4: unisim.vcomponents.LUT2
-    generic map(
       INIT => X"1"
     )
         port map (
       I0 => sampRateCounter_reg(6),
       I1 => sampRateCounter_reg(7),
-      O => sampRateCounter1_carry_i_4_n_0
+      O => sampRateCounter1_carry_i_3_n_0
     );
-sampRateCounter1_carry_i_5: unisim.vcomponents.LUT2
+sampRateCounter1_carry_i_4: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
       I0 => sampRateCounter_reg(4),
       I1 => sampRateCounter_reg(5),
-      O => sampRateCounter1_carry_i_5_n_0
+      O => sampRateCounter1_carry_i_4_n_0
     );
-sampRateCounter1_carry_i_6: unisim.vcomponents.LUT2
+sampRateCounter1_carry_i_5: unisim.vcomponents.LUT2
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => sampRateCounter_reg(2),
       I1 => sampRateCounter_reg(3),
-      O => sampRateCounter1_carry_i_6_n_0
+      O => sampRateCounter1_carry_i_5_n_0
     );
-sampRateCounter1_carry_i_7: unisim.vcomponents.LUT2
+sampRateCounter1_carry_i_6: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
     )
         port map (
-      I0 => sampRateCounter_reg(1),
-      I1 => sampRateCounter_reg(0),
-      O => sampRateCounter1_carry_i_7_n_0
+      I0 => sampRateCounter_reg(0),
+      I1 => sampRateCounter_reg(1),
+      O => sampRateCounter1_carry_i_6_n_0
     );
 \sampRateCounter[0]_i_1\: unisim.vcomponents.LUT3
     generic map(

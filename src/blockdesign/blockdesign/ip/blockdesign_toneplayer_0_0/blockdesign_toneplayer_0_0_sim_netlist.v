@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sat Mar 16 21:53:41 2019
+// Date        : Mon Mar 18 22:32:41 2019
 // Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_toneplayer_0_0/blockdesign_toneplayer_0_0_sim_netlist.v
@@ -269,7 +269,6 @@ module blockdesign_toneplayer_0_0_toneplayer
   wire sampRateCounter1_carry_i_4_n_0;
   wire sampRateCounter1_carry_i_5_n_0;
   wire sampRateCounter1_carry_i_6_n_0;
-  wire sampRateCounter1_carry_i_7_n_0;
   wire sampRateCounter1_carry_n_0;
   wire sampRateCounter1_carry_n_1;
   wire sampRateCounter1_carry_n_2;
@@ -1385,9 +1384,9 @@ module blockdesign_toneplayer_0_0_toneplayer
        (.CI(1'b0),
         .CO({sampRateCounter1_carry_n_0,sampRateCounter1_carry_n_1,sampRateCounter1_carry_n_2,sampRateCounter1_carry_n_3}),
         .CYINIT(1'b1),
-        .DI({sampRateCounter1_carry_i_1_n_0,1'b0,sampRateCounter1_carry_i_2_n_0,sampRateCounter1_carry_i_3_n_0}),
+        .DI({sampRateCounter1_carry_i_1_n_0,1'b0,sampRateCounter1_carry_i_2_n_0,sampRateCounter_reg[1]}),
         .O(NLW_sampRateCounter1_carry_O_UNCONNECTED[3:0]),
-        .S({sampRateCounter1_carry_i_4_n_0,sampRateCounter1_carry_i_5_n_0,sampRateCounter1_carry_i_6_n_0,sampRateCounter1_carry_i_7_n_0}));
+        .S({sampRateCounter1_carry_i_3_n_0,sampRateCounter1_carry_i_4_n_0,sampRateCounter1_carry_i_5_n_0,sampRateCounter1_carry_i_6_n_0}));
   CARRY4 sampRateCounter1_carry__0
        (.CI(sampRateCounter1_carry_n_0),
         .CO({sampRateCounter1_carry__0_n_0,sampRateCounter1_carry__0_n_1,sampRateCounter1_carry__0_n_2,sampRateCounter1_carry__0_n_3}),
@@ -1566,35 +1565,29 @@ module blockdesign_toneplayer_0_0_toneplayer
         .I1(sampRateCounter_reg[3]),
         .O(sampRateCounter1_carry_i_2_n_0));
   LUT2 #(
-    .INIT(4'h8)) 
-    sampRateCounter1_carry_i_3
-       (.I0(sampRateCounter_reg[0]),
-        .I1(sampRateCounter_reg[1]),
-        .O(sampRateCounter1_carry_i_3_n_0));
-  LUT2 #(
     .INIT(4'h1)) 
-    sampRateCounter1_carry_i_4
+    sampRateCounter1_carry_i_3
        (.I0(sampRateCounter_reg[6]),
         .I1(sampRateCounter_reg[7]),
-        .O(sampRateCounter1_carry_i_4_n_0));
+        .O(sampRateCounter1_carry_i_3_n_0));
   LUT2 #(
     .INIT(4'h8)) 
-    sampRateCounter1_carry_i_5
+    sampRateCounter1_carry_i_4
        (.I0(sampRateCounter_reg[4]),
         .I1(sampRateCounter_reg[5]),
-        .O(sampRateCounter1_carry_i_5_n_0));
+        .O(sampRateCounter1_carry_i_4_n_0));
   LUT2 #(
     .INIT(4'h1)) 
-    sampRateCounter1_carry_i_6
+    sampRateCounter1_carry_i_5
        (.I0(sampRateCounter_reg[2]),
         .I1(sampRateCounter_reg[3]),
-        .O(sampRateCounter1_carry_i_6_n_0));
+        .O(sampRateCounter1_carry_i_5_n_0));
   LUT2 #(
     .INIT(4'h2)) 
-    sampRateCounter1_carry_i_7
-       (.I0(sampRateCounter_reg[1]),
-        .I1(sampRateCounter_reg[0]),
-        .O(sampRateCounter1_carry_i_7_n_0));
+    sampRateCounter1_carry_i_6
+       (.I0(sampRateCounter_reg[0]),
+        .I1(sampRateCounter_reg[1]),
+        .O(sampRateCounter1_carry_i_6_n_0));
   LUT3 #(
     .INIT(8'h80)) 
     \sampRateCounter[0]_i_1 
