@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;noteTrainer/src/meen.c&apos; to &apos;Peripheral.c&apos;" description="Rename resource &apos;meen.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/meen.c" name="Peripheral.c" stamp="1552580477877" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;noteTrainer/src/Peripheral.c&apos; to &apos;peripheral.c&apos;" description="Rename resource &apos;Peripheral.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Peripheral.c" name="peripheral.c" stamp="1552603875160" updateReferences="true"/>
-</session>
