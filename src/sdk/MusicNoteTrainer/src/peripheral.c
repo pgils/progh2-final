@@ -142,8 +142,8 @@ int gpioSetup(void (*timerCallback), void (*kbdCallback))
 		return XST_FAILURE;
 	}
 
-	XGpio_SetDataDirection(&kbdGpio, 1, 0x1);  // key pressed
-	XGpio_SetDataDirection(&kbdGpio, 2, 0xF);  // key data
+	XGpio_SetDataDirection(&kbdGpio, 1, 0x1);   // key pressed
+	XGpio_SetDataDirection(&kbdGpio, 2, 0xFF);  // key data
 
 	Status = XGpio_Initialize(&spriteGpio, SPRITEGPIO_DEVICE_ID);
 	if (Status != XST_SUCCESS) {

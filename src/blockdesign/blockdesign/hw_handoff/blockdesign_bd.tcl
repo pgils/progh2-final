@@ -280,7 +280,7 @@ proc create_root_design { parentCell } {
   set_property -dict [ list \
    CONFIG.C_ALL_INPUTS_2 {1} \
    CONFIG.C_ALL_OUTPUTS_2 {0} \
-   CONFIG.C_GPIO2_WIDTH {4} \
+   CONFIG.C_GPIO2_WIDTH {8} \
    CONFIG.C_GPIO_WIDTH {1} \
    CONFIG.C_INTERRUPT_PRESENT {1} \
    CONFIG.C_IS_DUAL {1} \
@@ -302,7 +302,7 @@ proc create_root_design { parentCell } {
   set axi_gpio_2_noteOut [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2_noteOut ]
   set_property -dict [ list \
    CONFIG.C_ALL_OUTPUTS {1} \
-   CONFIG.C_GPIO_WIDTH {6} \
+   CONFIG.C_GPIO_WIDTH {7} \
  ] $axi_gpio_2_noteOut
 
   # Create instance: axi_timer_0, and set properties

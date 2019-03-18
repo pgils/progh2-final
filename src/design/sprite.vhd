@@ -25,7 +25,7 @@ entity sprite is
         vcount_in       : in  std_logic_vector(9 downto 0);
         bgRomAddr       : out std_logic_vector(18 downto 0);
         bgRomData       : in  std_logic;
-        noteData        : in  std_logic_vector(5 downto 0);
+        noteData        : in  std_logic_vector(6 downto 0);
         sprRomAddr      : out std_logic_vector(12 downto 0);
         sprRomData      : in  std_logic_vector(3 downto 0)
         );
@@ -51,14 +51,22 @@ architecture Behavioral of sprite is
     -- location map for the note sprite
     type T_noteloc_lut is array (7 downto 0) of integer;
     constant    noteSpriteLoc   : T_noteloc_lut := (
-        (V_MIN+061), -- 7
-        (V_MIN+094),
-        (V_MIN+130),
-        (V_MIN+163),
-        (V_MIN+199),
-        (V_MIN+233),
+--        (V_MIN+061), -- 7
+--        (V_MIN+094),
+--        (V_MIN+130),
+--        (V_MIN+163),
+--        (V_MIN+199),
+--        (V_MIN+233),
+--        (V_MIN+269),
+--        (V_MIN+302)  -- 0
+        (V_MIN+302), -- 7
         (V_MIN+269),
-        (V_MIN+302)  -- 0
+        (V_MIN+233),
+        (V_MIN+199),
+        (V_MIN+163),
+        (V_MIN+130),
+        (V_MIN+094),
+        (V_MIN+061)  -- 0
     );
     
     signal hcount       : natural   := 0;
@@ -104,32 +112,35 @@ begin
             rgb_out     <= "000"; -- black
         end if;
         
-        -- draw note sprite
-        noteColor       <= '0' & noteData(4 downto 3);
-        if ((hcount >= NOTEPOS_X) and (hcount < NOTEPOS_X+NOTESPR_W)) and
-            (vcount >= noteposY) and (vcount < noteposY+NOTESPR_H) then
-            if ("000" = sprRomData(2 downto 0)) or                              -- black
-               ("001" = sprRomData(2 downto 0) and ('1' = noteData(5))) then    -- red -> fullnote
+        -- if note enabled
+        if ('1' = noteData(6)) then
+            -- draw note sprite
+            noteColor       <= '0' & noteData(4 downto 3);
+            if ((hcount >= NOTEPOS_X) and (hcount < NOTEPOS_X+NOTESPR_W)) and
+                (vcount >= noteposY) and (vcount < noteposY+NOTESPR_H) then
+                if ("000" = sprRomData(2 downto 0)) or                              -- black
+                   ("001" = sprRomData(2 downto 0) and ('1' = noteData(5))) then    -- red -> fullnote
+                    rgb_out     <= noteColor;
+                end if;
+            end if;
+            
+            -- draw note 'flag'
+            -- flag down
+            if ((hcount     >= NOTEPOS_X+NOTESPR_W-NOTEFLAG_W) and 
+                (hcount     < NOTEPOS_X+NOTESPR_W) and
+                (vcount     >= noteposY-NOTEFLAG_L) and
+                (vcount     < noteposY+(NOTESPR_H/2)) and
+                (noteposY   > V_MIN+NOTEFLAG_L))
+                or
+            -- flag up
+               ((hcount     >= NOTEPOS_X) and
+                (hcount     < NOTEPOS_X+NOTEFLAG_W) and
+                (vcount     >= noteposY+(NOTESPR_H/2)) and
+                (vcount     < noteposY+NOTEFLAG_L+NOTESPR_H) and
+                (noteposY   < V_MIN+NOTEFLAG_L)) then
                 rgb_out     <= noteColor;
             end if;
-        end if;
-        
-        -- draw note 'flag'
-        -- flag down
-        if ((hcount     >= NOTEPOS_X+NOTESPR_W-NOTEFLAG_W) and 
-            (hcount     < NOTEPOS_X+NOTESPR_W) and
-            (vcount     >= noteposY-NOTEFLAG_L) and
-            (vcount     < noteposY+(NOTESPR_H/2)) and
-            (noteposY   > V_MIN+NOTEFLAG_L))
-            or
-        -- flag up
-           ((hcount     >= NOTEPOS_X) and
-            (hcount     < NOTEPOS_X+NOTEFLAG_W) and
-            (vcount     >= noteposY+(NOTESPR_H/2)) and
-            (vcount     < noteposY+NOTEFLAG_L+NOTESPR_H) and
-            (noteposY   < V_MIN+NOTEFLAG_L)) then
-            rgb_out     <= noteColor;
-        end if;
+        end if; -- noteData(6), note enabled
         
         -- position the note sprite on the ladder
         noteposY <= noteSpriteLoc(to_integer(unsigned(noteData(2 downto 0))));

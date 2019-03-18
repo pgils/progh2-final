@@ -46,52 +46,64 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:keyboardHandler:1.0
+-- IP VLNV: xilinx.com:module_ref:sprite:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY blockdesign_keyboardHandler_0_0 IS
+ENTITY blockdesign_sprite_0_0 IS
   PORT (
     clk : IN STD_LOGIC;
-    PS2Clk : IN STD_LOGIC;
-    PS2Data : IN STD_LOGIC;
-    keyPressed : OUT STD_LOGIC;
-    keyData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    rgb_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    hcount_in : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    vcount_in : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    bgRomAddr : OUT STD_LOGIC_VECTOR(18 DOWNTO 0);
+    bgRomData : IN STD_LOGIC;
+    noteData : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+    sprRomAddr : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+    sprRomData : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
   );
-END blockdesign_keyboardHandler_0_0;
+END blockdesign_sprite_0_0;
 
-ARCHITECTURE blockdesign_keyboardHandler_0_0_arch OF blockdesign_keyboardHandler_0_0 IS
+ARCHITECTURE blockdesign_sprite_0_0_arch OF blockdesign_sprite_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF blockdesign_keyboardHandler_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT keyboardHandler IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF blockdesign_sprite_0_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT sprite IS
     PORT (
       clk : IN STD_LOGIC;
-      PS2Clk : IN STD_LOGIC;
-      PS2Data : IN STD_LOGIC;
-      keyPressed : OUT STD_LOGIC;
-      keyData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+      rgb_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      hcount_in : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+      vcount_in : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+      bgRomAddr : OUT STD_LOGIC_VECTOR(18 DOWNTO 0);
+      bgRomData : IN STD_LOGIC;
+      noteData : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+      sprRomAddr : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+      sprRomData : IN STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
-  END COMPONENT keyboardHandler;
+  END COMPONENT sprite;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF blockdesign_keyboardHandler_0_0_arch: ARCHITECTURE IS "keyboardHandler,Vivado 2017.4";
+  ATTRIBUTE X_CORE_INFO OF blockdesign_sprite_0_0_arch: ARCHITECTURE IS "sprite,Vivado 2017.4";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF blockdesign_keyboardHandler_0_0_arch : ARCHITECTURE IS "blockdesign_keyboardHandler_0_0,keyboardHandler,{}";
+  ATTRIBUTE CHECK_LICENSE_TYPE OF blockdesign_sprite_0_0_arch : ARCHITECTURE IS "blockdesign_sprite_0_0,sprite,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF blockdesign_keyboardHandler_0_0_arch: ARCHITECTURE IS "blockdesign_keyboardHandler_0_0,keyboardHandler,{x_ipProduct=Vivado 2017.4,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=keyboardHandler,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF blockdesign_sprite_0_0_arch: ARCHITECTURE IS "blockdesign_sprite_0_0,sprite,{x_ipProduct=Vivado 2017.4,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=sprite,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
-  U0 : keyboardHandler
+  U0 : sprite
     PORT MAP (
       clk => clk,
-      PS2Clk => PS2Clk,
-      PS2Data => PS2Data,
-      keyPressed => keyPressed,
-      keyData => keyData
+      rgb_out => rgb_out,
+      hcount_in => hcount_in,
+      vcount_in => vcount_in,
+      bgRomAddr => bgRomAddr,
+      bgRomData => bgRomData,
+      noteData => noteData,
+      sprRomAddr => sprRomAddr,
+      sprRomData => sprRomData
     );
-END blockdesign_keyboardHandler_0_0_arch;
+END blockdesign_sprite_0_0_arch;

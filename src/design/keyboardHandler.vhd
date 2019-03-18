@@ -11,7 +11,7 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
---   needs VHDL2008
+--   needs VHDL2008 for parity check
 ----------------------------------------------------------------------------------
 
 
@@ -25,7 +25,7 @@ entity keyboardHandler is
         PS2Clk      : in  std_logic;
         PS2Data     : in  std_logic;
         keyPressed  : out std_logic;
-        keyData     : out std_logic_vector(3 downto 0)
+        keyData     : out std_logic_vector(7 downto 0)
         );
 end keyboardHandler;
 
@@ -45,9 +45,9 @@ signal  wordIndex   : integer := 0;
 signal  dropNextKey : boolean := false;
 
 -- bcd that signals a key-up event
-constant    KEY_UP  : std_logic_vector(3 downto 0)  := X"B";
+constant    KEY_UP  : std_logic_vector(7 downto 0)  := X"BB";
 -- bcd: ERROR: integrity check failed
-constant    BCD_ERR : std_logic_vector(3 downto 0)  := X"E";
+constant    BCD_ERR : std_logic_vector(7 downto 0)  := X"EE";
 
 
 -- Trancode an 8-bit scancode to a corresponding index value.
@@ -56,16 +56,17 @@ function scancodeToNote(scancode: in std_logic_vector(7 downto 0))
     return std_logic_vector is
 begin
    case scancode is
-     when X"1C"     => return X"0"; -- a
-     when X"32"     => return X"1"; -- b
-     when X"21"     => return X"2"; -- c
-     when X"23"     => return X"3"; -- d
-     when X"24"     => return X"4"; -- e
-     when X"2B"     => return X"5"; -- f
-     when X"34"     => return X"6"; -- g
-     when X"AA"     => return X"A";
-     when X"F0"     => return X"B";
-     when others    => return X"F";
+     when X"1C"     => return X"41"; -- A
+     when X"32"     => return X"42"; -- B
+     when X"21"     => return X"43"; -- C
+     when X"23"     => return X"44"; -- D
+     when X"24"     => return X"45"; -- E
+     when X"2B"     => return X"46"; -- F
+     when X"34"     => return X"47"; -- G
+     when X"5A"     => return X"0D"; -- Return
+     when X"AA"     => return X"AA"; -- PS/2 ACK
+     when X"F0"     => return KEY_UP;
+     when others    => return X"FF";
    end case;
 end scanCodeToNote;
 
@@ -88,7 +89,7 @@ begin
 
 READ : process(clk)
 
-variable newBCD         : std_logic_vector(3 downto 0);
+variable newBCD         : std_logic_vector(7 downto 0);
 variable dropKey        : boolean;
 
 begin

@@ -59,7 +59,7 @@ ENTITY blockdesign_keyboardHandler_0_0 IS
     PS2Clk : IN STD_LOGIC;
     PS2Data : IN STD_LOGIC;
     keyPressed : OUT STD_LOGIC;
-    keyData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    keyData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
 END blockdesign_keyboardHandler_0_0;
 
@@ -72,7 +72,7 @@ ARCHITECTURE blockdesign_keyboardHandler_0_0_arch OF blockdesign_keyboardHandler
       PS2Clk : IN STD_LOGIC;
       PS2Data : IN STD_LOGIC;
       keyPressed : OUT STD_LOGIC;
-      keyData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+      keyData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
   END COMPONENT keyboardHandler;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
