@@ -323,7 +323,7 @@ proc create_root_design { parentCell } {
   set blk_mem_gen_0_tones [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0_tones ]
   set_property -dict [ list \
    CONFIG.Byte_Size {9} \
-   CONFIG.Coe_File {../../../../../tones.coe} \
+   CONFIG.Coe_File {../../../../../coegen/tones.coe} \
    CONFIG.EN_SAFETY_CKT {false} \
    CONFIG.Enable_32bit_Address {false} \
    CONFIG.Enable_A {Always_Enabled} \

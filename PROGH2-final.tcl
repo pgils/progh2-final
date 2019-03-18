@@ -116,9 +116,8 @@ set files [list \
  "[file normalize "$origin_dir/src/design/vga.vhd"]"\
  "[file normalize "$origin_dir/src/blockdesign/blockdesign/blockdesign.bd"]"\
  "[file normalize "$origin_dir/src/blockdesign/blockdesign/hdl/blockdesign_wrapper.vhd"]"\
- "[file normalize "$origin_dir/tones.coe"]"\
- "[file normalize "$origin_dir/coegen/Notenbalk_640.coe"]"\
  "[file normalize "$origin_dir/coegen/muzieknoot.coe"]"\
+ "[file normalize "$origin_dir/coegen/tones.coe"]"\
 ]
 add_files -norecurse -fileset $obj $files
 
