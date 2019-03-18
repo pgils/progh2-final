@@ -72,8 +72,8 @@
  * making this number larger reduces the amount of time this example consumes
  * because it is the value the timer counter is loaded with when it is started
  */
-// 32 bit max value minus 1 second
-#define RESET_VALUE	(0xFFFFFFFF - (XPAR_AXI_TIMER_0_CLOCK_FREQ_HZ))
+// 32 bit max value minus 1 ms
+#define RESET_VALUE	(0xFFFFFFFF - (XPAR_AXI_TIMER_0_CLOCK_FREQ_HZ/1000))
 
 
 /************************** Variable Definitions *****************************/
@@ -84,7 +84,8 @@ XTmrCtr TimerCounterInst;   /* The instance of the Timer Counter */
  * The following variables are shared between non-interrupt processing and
  * interrupt processing such that they must be global.
  */
-volatile int TimerExpired;
+volatile int 	TimerExpired;
+u16				TimerTimeout;
 
 
 /*****************************************************************************/
@@ -106,6 +107,9 @@ int gpioSetup(void (*timerCallback), void (*kbdCallback))
 
 	timerCallbackFunc 	= timerCallback;
 	kbdCallbackFunc		= kbdCallback;
+
+	TimerExpired		= 0;
+	TimerTimeout		= 0;
 
 	/*
 	 * Initialize the timer counter so that it's ready to use,
@@ -232,6 +236,7 @@ int gpioSetup(void (*timerCallback), void (*kbdCallback))
 	XTmrCtr_SetOptions(&TimerCounterInst, TIMER_CNTR_0,
 				XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
 
+
 	/*
 	 * Set a reset value for the timer counter such that it will expire
 	 * eariler than letting it roll over from 0, the reset value is loaded
@@ -239,14 +244,22 @@ int gpioSetup(void (*timerCallback), void (*kbdCallback))
 	 */
 	XTmrCtr_SetResetValue(&TimerCounterInst, TIMER_CNTR_0, RESET_VALUE);
 
-	/*
-	 * Start the timer counter such that it's incrementing by default,
-	 * then wait for it to timeout a number of times
-	 */
-	XTmrCtr_Start(&TimerCounterInst, TIMER_CNTR_0);
-
 	return Status;
 
+}
+
+/*
+ * Start the timer
+ * @param	timeout is the timer interval in ms.
+ */
+int startTimer(u16 timeout)
+{
+	TimerExpired = 0;
+	TimerTimeout = timeout;
+
+	XTmrCtr_Start(&TimerCounterInst, TIMER_CNTR_0);
+
+	return 0;
 }
 
 /*****************************************************************************/
@@ -270,7 +283,11 @@ int gpioSetup(void (*timerCallback), void (*kbdCallback))
 ******************************************************************************/
 void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber)
 {
-	(*timerCallbackFunc)();
+	if (TimerTimeout < ++TimerExpired)
+	{
+		XTmrCtr_Stop((XTmrCtr*)CallBackRef, TmrCtrNumber);
+		(*timerCallbackFunc)();
+	}
 }
 
 void KbdInterruptHandler(void *CallbackRef)

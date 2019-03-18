@@ -24,5 +24,6 @@ XGpio	spriteGpio;
 void	(*timerCallbackFunc)();
 void	(*kbdCallbackFunc)(u8 data);
 int 	gpioSetup(void (*timerCallback), void (*kbdCallback));
+int		startTimer(u16 timeout);
 
 #endif /* SRC_PERIPHERAL_H_ */

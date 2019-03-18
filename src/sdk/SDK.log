@@ -5773,3 +5773,64 @@ con
 
 00:34:00 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
 00:34:02 WARN  : Processor 'microblaze_0' is not supported for performance analysis as extended debug is not enabled.
+00:55:45 INFO  : Disconnected from the channel tcfchan#4.
+00:56:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:56:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+00:56:16 INFO  : FPGA configured successfully with bitstream "/media/sf_shared/PROGH2-final/src/sdk/blockdesign_wrapper_hw_platform_1/download.bit"
+00:56:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+00:56:21 INFO  : 'fpga -state' command is executed.
+00:56:21 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:56:21 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+00:56:21 INFO  : 'jtag frequency' command is executed.
+00:56:21 INFO  : Context for processor 'microblaze_0' is selected.
+00:56:21 INFO  : Processor reset is completed for 'microblaze_0'.
+00:56:21 INFO  : Context for processor 'microblaze_0' is selected.
+00:56:22 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+00:56:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+00:56:22 INFO  : Memory regions updated for context MicroBlaze #0
+00:56:22 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+00:56:22 INFO  : Context for processor 'microblaze_0' is selected.
+00:56:22 INFO  : 'con' command is executed.
+00:56:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+00:56:22 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+00:56:24 WARN  : Processor 'microblaze_0' is not supported for performance analysis as extended debug is not enabled.
+01:02:06 INFO  : Disconnected from the channel tcfchan#5.
+01:02:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183A3875CA" && level==0} -index 0' command is executed.
+01:02:08 INFO  : 'fpga -state' command is executed.
+01:02:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:02:08 INFO  : Jtag cable 'Digilent Basys3 210183A3875CA' is selected.
+01:02:08 INFO  : 'jtag frequency' command is executed.
+01:02:08 INFO  : Context for processor 'microblaze_0' is selected.
+01:02:08 INFO  : Processor reset is completed for 'microblaze_0'.
+01:02:08 INFO  : Context for processor 'microblaze_0' is selected.
+01:02:09 INFO  : The application '/media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf' is downloaded to processor 'microblaze_0'.
+01:02:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+dow /media/sf_shared/PROGH2-final/src/sdk/MusicNoteTrainer/Debug/MusicNoteTrainer.elf
+----------------End of Script----------------
+
+01:02:09 INFO  : Memory regions updated for context MicroBlaze #0
+01:02:09 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+01:02:09 INFO  : Context for processor 'microblaze_0' is selected.
+01:02:09 INFO  : 'con' command is executed.
+01:02:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183A3875CA"} -index 0
+con
+----------------End of Script----------------
+
+01:02:09 INFO  : Launch script is exported to file '/media/sf_shared/PROGH2-final/src/sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_musicnotetrainer.elf_on_local.tcl'
+01:02:11 WARN  : Processor 'microblaze_0' is not supported for performance analysis as extended debug is not enabled.

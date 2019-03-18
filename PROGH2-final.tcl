@@ -209,6 +209,7 @@ if {[string equal [get_runs -quiet synth_1] ""]} {
   set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
 }
 set obj [get_runs synth_1]
+set_property -name "needs_refresh" -value "1" -objects $obj
 set_property -name "report_strategy" -value "Vivado Synthesis Default Reports" -objects $obj
 set_property -name "strategy" -value "Vivado Synthesis Defaults" -objects $obj
 
@@ -235,6 +236,7 @@ if {[string equal [get_runs -quiet impl_1] ""]} {
   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
 }
 set obj [get_runs impl_1]
+set_property -name "needs_refresh" -value "1" -objects $obj
 set_property -name "report_strategy" -value "Vivado Implementation Default Reports" -objects $obj
 set_property -name "strategy" -value "Vivado Implementation Defaults" -objects $obj
 set_property -name "steps.write_bitstream.args.readback_file" -value "0" -objects $obj

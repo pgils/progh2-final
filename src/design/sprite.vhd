@@ -116,18 +116,18 @@ begin
         
         -- draw note 'flag'
         -- flag down
-        if ((hcount >= NOTEPOS_X+NOTESPR_W-NOTEFLAG_W) and 
-            (hcount < NOTEPOS_X+NOTESPR_W) and
-            (vcount >= noteposY-NOTEFLAG_L) and
-            (vcount < noteposY+(NOTESPR_H/2)) and
-            (noteposY > V_MIN+NOTEFLAG_L))
+        if ((hcount     >= NOTEPOS_X+NOTESPR_W-NOTEFLAG_W) and 
+            (hcount     < NOTEPOS_X+NOTESPR_W) and
+            (vcount     >= noteposY-NOTEFLAG_L) and
+            (vcount     < noteposY+(NOTESPR_H/2)) and
+            (noteposY   > V_MIN+NOTEFLAG_L))
             or
         -- flag up
-            ((hcount >= NOTEPOS_X) and
-            (hcount < NOTEPOS_X+NOTEFLAG_W) and
-            (vcount >= noteposY+(NOTESPR_H/2)) and
-            (vcount < noteposY+NOTEFLAG_L+NOTESPR_H) and
-            (noteposY < V_MIN+NOTEFLAG_L)) then
+           ((hcount     >= NOTEPOS_X) and
+            (hcount     < NOTEPOS_X+NOTEFLAG_W) and
+            (vcount     >= noteposY+(NOTESPR_H/2)) and
+            (vcount     < noteposY+NOTEFLAG_L+NOTESPR_H) and
+            (noteposY   < V_MIN+NOTEFLAG_L)) then
             rgb_out     <= noteColor;
         end if;
         

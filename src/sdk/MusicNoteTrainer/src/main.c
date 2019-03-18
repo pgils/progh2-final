@@ -15,7 +15,7 @@ void timerCallback()
 		toneIndex = 0;
 	u8 mask = (((toneIndex+1)%2)<<5)|((toneIndex%3)<<3)|toneIndex;
 	XGpio_DiscreteWrite(&spriteGpio, 1, mask);
-
+	startTimer(2000);
 }
 
 void keyboardCallback(uint8_t data)
@@ -31,8 +31,10 @@ int main(void)
 	if (XST_SUCCESS != gpioSetup(&timerCallback, &keyboardCallback))
 		xil_printf("gpioSetup failed.\r\n");
 
-	toneIndex = 0x2;
+	toneIndex = 0x0;
 	XGpio_DiscreteWrite(&spriteGpio, 1, toneIndex);
+
+	startTimer(2000);
 
 	for(;;);
 }
