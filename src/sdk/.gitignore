@@ -5,6 +5,7 @@
 /**/*Debug/*
 /**/*Release
 /**/*webtalk
+/**/*/version.h
 /.sdk
 /*.log
 # ignore everything in the hw_platform
