@@ -1,6 +1,7 @@
 #include "notetrainer.h"
 #include "peripheral.h"
 #include "outfunctions.h"
+#include "version.h"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -23,7 +24,7 @@ void timerCallback()
 
 void keyboardCallback(uint8_t data)
 {
-	xil_printf("keyboard pressed: %d: %c\r\n", data, data);
+	xil_printf("keyboard pressed: %d:%c\r\n", data, data);
 	switch (gameState)
 	{
 	case INIT:
@@ -44,11 +45,15 @@ void keyboardCallback(uint8_t data)
 
 int newRound()
 {
+	u8 newNote;
+
 	// pick a random note and length (open/closed note)
-	currentNote			= rand() % (sizeof(notes)/sizeof(u8));
+	while ((newNote = rand() % (sizeof(notes)/sizeof(u8))) == currentNote);  // prevent same note twice in a row
+	currentNote			= newNote;
 	currentNoteLength	= rand() % 2;
-	xil_printf("Current note: %c\r\n", notes[currentNote]);
+	xil_printf("Current note: %d:%c\r\n", currentNote, notes[currentNote]);
 	setTone(currentNote);
+
 	// set note sprite data, random full of half length note.
 	setNoteData(currentNote, currentNoteLength, 0x0);
 	enableTone(1);
@@ -60,9 +65,7 @@ int newRound()
 
 int main(void)
 {
-	xil_printf("starting MusicNoteTrainer - dev ...");
-
-	srand(0);  // seed random
+	xil_printf("starting MusicNoteTrainer - %s ...", VERSION);
 
 	/* Initialize GPIO & set up interrupts */
 	if (XST_SUCCESS != gpioSetup(&timerCallback, &keyboardCallback))
