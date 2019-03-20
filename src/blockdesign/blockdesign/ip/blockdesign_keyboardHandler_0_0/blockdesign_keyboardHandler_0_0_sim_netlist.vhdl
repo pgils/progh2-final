@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Mon Mar 18 18:27:35 2019
+-- Date        : Wed Mar 20 02:00:20 2019
 -- Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_keyboardHandler_0_0/blockdesign_keyboardHandler_0_0_sim_netlist.vhdl
@@ -54,31 +54,32 @@ architecture STRUCTURE of blockdesign_keyboardHandler_0_0_keyboardHandler is
   signal \dataWord[7]_i_1_n_0\ : STD_LOGIC;
   signal \dataWord[7]_i_2_n_0\ : STD_LOGIC;
   signal \dataWord[7]_i_3_n_0\ : STD_LOGIC;
-  signal \dataWord[7]_i_4_n_0\ : STD_LOGIC;
   signal \dataWord[8]_i_1_n_0\ : STD_LOGIC;
   signal \dataWord[8]_i_2_n_0\ : STD_LOGIC;
+  signal \dataWord[9]_i_1_n_0\ : STD_LOGIC;
+  signal \dataWord[9]_i_2_n_0\ : STD_LOGIC;
   signal \dataWord_reg_n_0_[0]\ : STD_LOGIC;
   signal \dataWord_reg_n_0_[10]\ : STD_LOGIC;
+  signal \dataWord_reg_n_0_[9]\ : STD_LOGIC;
   signal dropNextKey : STD_LOGIC;
   signal dropNextKey_i_1_n_0 : STD_LOGIC;
   signal \keyData[0]_i_1_n_0\ : STD_LOGIC;
-  signal \keyData[0]_i_2_n_0\ : STD_LOGIC;
   signal \keyData[1]_i_1_n_0\ : STD_LOGIC;
+  signal \keyData[1]_i_2_n_0\ : STD_LOGIC;
+  signal \keyData[1]_i_3_n_0\ : STD_LOGIC;
+  signal \keyData[1]_i_4_n_0\ : STD_LOGIC;
   signal \keyData[2]_i_1_n_0\ : STD_LOGIC;
-  signal \keyData[2]_i_2_n_0\ : STD_LOGIC;
-  signal \keyData[2]_i_3_n_0\ : STD_LOGIC;
-  signal \keyData[2]_i_4_n_0\ : STD_LOGIC;
   signal \keyData[3]_i_1_n_0\ : STD_LOGIC;
   signal \keyData[3]_i_2_n_0\ : STD_LOGIC;
   signal \keyData[4]_i_1_n_0\ : STD_LOGIC;
   signal \keyData[4]_i_2_n_0\ : STD_LOGIC;
   signal \keyData[4]_i_3_n_0\ : STD_LOGIC;
   signal \keyData[6]_i_1_n_0\ : STD_LOGIC;
-  signal \keyData[6]_i_2_n_0\ : STD_LOGIC;
-  signal \keyData[6]_i_3_n_0\ : STD_LOGIC;
   signal \keyData[7]_i_1_n_0\ : STD_LOGIC;
   signal \keyData[7]_i_2_n_0\ : STD_LOGIC;
   signal \keyData[7]_i_3_n_0\ : STD_LOGIC;
+  signal \keyData[7]_i_4_n_0\ : STD_LOGIC;
+  signal \keyData[7]_i_5_n_0\ : STD_LOGIC;
   signal keyPressed1 : STD_LOGIC;
   signal \keyPressed1_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \keyPressed1_carry__0_i_2_n_0\ : STD_LOGIC;
@@ -131,6 +132,11 @@ architecture STRUCTURE of blockdesign_keyboardHandler_0_0_keyboardHandler is
   signal keyPressed_i_2_n_0 : STD_LOGIC;
   signal keyPressed_i_3_n_0 : STD_LOGIC;
   signal keyPressed_i_4_n_0 : STD_LOGIC;
+  signal keyPressed_i_5_n_0 : STD_LOGIC;
+  signal keyPressed_i_6_n_0 : STD_LOGIC;
+  signal keyPressed_i_7_n_0 : STD_LOGIC;
+  signal keyPressed_i_8_n_0 : STD_LOGIC;
+  signal keyPressed_i_9_n_0 : STD_LOGIC;
   signal p_0_in : STD_LOGIC_VECTOR ( 2 downto 1 );
   signal p_1_in : STD_LOGIC;
   signal scancode : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -205,16 +211,22 @@ architecture STRUCTURE of blockdesign_keyboardHandler_0_0_keyboardHandler is
   signal \NLW_keyPressed1_carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_wordIndex_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \dataWord[10]_i_3\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \dataWord[10]_i_5\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \dataWord[7]_i_4\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \dataWord[8]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \dataWord[10]_i_5\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \dataWord[7]_i_3\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \dataWord[8]_i_2\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \dataWord[9]_i_2\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of dropNextKey_i_1 : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \keyData[1]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \keyData[3]_i_2\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \keyData[4]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \keyData[6]_i_3\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of keyPressed_i_4 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \keyData[0]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \keyData[1]_i_3\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \keyData[1]_i_4\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \keyData[2]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \keyData[3]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \keyData[6]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \keyData[7]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \keyData[7]_i_5\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of keyPressed_i_4 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of keyPressed_i_7 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of keyPressed_i_8 : label is "soft_lutpair0";
 begin
 \clkBuffer_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -295,12 +307,12 @@ begin
     );
 \dataWord[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000002"
+      INIT => X"FFFFFFEF00000020"
     )
         port map (
       I0 => dataBuffer(0),
       I1 => wordIndex_reg(1),
-      I2 => \dataWord[7]_i_2_n_0\,
+      I2 => dataWord1,
       I3 => wordIndex_reg(0),
       I4 => \dataWord[3]_i_2_n_0\,
       I5 => \dataWord_reg_n_0_[0]\,
@@ -333,8 +345,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => wordIndex_reg(16),
-      I1 => wordIndex_reg(17),
+      I0 => wordIndex_reg(8),
+      I1 => wordIndex_reg(9),
       O => \dataWord[10]_i_11_n_0\
     );
 \dataWord[10]_i_12\: unisim.vcomponents.LUT2
@@ -342,8 +354,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => wordIndex_reg(28),
-      I1 => wordIndex_reg(29),
+      I0 => wordIndex_reg(16),
+      I1 => wordIndex_reg(17),
       O => \dataWord[10]_i_12_n_0\
     );
 \dataWord[10]_i_13\: unisim.vcomponents.LUT2
@@ -351,8 +363,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => wordIndex_reg(24),
-      I1 => wordIndex_reg(25),
+      I0 => wordIndex_reg(12),
+      I1 => wordIndex_reg(13),
       O => \dataWord[10]_i_13_n_0\
     );
 \dataWord[10]_i_2\: unisim.vcomponents.LUT6
@@ -370,13 +382,13 @@ begin
     );
 \dataWord[10]_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0040"
+      INIT => X"0400"
     )
         port map (
       I0 => wordIndex_reg(0),
       I1 => wordIndex_reg(1),
-      I2 => \clkBuffer_reg_n_0_[0]\,
-      I3 => p_1_in,
+      I2 => p_1_in,
+      I3 => \clkBuffer_reg_n_0_[0]\,
       O => \dataWord[10]_i_3_n_0\
     );
 \dataWord[10]_i_4\: unisim.vcomponents.LUT6
@@ -384,10 +396,10 @@ begin
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => wordIndex_reg(10),
-      I1 => wordIndex_reg(11),
-      I2 => wordIndex_reg(8),
-      I3 => wordIndex_reg(9),
+      I0 => wordIndex_reg(20),
+      I1 => wordIndex_reg(21),
+      I2 => wordIndex_reg(18),
+      I3 => wordIndex_reg(19),
       I4 => \dataWord[10]_i_8_n_0\,
       I5 => \dataWord[10]_i_9_n_0\,
       O => \dataWord[10]_i_4_n_0\
@@ -397,8 +409,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => wordIndex_reg(6),
-      I1 => wordIndex_reg(7),
+      I0 => wordIndex_reg(10),
+      I1 => wordIndex_reg(11),
       O => \dataWord[10]_i_5_n_0\
     );
 \dataWord[10]_i_6\: unisim.vcomponents.LUT6
@@ -406,10 +418,10 @@ begin
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => wordIndex_reg(20),
-      I1 => wordIndex_reg(21),
-      I2 => wordIndex_reg(18),
-      I3 => wordIndex_reg(19),
+      I0 => wordIndex_reg(30),
+      I1 => wordIndex_reg(31),
+      I2 => wordIndex_reg(28),
+      I3 => wordIndex_reg(29),
       I4 => \dataWord[10]_i_10_n_0\,
       I5 => \dataWord[10]_i_11_n_0\,
       O => \dataWord[10]_i_6_n_0\
@@ -419,11 +431,11 @@ begin
       INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => \dataWord[10]_i_12_n_0\,
-      I1 => wordIndex_reg(26),
-      I2 => wordIndex_reg(27),
-      I3 => wordIndex_reg(30),
-      I4 => wordIndex_reg(31),
+      I0 => wordIndex_reg(26),
+      I1 => wordIndex_reg(27),
+      I2 => wordIndex_reg(24),
+      I3 => wordIndex_reg(25),
+      I4 => \dataWord[10]_i_12_n_0\,
       I5 => \dataWord[10]_i_13_n_0\,
       O => \dataWord[10]_i_7_n_0\
     );
@@ -441,18 +453,18 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => wordIndex_reg(12),
-      I1 => wordIndex_reg(13),
+      I0 => wordIndex_reg(6),
+      I1 => wordIndex_reg(7),
       O => \dataWord[10]_i_9_n_0\
     );
 \dataWord[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFEFF00000200"
+      INIT => X"FFFFEFFF00002000"
     )
         port map (
       I0 => dataBuffer(0),
       I1 => wordIndex_reg(1),
-      I2 => \dataWord[7]_i_2_n_0\,
+      I2 => dataWord1,
       I3 => wordIndex_reg(0),
       I4 => \dataWord[3]_i_2_n_0\,
       I5 => scancode(0),
@@ -460,11 +472,11 @@ begin
     );
 \dataWord[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFEF00000020"
+      INIT => X"FFFFFFBF00000080"
     )
         port map (
       I0 => dataBuffer(0),
-      I1 => \dataWord[7]_i_2_n_0\,
+      I1 => dataWord1,
       I2 => wordIndex_reg(1),
       I3 => wordIndex_reg(0),
       I4 => \dataWord[3]_i_2_n_0\,
@@ -473,11 +485,11 @@ begin
     );
 \dataWord[3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFEFFF00002000"
+      INIT => X"FFFFBFFF00008000"
     )
         port map (
       I0 => dataBuffer(0),
-      I1 => \dataWord[7]_i_2_n_0\,
+      I1 => dataWord1,
       I2 => wordIndex_reg(1),
       I3 => wordIndex_reg(0),
       I4 => \dataWord[3]_i_2_n_0\,
@@ -491,7 +503,7 @@ begin
         port map (
       I0 => wordIndex_reg(2),
       I1 => \dataWord[10]_i_4_n_0\,
-      I2 => \dataWord[7]_i_4_n_0\,
+      I2 => \dataWord[7]_i_3_n_0\,
       I3 => \dataWord[10]_i_6_n_0\,
       I4 => \dataWord[10]_i_7_n_0\,
       I5 => wordIndex_reg(3),
@@ -499,88 +511,79 @@ begin
     );
 \dataWord[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000002"
+      INIT => X"FFFFFFEF00000020"
     )
         port map (
       I0 => dataBuffer(0),
       I1 => wordIndex_reg(1),
-      I2 => \dataWord[7]_i_2_n_0\,
+      I2 => dataWord1,
       I3 => wordIndex_reg(0),
-      I4 => \dataWord[7]_i_3_n_0\,
+      I4 => \dataWord[7]_i_2_n_0\,
       I5 => scancode(3),
       O => \dataWord[4]_i_1_n_0\
     );
 \dataWord[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFEFF00000200"
+      INIT => X"FFFFEFFF00002000"
     )
         port map (
       I0 => dataBuffer(0),
       I1 => wordIndex_reg(1),
-      I2 => \dataWord[7]_i_2_n_0\,
+      I2 => dataWord1,
       I3 => wordIndex_reg(0),
-      I4 => \dataWord[7]_i_3_n_0\,
+      I4 => \dataWord[7]_i_2_n_0\,
       I5 => scancode(4),
       O => \dataWord[5]_i_1_n_0\
     );
 \dataWord[6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFEF00000020"
+      INIT => X"FFFFFFBF00000080"
     )
         port map (
       I0 => dataBuffer(0),
-      I1 => \dataWord[7]_i_2_n_0\,
+      I1 => dataWord1,
       I2 => wordIndex_reg(1),
       I3 => wordIndex_reg(0),
-      I4 => \dataWord[7]_i_3_n_0\,
+      I4 => \dataWord[7]_i_2_n_0\,
       I5 => scancode(5),
       O => \dataWord[6]_i_1_n_0\
     );
 \dataWord[7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFEFFF00002000"
+      INIT => X"FFFFBFFF00008000"
     )
         port map (
       I0 => dataBuffer(0),
-      I1 => \dataWord[7]_i_2_n_0\,
+      I1 => dataWord1,
       I2 => wordIndex_reg(1),
       I3 => wordIndex_reg(0),
-      I4 => \dataWord[7]_i_3_n_0\,
+      I4 => \dataWord[7]_i_2_n_0\,
       I5 => scancode(6),
       O => \dataWord[7]_i_1_n_0\
     );
-\dataWord[7]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"B"
-    )
-        port map (
-      I0 => p_1_in,
-      I1 => \clkBuffer_reg_n_0_[0]\,
-      O => \dataWord[7]_i_2_n_0\
-    );
-\dataWord[7]_i_3\: unisim.vcomponents.LUT6
+\dataWord[7]_i_2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFFFEFFFFFFFF"
     )
         port map (
       I0 => \dataWord[10]_i_4_n_0\,
-      I1 => \dataWord[7]_i_4_n_0\,
+      I1 => \dataWord[7]_i_3_n_0\,
       I2 => \dataWord[10]_i_6_n_0\,
       I3 => \dataWord[10]_i_7_n_0\,
       I4 => wordIndex_reg(3),
       I5 => wordIndex_reg(2),
-      O => \dataWord[7]_i_3_n_0\
+      O => \dataWord[7]_i_2_n_0\
     );
-\dataWord[7]_i_4\: unisim.vcomponents.LUT4
+\dataWord[7]_i_3\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFFE"
     )
         port map (
       I0 => wordIndex_reg(5),
       I1 => wordIndex_reg(4),
-      I2 => wordIndex_reg(7),
-      I3 => wordIndex_reg(6),
-      O => \dataWord[7]_i_4_n_0\
+      I2 => wordIndex_reg(11),
+      I3 => wordIndex_reg(10),
+      O => \dataWord[7]_i_3_n_0\
     );
 \dataWord[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -597,14 +600,38 @@ begin
     );
 \dataWord[8]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0010"
+      INIT => X"0004"
     )
         port map (
       I0 => wordIndex_reg(0),
-      I1 => p_1_in,
-      I2 => \clkBuffer_reg_n_0_[0]\,
+      I1 => \clkBuffer_reg_n_0_[0]\,
+      I2 => p_1_in,
       I3 => wordIndex_reg(1),
       O => \dataWord[8]_i_2_n_0\
+    );
+\dataWord[9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFEFFFFF00200000"
+    )
+        port map (
+      I0 => dataBuffer(0),
+      I1 => \dataWord[10]_i_2_n_0\,
+      I2 => wordIndex_reg(3),
+      I3 => wordIndex_reg(2),
+      I4 => \dataWord[9]_i_2_n_0\,
+      I5 => \dataWord_reg_n_0_[9]\,
+      O => \dataWord[9]_i_1_n_0\
+    );
+\dataWord[9]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0008"
+    )
+        port map (
+      I0 => wordIndex_reg(0),
+      I1 => \clkBuffer_reg_n_0_[0]\,
+      I2 => p_1_in,
+      I3 => wordIndex_reg(1),
+      O => \dataWord[9]_i_2_n_0\
     );
 \dataWord_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -716,14 +743,26 @@ begin
       Q => scancode(7),
       R => keyPressed_i_1_n_0
     );
-dropNextKey_i_1: unisim.vcomponents.LUT3
+\dataWord_reg[9]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => X"10"
+      INIT => '0'
     )
         port map (
-      I0 => keyPressed_i_2_n_0,
-      I1 => \keyData[6]_i_1_n_0\,
-      I2 => \keyData[0]_i_1_n_0\,
+      C => clk,
+      CE => '1',
+      D => \dataWord[9]_i_1_n_0\,
+      Q => \dataWord_reg_n_0_[9]\,
+      R => keyPressed_i_1_n_0
+    );
+dropNextKey_i_1: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0002"
+    )
+        port map (
+      I0 => \keyData[4]_i_1_n_0\,
+      I1 => keyPressed_i_4_n_0,
+      I2 => keyPressed_i_3_n_0,
+      I3 => keyPressed_i_2_n_0,
       O => dropNextKey_i_1_n_0
     );
 dropNextKey_reg: unisim.vcomponents.FDRE
@@ -737,221 +776,197 @@ dropNextKey_reg: unisim.vcomponents.FDRE
       Q => dropNextKey,
       R => '0'
     );
-\keyData[0]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"5555554155555451"
-    )
-        port map (
-      I0 => \keyData[6]_i_3_n_0\,
-      I1 => scancode(0),
-      I2 => scancode(7),
-      I3 => scancode(4),
-      I4 => \keyData[0]_i_2_n_0\,
-      I5 => scancode(3),
-      O => \keyData[0]_i_1_n_0\
-    );
-\keyData[0]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => scancode(5),
-      I1 => scancode(6),
-      I2 => scancode(1),
-      I3 => scancode(2),
-      O => \keyData[0]_i_2_n_0\
-    );
-\keyData[1]_i_1\: unisim.vcomponents.LUT1
+\keyData[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => keyPressed_i_2_n_0,
+      I0 => \keyData[7]_i_2_n_0\,
+      I1 => keyPressed_i_3_n_0,
+      O => \keyData[0]_i_1_n_0\
+    );
+\keyData[1]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FEFFFFEFFFFFFFFF"
+    )
+        port map (
+      I0 => \keyData[1]_i_2_n_0\,
+      I1 => \keyData[1]_i_3_n_0\,
+      I2 => scancode(5),
+      I3 => scancode(4),
+      I4 => scancode(3),
+      I5 => \keyData[1]_i_4_n_0\,
       O => \keyData[1]_i_1_n_0\
     );
-\keyData[2]_i_1\: unisim.vcomponents.LUT6
+\keyData[1]_i_2\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"FFFFFFFFFFFFF906"
+      INIT => X"E"
     )
         port map (
-      I0 => scancode(3),
-      I1 => scancode(4),
-      I2 => scancode(6),
-      I3 => scancode(1),
-      I4 => \keyData[2]_i_2_n_0\,
-      I5 => \keyData[2]_i_3_n_0\,
-      O => \keyData[2]_i_1_n_0\
+      I0 => scancode(7),
+      I1 => \keyData[7]_i_2_n_0\,
+      O => \keyData[1]_i_2_n_0\
     );
-\keyData[2]_i_2\: unisim.vcomponents.LUT6
+\keyData[1]_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFFFFFF1DF2"
-    )
-        port map (
-      I0 => scancode(3),
-      I1 => scancode(4),
-      I2 => scancode(6),
-      I3 => scancode(7),
-      I4 => \keyData[2]_i_4_n_0\,
-      I5 => \keyData[6]_i_3_n_0\,
-      O => \keyData[2]_i_2_n_0\
-    );
-\keyData[2]_i_3\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"F9CF9FCF"
+      INIT => X"FFCFC6F6"
     )
         port map (
       I0 => scancode(1),
-      I1 => scancode(2),
-      I2 => scancode(5),
-      I3 => scancode(3),
-      I4 => scancode(4),
-      O => \keyData[2]_i_3_n_0\
-    );
-\keyData[2]_i_4\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFE1E1E1"
-    )
-        port map (
-      I0 => scancode(1),
-      I1 => scancode(4),
-      I2 => scancode(0),
-      I3 => scancode(3),
+      I1 => scancode(0),
+      I2 => scancode(3),
+      I3 => scancode(2),
       I4 => scancode(6),
-      O => \keyData[2]_i_4_n_0\
+      O => \keyData[1]_i_3_n_0\
     );
-\keyData[3]_i_1\: unisim.vcomponents.LUT6
+\keyData[1]_i_4\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"EFEFFFEFFFEFFEEF"
-    )
-        port map (
-      I0 => \keyData[7]_i_3_n_0\,
-      I1 => \keyData[3]_i_2_n_0\,
-      I2 => scancode(5),
-      I3 => scancode(3),
-      I4 => scancode(1),
-      I5 => scancode(0),
-      O => \keyData[3]_i_1_n_0\
-    );
-\keyData[3]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFEF"
-    )
-        port map (
-      I0 => scancode(6),
-      I1 => \dataWord_reg_n_0_[0]\,
-      I2 => \dataWord_reg_n_0_[10]\,
-      I3 => scancode(7),
-      O => \keyData[3]_i_2_n_0\
-    );
-\keyData[4]_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"2022"
-    )
-        port map (
-      I0 => \dataWord_reg_n_0_[10]\,
-      I1 => \dataWord_reg_n_0_[0]\,
-      I2 => \keyData[4]_i_2_n_0\,
-      I3 => \keyData[4]_i_3_n_0\,
-      O => \keyData[4]_i_1_n_0\
-    );
-\keyData[4]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FAFAFBBFF5F5F7B7"
+      INIT => X"6"
     )
         port map (
       I0 => scancode(2),
-      I1 => scancode(5),
-      I2 => scancode(0),
-      I3 => scancode(7),
-      I4 => scancode(4),
-      I5 => scancode(1),
-      O => \keyData[4]_i_2_n_0\
+      I1 => scancode(1),
+      O => \keyData[1]_i_4_n_0\
     );
-\keyData[4]_i_3\: unisim.vcomponents.LUT6
+\keyData[2]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"002000750000A008"
+      INIT => X"E"
     )
         port map (
-      I0 => scancode(3),
-      I1 => scancode(4),
-      I2 => scancode(1),
-      I3 => scancode(6),
-      I4 => scancode(7),
-      I5 => scancode(5),
-      O => \keyData[4]_i_3_n_0\
+      I0 => \keyData[7]_i_2_n_0\,
+      I1 => keyPressed_i_2_n_0,
+      O => \keyData[2]_i_1_n_0\
     );
-\keyData[6]_i_1\: unisim.vcomponents.LUT6
+\keyData[3]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FEFFEFFFFFEFFFFF"
+      INIT => X"FE"
     )
         port map (
-      I0 => \keyData[6]_i_2_n_0\,
-      I1 => \keyData[6]_i_3_n_0\,
-      I2 => scancode(3),
-      I3 => scancode(4),
-      I4 => scancode(5),
-      I5 => scancode(6),
-      O => \keyData[6]_i_1_n_0\
-    );
-\keyData[6]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFFFFF6FF6"
-    )
-        port map (
-      I0 => scancode(5),
+      I0 => \keyData[7]_i_2_n_0\,
       I1 => scancode(7),
-      I2 => scancode(1),
-      I3 => scancode(3),
-      I4 => scancode(0),
-      I5 => scancode(2),
-      O => \keyData[6]_i_2_n_0\
+      I2 => \keyData[3]_i_2_n_0\,
+      O => \keyData[3]_i_1_n_0\
     );
-\keyData[6]_i_3\: unisim.vcomponents.LUT2
+\keyData[3]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"B"
+      INIT => X"EFFFEFEFFFFEEFEF"
     )
         port map (
-      I0 => \dataWord_reg_n_0_[0]\,
-      I1 => \dataWord_reg_n_0_[10]\,
-      O => \keyData[6]_i_3_n_0\
+      I0 => \keyData[7]_i_5_n_0\,
+      I1 => scancode(6),
+      I2 => scancode(5),
+      I3 => scancode(1),
+      I4 => scancode(3),
+      I5 => scancode(0),
+      O => \keyData[3]_i_2_n_0\
     );
-\keyData[7]_i_1\: unisim.vcomponents.LUT6
+\keyData[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFBFAAAABF"
+      INIT => X"5401555555555555"
     )
         port map (
       I0 => \keyData[7]_i_2_n_0\,
       I1 => scancode(0),
       I2 => scancode(1),
-      I3 => scancode(3),
-      I4 => scancode(5),
-      I5 => \keyData[7]_i_3_n_0\,
+      I3 => scancode(2),
+      I4 => \keyData[4]_i_2_n_0\,
+      I5 => \keyData[4]_i_3_n_0\,
+      O => \keyData[4]_i_1_n_0\
+    );
+\keyData[4]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"20E02FE0"
+    )
+        port map (
+      I0 => scancode(1),
+      I1 => scancode(4),
+      I2 => scancode(3),
+      I3 => scancode(5),
+      I4 => scancode(7),
+      O => \keyData[4]_i_2_n_0\
+    );
+\keyData[4]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0004000444604454"
+    )
+        port map (
+      I0 => scancode(6),
+      I1 => scancode(5),
+      I2 => scancode(4),
+      I3 => scancode(7),
+      I4 => scancode(1),
+      I5 => scancode(0),
+      O => \keyData[4]_i_3_n_0\
+    );
+\keyData[6]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => \keyData[7]_i_2_n_0\,
+      I1 => keyPressed_i_4_n_0,
+      O => \keyData[6]_i_1_n_0\
+    );
+\keyData[7]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"FE"
+    )
+        port map (
+      I0 => \keyData[7]_i_2_n_0\,
+      I1 => scancode(7),
+      I2 => \keyData[7]_i_3_n_0\,
       O => \keyData[7]_i_1_n_0\
     );
 \keyData[7]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFF0FFFFFFDE"
+      INIT => X"DFFDFDDFFDDFDFFD"
+    )
+        port map (
+      I0 => \dataWord_reg_n_0_[10]\,
+      I1 => \dataWord_reg_n_0_[0]\,
+      I2 => \dataWord_reg_n_0_[9]\,
+      I3 => scancode(4),
+      I4 => scancode(5),
+      I5 => \keyData[7]_i_4_n_0\,
+      O => \keyData[7]_i_2_n_0\
+    );
+\keyData[7]_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EFFFFFBEEEFFEEFF"
+    )
+        port map (
+      I0 => \keyData[7]_i_5_n_0\,
+      I1 => scancode(6),
+      I2 => scancode(1),
+      I3 => scancode(5),
+      I4 => scancode(0),
+      I5 => scancode(3),
+      O => \keyData[7]_i_3_n_0\
+    );
+\keyData[7]_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"9669699669969669"
     )
         port map (
       I0 => scancode(1),
       I1 => scancode(0),
-      I2 => scancode(6),
-      I3 => \keyData[6]_i_3_n_0\,
-      I4 => scancode(7),
-      I5 => scancode(5),
-      O => \keyData[7]_i_2_n_0\
+      I2 => scancode(3),
+      I3 => scancode(2),
+      I4 => scancode(6),
+      I5 => scancode(7),
+      O => \keyData[7]_i_4_n_0\
     );
-\keyData[7]_i_3\: unisim.vcomponents.LUT5
+\keyData[7]_i_5\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FF99AAFD"
+      INIT => X"FFA5AAFD"
     )
         port map (
       I0 => scancode(2),
-      I1 => scancode(1),
-      I2 => scancode(3),
+      I1 => scancode(3),
+      I2 => scancode(1),
       I3 => scancode(0),
       I4 => scancode(4),
-      O => \keyData[7]_i_3_n_0\
+      O => \keyData[7]_i_5_n_0\
     );
 \keyData_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -1369,53 +1384,112 @@ keyPressed1_carry_i_8: unisim.vcomponents.LUT2
       I1 => wordIndex_reg(0),
       O => keyPressed1_carry_i_8_n_0
     );
-keyPressed_i_1: unisim.vcomponents.LUT5
+keyPressed_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"44444404"
+      INIT => X"4444444044444444"
     )
         port map (
       I0 => dropNextKey,
       I1 => keyPressed1,
-      I2 => \keyData[0]_i_1_n_0\,
-      I3 => \keyData[6]_i_1_n_0\,
-      I4 => keyPressed_i_2_n_0,
+      I2 => keyPressed_i_2_n_0,
+      I3 => keyPressed_i_3_n_0,
+      I4 => keyPressed_i_4_n_0,
+      I5 => \keyData[4]_i_1_n_0\,
       O => keyPressed_i_1_n_0
     );
 keyPressed_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0022280000002822"
+      INIT => X"FFFFFFFF656EFFFF"
     )
         port map (
-      I0 => keyPressed_i_3_n_0,
+      I0 => scancode(7),
       I1 => scancode(6),
-      I2 => scancode(2),
+      I2 => scancode(4),
       I3 => scancode(3),
-      I4 => scancode(0),
-      I5 => scancode(1),
+      I4 => keyPressed_i_5_n_0,
+      I5 => keyPressed_i_6_n_0,
       O => keyPressed_i_2_n_0
     );
 keyPressed_i_3: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0014000000001400"
+      INIT => X"0000000300010200"
     )
         port map (
-      I0 => keyPressed_i_4_n_0,
-      I1 => scancode(2),
-      I2 => scancode(1),
-      I3 => scancode(5),
+      I0 => scancode(3),
+      I1 => keyPressed_i_7_n_0,
+      I2 => keyPressed_i_8_n_0,
+      I3 => scancode(7),
       I4 => scancode(4),
-      I5 => scancode(3),
+      I5 => scancode(0),
       O => keyPressed_i_3_n_0
     );
-keyPressed_i_4: unisim.vcomponents.LUT3
+keyPressed_i_4: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FB"
+      INIT => X"FEBFBFFF"
     )
         port map (
-      I0 => scancode(7),
-      I1 => \dataWord_reg_n_0_[10]\,
-      I2 => \dataWord_reg_n_0_[0]\,
+      I0 => keyPressed_i_9_n_0,
+      I1 => scancode(4),
+      I2 => scancode(6),
+      I3 => scancode(5),
+      I4 => scancode(3),
       O => keyPressed_i_4_n_0
+    );
+keyPressed_i_5: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"1E1E1E00"
+    )
+        port map (
+      I0 => scancode(1),
+      I1 => scancode(4),
+      I2 => scancode(0),
+      I3 => scancode(5),
+      I4 => scancode(3),
+      O => keyPressed_i_5_n_0
+    );
+keyPressed_i_6: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFEEFDDEFFEEBFDE"
+    )
+        port map (
+      I0 => scancode(1),
+      I1 => scancode(2),
+      I2 => scancode(4),
+      I3 => scancode(3),
+      I4 => scancode(6),
+      I5 => scancode(5),
+      O => keyPressed_i_6_n_0
+    );
+keyPressed_i_7: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"B"
+    )
+        port map (
+      I0 => scancode(6),
+      I1 => scancode(5),
+      O => keyPressed_i_7_n_0
+    );
+keyPressed_i_8: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"B"
+    )
+        port map (
+      I0 => scancode(2),
+      I1 => scancode(1),
+      O => keyPressed_i_8_n_0
+    );
+keyPressed_i_9: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFF6FF6"
+    )
+        port map (
+      I0 => scancode(3),
+      I1 => scancode(1),
+      I2 => scancode(5),
+      I3 => scancode(7),
+      I4 => scancode(0),
+      I5 => scancode(2),
+      O => keyPressed_i_9_n_0
     );
 keyPressed_reg: unisim.vcomponents.FDRE
      port map (

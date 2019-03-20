@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Mon Mar 18 18:27:35 2019
+// Date        : Wed Mar 20 02:00:20 2019
 // Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_keyboardHandler_0_0/blockdesign_keyboardHandler_0_0_sim_netlist.v
@@ -85,32 +85,33 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
   wire \dataWord[7]_i_1_n_0 ;
   wire \dataWord[7]_i_2_n_0 ;
   wire \dataWord[7]_i_3_n_0 ;
-  wire \dataWord[7]_i_4_n_0 ;
   wire \dataWord[8]_i_1_n_0 ;
   wire \dataWord[8]_i_2_n_0 ;
+  wire \dataWord[9]_i_1_n_0 ;
+  wire \dataWord[9]_i_2_n_0 ;
   wire \dataWord_reg_n_0_[0] ;
   wire \dataWord_reg_n_0_[10] ;
+  wire \dataWord_reg_n_0_[9] ;
   wire dropNextKey;
   wire dropNextKey_i_1_n_0;
   wire [6:0]keyData;
   wire \keyData[0]_i_1_n_0 ;
-  wire \keyData[0]_i_2_n_0 ;
   wire \keyData[1]_i_1_n_0 ;
+  wire \keyData[1]_i_2_n_0 ;
+  wire \keyData[1]_i_3_n_0 ;
+  wire \keyData[1]_i_4_n_0 ;
   wire \keyData[2]_i_1_n_0 ;
-  wire \keyData[2]_i_2_n_0 ;
-  wire \keyData[2]_i_3_n_0 ;
-  wire \keyData[2]_i_4_n_0 ;
   wire \keyData[3]_i_1_n_0 ;
   wire \keyData[3]_i_2_n_0 ;
   wire \keyData[4]_i_1_n_0 ;
   wire \keyData[4]_i_2_n_0 ;
   wire \keyData[4]_i_3_n_0 ;
   wire \keyData[6]_i_1_n_0 ;
-  wire \keyData[6]_i_2_n_0 ;
-  wire \keyData[6]_i_3_n_0 ;
   wire \keyData[7]_i_1_n_0 ;
   wire \keyData[7]_i_2_n_0 ;
   wire \keyData[7]_i_3_n_0 ;
+  wire \keyData[7]_i_4_n_0 ;
+  wire \keyData[7]_i_5_n_0 ;
   wire keyPressed;
   wire keyPressed1;
   wire keyPressed1_carry__0_i_1_n_0;
@@ -164,6 +165,11 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
   wire keyPressed_i_2_n_0;
   wire keyPressed_i_3_n_0;
   wire keyPressed_i_4_n_0;
+  wire keyPressed_i_5_n_0;
+  wire keyPressed_i_6_n_0;
+  wire keyPressed_i_7_n_0;
+  wire keyPressed_i_8_n_0;
+  wire keyPressed_i_9_n_0;
   wire [2:1]p_0_in;
   wire p_1_in;
   wire [7:0]scancode;
@@ -295,11 +301,11 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
         .Q(dataBuffer[2]),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000002)) 
+    .INIT(64'hFFFFFFEF00000020)) 
     \dataWord[0]_i_1 
        (.I0(dataBuffer[0]),
         .I1(wordIndex_reg[1]),
-        .I2(\dataWord[7]_i_2_n_0 ),
+        .I2(dataWord1),
         .I3(wordIndex_reg[0]),
         .I4(\dataWord[3]_i_2_n_0 ),
         .I5(\dataWord_reg_n_0_[0] ),
@@ -323,20 +329,20 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
   LUT2 #(
     .INIT(4'hE)) 
     \dataWord[10]_i_11 
-       (.I0(wordIndex_reg[16]),
-        .I1(wordIndex_reg[17]),
+       (.I0(wordIndex_reg[8]),
+        .I1(wordIndex_reg[9]),
         .O(\dataWord[10]_i_11_n_0 ));
   LUT2 #(
     .INIT(4'hE)) 
     \dataWord[10]_i_12 
-       (.I0(wordIndex_reg[28]),
-        .I1(wordIndex_reg[29]),
+       (.I0(wordIndex_reg[16]),
+        .I1(wordIndex_reg[17]),
         .O(\dataWord[10]_i_12_n_0 ));
   LUT2 #(
     .INIT(4'hE)) 
     \dataWord[10]_i_13 
-       (.I0(wordIndex_reg[24]),
-        .I1(wordIndex_reg[25]),
+       (.I0(wordIndex_reg[12]),
+        .I1(wordIndex_reg[13]),
         .O(\dataWord[10]_i_13_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
@@ -348,50 +354,49 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
         .I4(\dataWord[10]_i_6_n_0 ),
         .I5(\dataWord[10]_i_7_n_0 ),
         .O(\dataWord[10]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
-    .INIT(16'h0040)) 
+    .INIT(16'h0400)) 
     \dataWord[10]_i_3 
        (.I0(wordIndex_reg[0]),
         .I1(wordIndex_reg[1]),
-        .I2(\clkBuffer_reg_n_0_[0] ),
-        .I3(p_1_in),
+        .I2(p_1_in),
+        .I3(\clkBuffer_reg_n_0_[0] ),
         .O(\dataWord[10]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \dataWord[10]_i_4 
-       (.I0(wordIndex_reg[10]),
-        .I1(wordIndex_reg[11]),
-        .I2(wordIndex_reg[8]),
-        .I3(wordIndex_reg[9]),
-        .I4(\dataWord[10]_i_8_n_0 ),
-        .I5(\dataWord[10]_i_9_n_0 ),
-        .O(\dataWord[10]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    \dataWord[10]_i_5 
-       (.I0(wordIndex_reg[6]),
-        .I1(wordIndex_reg[7]),
-        .O(\dataWord[10]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    \dataWord[10]_i_6 
        (.I0(wordIndex_reg[20]),
         .I1(wordIndex_reg[21]),
         .I2(wordIndex_reg[18]),
         .I3(wordIndex_reg[19]),
+        .I4(\dataWord[10]_i_8_n_0 ),
+        .I5(\dataWord[10]_i_9_n_0 ),
+        .O(\dataWord[10]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \dataWord[10]_i_5 
+       (.I0(wordIndex_reg[10]),
+        .I1(wordIndex_reg[11]),
+        .O(\dataWord[10]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \dataWord[10]_i_6 
+       (.I0(wordIndex_reg[30]),
+        .I1(wordIndex_reg[31]),
+        .I2(wordIndex_reg[28]),
+        .I3(wordIndex_reg[29]),
         .I4(\dataWord[10]_i_10_n_0 ),
         .I5(\dataWord[10]_i_11_n_0 ),
         .O(\dataWord[10]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
     \dataWord[10]_i_7 
-       (.I0(\dataWord[10]_i_12_n_0 ),
-        .I1(wordIndex_reg[26]),
-        .I2(wordIndex_reg[27]),
-        .I3(wordIndex_reg[30]),
-        .I4(wordIndex_reg[31]),
+       (.I0(wordIndex_reg[26]),
+        .I1(wordIndex_reg[27]),
+        .I2(wordIndex_reg[24]),
+        .I3(wordIndex_reg[25]),
+        .I4(\dataWord[10]_i_12_n_0 ),
         .I5(\dataWord[10]_i_13_n_0 ),
         .O(\dataWord[10]_i_7_n_0 ));
   LUT2 #(
@@ -403,34 +408,34 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
   LUT2 #(
     .INIT(4'hE)) 
     \dataWord[10]_i_9 
-       (.I0(wordIndex_reg[12]),
-        .I1(wordIndex_reg[13]),
+       (.I0(wordIndex_reg[6]),
+        .I1(wordIndex_reg[7]),
         .O(\dataWord[10]_i_9_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFEFF00000200)) 
+    .INIT(64'hFFFFEFFF00002000)) 
     \dataWord[1]_i_1 
        (.I0(dataBuffer[0]),
         .I1(wordIndex_reg[1]),
-        .I2(\dataWord[7]_i_2_n_0 ),
+        .I2(dataWord1),
         .I3(wordIndex_reg[0]),
         .I4(\dataWord[3]_i_2_n_0 ),
         .I5(scancode[0]),
         .O(\dataWord[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFEF00000020)) 
+    .INIT(64'hFFFFFFBF00000080)) 
     \dataWord[2]_i_1 
        (.I0(dataBuffer[0]),
-        .I1(\dataWord[7]_i_2_n_0 ),
+        .I1(dataWord1),
         .I2(wordIndex_reg[1]),
         .I3(wordIndex_reg[0]),
         .I4(\dataWord[3]_i_2_n_0 ),
         .I5(scancode[1]),
         .O(\dataWord[2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFEFFF00002000)) 
+    .INIT(64'hFFFFBFFF00008000)) 
     \dataWord[3]_i_1 
        (.I0(dataBuffer[0]),
-        .I1(\dataWord[7]_i_2_n_0 ),
+        .I1(dataWord1),
         .I2(wordIndex_reg[1]),
         .I3(wordIndex_reg[0]),
         .I4(\dataWord[3]_i_2_n_0 ),
@@ -441,76 +446,70 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
     \dataWord[3]_i_2 
        (.I0(wordIndex_reg[2]),
         .I1(\dataWord[10]_i_4_n_0 ),
-        .I2(\dataWord[7]_i_4_n_0 ),
+        .I2(\dataWord[7]_i_3_n_0 ),
         .I3(\dataWord[10]_i_6_n_0 ),
         .I4(\dataWord[10]_i_7_n_0 ),
         .I5(wordIndex_reg[3]),
         .O(\dataWord[3]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000002)) 
+    .INIT(64'hFFFFFFEF00000020)) 
     \dataWord[4]_i_1 
        (.I0(dataBuffer[0]),
         .I1(wordIndex_reg[1]),
-        .I2(\dataWord[7]_i_2_n_0 ),
+        .I2(dataWord1),
         .I3(wordIndex_reg[0]),
-        .I4(\dataWord[7]_i_3_n_0 ),
+        .I4(\dataWord[7]_i_2_n_0 ),
         .I5(scancode[3]),
         .O(\dataWord[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFEFF00000200)) 
+    .INIT(64'hFFFFEFFF00002000)) 
     \dataWord[5]_i_1 
        (.I0(dataBuffer[0]),
         .I1(wordIndex_reg[1]),
-        .I2(\dataWord[7]_i_2_n_0 ),
+        .I2(dataWord1),
         .I3(wordIndex_reg[0]),
-        .I4(\dataWord[7]_i_3_n_0 ),
+        .I4(\dataWord[7]_i_2_n_0 ),
         .I5(scancode[4]),
         .O(\dataWord[5]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFEF00000020)) 
+    .INIT(64'hFFFFFFBF00000080)) 
     \dataWord[6]_i_1 
        (.I0(dataBuffer[0]),
-        .I1(\dataWord[7]_i_2_n_0 ),
+        .I1(dataWord1),
         .I2(wordIndex_reg[1]),
         .I3(wordIndex_reg[0]),
-        .I4(\dataWord[7]_i_3_n_0 ),
+        .I4(\dataWord[7]_i_2_n_0 ),
         .I5(scancode[5]),
         .O(\dataWord[6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFEFFF00002000)) 
+    .INIT(64'hFFFFBFFF00008000)) 
     \dataWord[7]_i_1 
        (.I0(dataBuffer[0]),
-        .I1(\dataWord[7]_i_2_n_0 ),
+        .I1(dataWord1),
         .I2(wordIndex_reg[1]),
         .I3(wordIndex_reg[0]),
-        .I4(\dataWord[7]_i_3_n_0 ),
+        .I4(\dataWord[7]_i_2_n_0 ),
         .I5(scancode[6]),
         .O(\dataWord[7]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'hB)) 
-    \dataWord[7]_i_2 
-       (.I0(p_1_in),
-        .I1(\clkBuffer_reg_n_0_[0] ),
-        .O(\dataWord[7]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFEFFFFFFFF)) 
-    \dataWord[7]_i_3 
+    \dataWord[7]_i_2 
        (.I0(\dataWord[10]_i_4_n_0 ),
-        .I1(\dataWord[7]_i_4_n_0 ),
+        .I1(\dataWord[7]_i_3_n_0 ),
         .I2(\dataWord[10]_i_6_n_0 ),
         .I3(\dataWord[10]_i_7_n_0 ),
         .I4(wordIndex_reg[3]),
         .I5(wordIndex_reg[2]),
-        .O(\dataWord[7]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+        .O(\dataWord[7]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
-    \dataWord[7]_i_4 
+    \dataWord[7]_i_3 
        (.I0(wordIndex_reg[5]),
         .I1(wordIndex_reg[4]),
-        .I2(wordIndex_reg[7]),
-        .I3(wordIndex_reg[6]),
-        .O(\dataWord[7]_i_4_n_0 ));
+        .I2(wordIndex_reg[11]),
+        .I3(wordIndex_reg[10]),
+        .O(\dataWord[7]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFEFFFFF00200000)) 
     \dataWord[8]_i_1 
@@ -521,15 +520,34 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
         .I4(\dataWord[8]_i_2_n_0 ),
         .I5(scancode[7]),
         .O(\dataWord[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
-    .INIT(16'h0010)) 
+    .INIT(16'h0004)) 
     \dataWord[8]_i_2 
        (.I0(wordIndex_reg[0]),
-        .I1(p_1_in),
-        .I2(\clkBuffer_reg_n_0_[0] ),
+        .I1(\clkBuffer_reg_n_0_[0] ),
+        .I2(p_1_in),
         .I3(wordIndex_reg[1]),
         .O(\dataWord[8]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFEFFFFF00200000)) 
+    \dataWord[9]_i_1 
+       (.I0(dataBuffer[0]),
+        .I1(\dataWord[10]_i_2_n_0 ),
+        .I2(wordIndex_reg[3]),
+        .I3(wordIndex_reg[2]),
+        .I4(\dataWord[9]_i_2_n_0 ),
+        .I5(\dataWord_reg_n_0_[9] ),
+        .O(\dataWord[9]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'h0008)) 
+    \dataWord[9]_i_2 
+       (.I0(wordIndex_reg[0]),
+        .I1(\clkBuffer_reg_n_0_[0] ),
+        .I2(p_1_in),
+        .I3(wordIndex_reg[1]),
+        .O(\dataWord[9]_i_2_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \dataWord_reg[0] 
@@ -610,13 +628,22 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
         .D(\dataWord[8]_i_1_n_0 ),
         .Q(scancode[7]),
         .R(keyPressed_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \dataWord_reg[9] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(\dataWord[9]_i_1_n_0 ),
+        .Q(\dataWord_reg_n_0_[9] ),
+        .R(keyPressed_i_1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'h10)) 
+  LUT4 #(
+    .INIT(16'h0002)) 
     dropNextKey_i_1
-       (.I0(keyPressed_i_2_n_0),
-        .I1(\keyData[6]_i_1_n_0 ),
-        .I2(\keyData[0]_i_1_n_0 ),
+       (.I0(\keyData[4]_i_1_n_0 ),
+        .I1(keyPressed_i_4_n_0),
+        .I2(keyPressed_i_3_n_0),
+        .I3(keyPressed_i_2_n_0),
         .O(dropNextKey_i_1_n_0));
   FDRE #(
     .INIT(1'b0)) 
@@ -626,172 +653,155 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
         .D(dropNextKey_i_1_n_0),
         .Q(dropNextKey),
         .R(1'b0));
-  LUT6 #(
-    .INIT(64'h5555554155555451)) 
-    \keyData[0]_i_1 
-       (.I0(\keyData[6]_i_3_n_0 ),
-        .I1(scancode[0]),
-        .I2(scancode[7]),
-        .I3(scancode[4]),
-        .I4(\keyData[0]_i_2_n_0 ),
-        .I5(scancode[3]),
-        .O(\keyData[0]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFDF)) 
-    \keyData[0]_i_2 
-       (.I0(scancode[5]),
-        .I1(scancode[6]),
-        .I2(scancode[1]),
-        .I3(scancode[2]),
-        .O(\keyData[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT1 #(
-    .INIT(2'h1)) 
-    \keyData[1]_i_1 
-       (.I0(keyPressed_i_2_n_0),
-        .O(\keyData[1]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFF906)) 
-    \keyData[2]_i_1 
-       (.I0(scancode[3]),
-        .I1(scancode[4]),
-        .I2(scancode[6]),
-        .I3(scancode[1]),
-        .I4(\keyData[2]_i_2_n_0 ),
-        .I5(\keyData[2]_i_3_n_0 ),
-        .O(\keyData[2]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFF1DF2)) 
-    \keyData[2]_i_2 
-       (.I0(scancode[3]),
-        .I1(scancode[4]),
-        .I2(scancode[6]),
-        .I3(scancode[7]),
-        .I4(\keyData[2]_i_4_n_0 ),
-        .I5(\keyData[6]_i_3_n_0 ),
-        .O(\keyData[2]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hF9CF9FCF)) 
-    \keyData[2]_i_3 
-       (.I0(scancode[1]),
-        .I1(scancode[2]),
-        .I2(scancode[5]),
-        .I3(scancode[3]),
-        .I4(scancode[4]),
-        .O(\keyData[2]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFE1E1E1)) 
-    \keyData[2]_i_4 
-       (.I0(scancode[1]),
-        .I1(scancode[4]),
-        .I2(scancode[0]),
-        .I3(scancode[3]),
-        .I4(scancode[6]),
-        .O(\keyData[2]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'hEFEFFFEFFFEFFEEF)) 
-    \keyData[3]_i_1 
-       (.I0(\keyData[7]_i_3_n_0 ),
-        .I1(\keyData[3]_i_2_n_0 ),
-        .I2(scancode[5]),
-        .I3(scancode[3]),
-        .I4(scancode[1]),
-        .I5(scancode[0]),
-        .O(\keyData[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'hFFEF)) 
-    \keyData[3]_i_2 
-       (.I0(scancode[6]),
-        .I1(\dataWord_reg_n_0_[0] ),
-        .I2(\dataWord_reg_n_0_[10] ),
-        .I3(scancode[7]),
-        .O(\keyData[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h2022)) 
-    \keyData[4]_i_1 
-       (.I0(\dataWord_reg_n_0_[10] ),
-        .I1(\dataWord_reg_n_0_[0] ),
-        .I2(\keyData[4]_i_2_n_0 ),
-        .I3(\keyData[4]_i_3_n_0 ),
-        .O(\keyData[4]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFAFAFBBFF5F5F7B7)) 
-    \keyData[4]_i_2 
-       (.I0(scancode[2]),
-        .I1(scancode[5]),
-        .I2(scancode[0]),
-        .I3(scancode[7]),
-        .I4(scancode[4]),
-        .I5(scancode[1]),
-        .O(\keyData[4]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h002000750000A008)) 
-    \keyData[4]_i_3 
-       (.I0(scancode[3]),
-        .I1(scancode[4]),
-        .I2(scancode[1]),
-        .I3(scancode[6]),
-        .I4(scancode[7]),
-        .I5(scancode[5]),
-        .O(\keyData[4]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hFEFFEFFFFFEFFFFF)) 
-    \keyData[6]_i_1 
-       (.I0(\keyData[6]_i_2_n_0 ),
-        .I1(\keyData[6]_i_3_n_0 ),
-        .I2(scancode[3]),
-        .I3(scancode[4]),
-        .I4(scancode[5]),
-        .I5(scancode[6]),
-        .O(\keyData[6]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFF6FF6)) 
-    \keyData[6]_i_2 
-       (.I0(scancode[5]),
-        .I1(scancode[7]),
-        .I2(scancode[1]),
-        .I3(scancode[3]),
-        .I4(scancode[0]),
-        .I5(scancode[2]),
-        .O(\keyData[6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
-    .INIT(4'hB)) 
-    \keyData[6]_i_3 
-       (.I0(\dataWord_reg_n_0_[0] ),
-        .I1(\dataWord_reg_n_0_[10] ),
-        .O(\keyData[6]_i_3_n_0 ));
+    .INIT(4'h1)) 
+    \keyData[0]_i_1 
+       (.I0(\keyData[7]_i_2_n_0 ),
+        .I1(keyPressed_i_3_n_0),
+        .O(\keyData[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFBFAAAABF)) 
-    \keyData[7]_i_1 
+    .INIT(64'hFEFFFFEFFFFFFFFF)) 
+    \keyData[1]_i_1 
+       (.I0(\keyData[1]_i_2_n_0 ),
+        .I1(\keyData[1]_i_3_n_0 ),
+        .I2(scancode[5]),
+        .I3(scancode[4]),
+        .I4(scancode[3]),
+        .I5(\keyData[1]_i_4_n_0 ),
+        .O(\keyData[1]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \keyData[1]_i_2 
+       (.I0(scancode[7]),
+        .I1(\keyData[7]_i_2_n_0 ),
+        .O(\keyData[1]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'hFFCFC6F6)) 
+    \keyData[1]_i_3 
+       (.I0(scancode[1]),
+        .I1(scancode[0]),
+        .I2(scancode[3]),
+        .I3(scancode[2]),
+        .I4(scancode[6]),
+        .O(\keyData[1]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \keyData[1]_i_4 
+       (.I0(scancode[2]),
+        .I1(scancode[1]),
+        .O(\keyData[1]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \keyData[2]_i_1 
+       (.I0(\keyData[7]_i_2_n_0 ),
+        .I1(keyPressed_i_2_n_0),
+        .O(\keyData[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \keyData[3]_i_1 
+       (.I0(\keyData[7]_i_2_n_0 ),
+        .I1(scancode[7]),
+        .I2(\keyData[3]_i_2_n_0 ),
+        .O(\keyData[3]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hEFFFEFEFFFFEEFEF)) 
+    \keyData[3]_i_2 
+       (.I0(\keyData[7]_i_5_n_0 ),
+        .I1(scancode[6]),
+        .I2(scancode[5]),
+        .I3(scancode[1]),
+        .I4(scancode[3]),
+        .I5(scancode[0]),
+        .O(\keyData[3]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h5401555555555555)) 
+    \keyData[4]_i_1 
        (.I0(\keyData[7]_i_2_n_0 ),
         .I1(scancode[0]),
         .I2(scancode[1]),
-        .I3(scancode[3]),
-        .I4(scancode[5]),
-        .I5(\keyData[7]_i_3_n_0 ),
+        .I3(scancode[2]),
+        .I4(\keyData[4]_i_2_n_0 ),
+        .I5(\keyData[4]_i_3_n_0 ),
+        .O(\keyData[4]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h20E02FE0)) 
+    \keyData[4]_i_2 
+       (.I0(scancode[1]),
+        .I1(scancode[4]),
+        .I2(scancode[3]),
+        .I3(scancode[5]),
+        .I4(scancode[7]),
+        .O(\keyData[4]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0004000444604454)) 
+    \keyData[4]_i_3 
+       (.I0(scancode[6]),
+        .I1(scancode[5]),
+        .I2(scancode[4]),
+        .I3(scancode[7]),
+        .I4(scancode[1]),
+        .I5(scancode[0]),
+        .O(\keyData[4]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \keyData[6]_i_1 
+       (.I0(\keyData[7]_i_2_n_0 ),
+        .I1(keyPressed_i_4_n_0),
+        .O(\keyData[6]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \keyData[7]_i_1 
+       (.I0(\keyData[7]_i_2_n_0 ),
+        .I1(scancode[7]),
+        .I2(\keyData[7]_i_3_n_0 ),
         .O(\keyData[7]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFF0FFFFFFDE)) 
+    .INIT(64'hDFFDFDDFFDDFDFFD)) 
     \keyData[7]_i_2 
+       (.I0(\dataWord_reg_n_0_[10] ),
+        .I1(\dataWord_reg_n_0_[0] ),
+        .I2(\dataWord_reg_n_0_[9] ),
+        .I3(scancode[4]),
+        .I4(scancode[5]),
+        .I5(\keyData[7]_i_4_n_0 ),
+        .O(\keyData[7]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hEFFFFFBEEEFFEEFF)) 
+    \keyData[7]_i_3 
+       (.I0(\keyData[7]_i_5_n_0 ),
+        .I1(scancode[6]),
+        .I2(scancode[1]),
+        .I3(scancode[5]),
+        .I4(scancode[0]),
+        .I5(scancode[3]),
+        .O(\keyData[7]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h9669699669969669)) 
+    \keyData[7]_i_4 
        (.I0(scancode[1]),
         .I1(scancode[0]),
-        .I2(scancode[6]),
-        .I3(\keyData[6]_i_3_n_0 ),
-        .I4(scancode[7]),
-        .I5(scancode[5]),
-        .O(\keyData[7]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFF99AAFD)) 
-    \keyData[7]_i_3 
-       (.I0(scancode[2]),
-        .I1(scancode[1]),
         .I2(scancode[3]),
+        .I3(scancode[2]),
+        .I4(scancode[6]),
+        .I5(scancode[7]),
+        .O(\keyData[7]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFA5AAFD)) 
+    \keyData[7]_i_5 
+       (.I0(scancode[2]),
+        .I1(scancode[3]),
+        .I2(scancode[1]),
         .I3(scancode[0]),
         .I4(scancode[4]),
-        .O(\keyData[7]_i_3_n_0 ));
+        .O(\keyData[7]_i_5_n_0 ));
   FDRE \keyData_reg[0] 
        (.C(clk),
         .CE(keyPressed1),
@@ -1054,43 +1064,89 @@ module blockdesign_keyboardHandler_0_0_keyboardHandler
        (.I0(wordIndex_reg[1]),
         .I1(wordIndex_reg[0]),
         .O(keyPressed1_carry_i_8_n_0));
-  LUT5 #(
-    .INIT(32'h44444404)) 
+  LUT6 #(
+    .INIT(64'h4444444044444444)) 
     keyPressed_i_1
        (.I0(dropNextKey),
         .I1(keyPressed1),
-        .I2(\keyData[0]_i_1_n_0 ),
-        .I3(\keyData[6]_i_1_n_0 ),
-        .I4(keyPressed_i_2_n_0),
+        .I2(keyPressed_i_2_n_0),
+        .I3(keyPressed_i_3_n_0),
+        .I4(keyPressed_i_4_n_0),
+        .I5(\keyData[4]_i_1_n_0 ),
         .O(keyPressed_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0022280000002822)) 
+    .INIT(64'hFFFFFFFF656EFFFF)) 
     keyPressed_i_2
-       (.I0(keyPressed_i_3_n_0),
+       (.I0(scancode[7]),
         .I1(scancode[6]),
-        .I2(scancode[2]),
+        .I2(scancode[4]),
         .I3(scancode[3]),
-        .I4(scancode[0]),
-        .I5(scancode[1]),
+        .I4(keyPressed_i_5_n_0),
+        .I5(keyPressed_i_6_n_0),
         .O(keyPressed_i_2_n_0));
   LUT6 #(
-    .INIT(64'h0014000000001400)) 
+    .INIT(64'h0000000300010200)) 
     keyPressed_i_3
-       (.I0(keyPressed_i_4_n_0),
-        .I1(scancode[2]),
-        .I2(scancode[1]),
-        .I3(scancode[5]),
+       (.I0(scancode[3]),
+        .I1(keyPressed_i_7_n_0),
+        .I2(keyPressed_i_8_n_0),
+        .I3(scancode[7]),
         .I4(scancode[4]),
-        .I5(scancode[3]),
+        .I5(scancode[0]),
         .O(keyPressed_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT3 #(
-    .INIT(8'hFB)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hFEBFBFFF)) 
     keyPressed_i_4
-       (.I0(scancode[7]),
-        .I1(\dataWord_reg_n_0_[10] ),
-        .I2(\dataWord_reg_n_0_[0] ),
+       (.I0(keyPressed_i_9_n_0),
+        .I1(scancode[4]),
+        .I2(scancode[6]),
+        .I3(scancode[5]),
+        .I4(scancode[3]),
         .O(keyPressed_i_4_n_0));
+  LUT5 #(
+    .INIT(32'h1E1E1E00)) 
+    keyPressed_i_5
+       (.I0(scancode[1]),
+        .I1(scancode[4]),
+        .I2(scancode[0]),
+        .I3(scancode[5]),
+        .I4(scancode[3]),
+        .O(keyPressed_i_5_n_0));
+  LUT6 #(
+    .INIT(64'hFFEEFDDEFFEEBFDE)) 
+    keyPressed_i_6
+       (.I0(scancode[1]),
+        .I1(scancode[2]),
+        .I2(scancode[4]),
+        .I3(scancode[3]),
+        .I4(scancode[6]),
+        .I5(scancode[5]),
+        .O(keyPressed_i_6_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
+    keyPressed_i_7
+       (.I0(scancode[6]),
+        .I1(scancode[5]),
+        .O(keyPressed_i_7_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
+    keyPressed_i_8
+       (.I0(scancode[2]),
+        .I1(scancode[1]),
+        .O(keyPressed_i_8_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFF6FF6)) 
+    keyPressed_i_9
+       (.I0(scancode[3]),
+        .I1(scancode[1]),
+        .I2(scancode[5]),
+        .I3(scancode[7]),
+        .I4(scancode[0]),
+        .I5(scancode[2]),
+        .O(keyPressed_i_9_n_0));
   FDRE keyPressed_reg
        (.C(clk),
         .CE(1'b1),

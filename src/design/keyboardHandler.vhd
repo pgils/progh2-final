@@ -33,11 +33,11 @@ architecture Behavioral of keyboardHandler is
 
 -- buffers: 3 bits (flip-flops) for stabilizing the signal
 -- and extra bit for clk for comparing to HIGH-1 for edge detection.
-signal  clkBuffer   : std_logic_vector(3 downto 0)  := (others => '1');
-signal  dataBuffer  : std_logic_vector(2 downto 0)  := (others => '1');
+signal  clkBuffer   : std_logic_vector(3 downto 0)      := (others => '1');
+signal  dataBuffer  : std_logic_vector(2 downto 0)      := (others => '1');
 
 -- 11-bit word as sent by the PS/2 device
-signal  dataWord    : std_logic_vector(10 downto 0) := (others => '0');
+signal  dataWord    : std_logic_vector(10 downto 0)     := (others => '0');
 signal  wordIndex   : integer := 0;
 
 -- key-up events need to be ignored. The scancode after a key-up code (F0)
@@ -74,13 +74,17 @@ end scanCodeToNote;
 -- checks for start + stop bits and parity.
 function checkDataWord(word: in std_logic_vector(dataWord'HIGH downto 0))
     return boolean is
+    variable parity : std_ulogic := '0';
 begin
     if word(word'LOW)       /= '0' then return false; end if; -- start bit
     if word(word'HIGH)      /= '1' then return false; end if; -- stop bit
 
     -- parity check. The PS/2 dataframe uses _odd_ parity. Including the parity bit
     -- D0-D7+P should contain an odd number of '1's
---    if (xor word(word'HIGH-1 downto word'LOW+1)) /= '1' then return true; end if;
+    for P in word'HIGH-1 downto word'LOW+1 loop
+        parity  := parity xor word(P);
+    end loop;
+    if ('1' /= parity) then return false; end if;
 
     return true;
 end checkDataWord;
