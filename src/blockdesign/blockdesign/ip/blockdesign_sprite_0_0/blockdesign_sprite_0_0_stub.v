@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Wed Mar 20 12:47:14 2019
+// Date        : Wed Mar 20 13:50:06 2019
 // Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_sprite_0_0/blockdesign_sprite_0_0_stub.v

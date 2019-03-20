@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Mon Mar 18 22:32:41 2019
+// Date        : Wed Mar 20 13:49:01 2019
 // Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_toneplayer_0_0/blockdesign_toneplayer_0_0_sim_netlist.v
@@ -61,6 +61,7 @@ module blockdesign_toneplayer_0_0_toneplayer
 
   wire clk;
   wire [1:0]ena;
+  wire [0:0]getEndAddress;
   wire pin_mono;
   wire pin_mono0;
   wire pin_mono1;
@@ -347,6 +348,7 @@ module blockdesign_toneplayer_0_0_toneplayer
   wire sigRomAddr1_carry__0_i_6_n_0;
   wire sigRomAddr1_carry__0_i_7_n_0;
   wire sigRomAddr1_carry__0_i_8_n_0;
+  wire sigRomAddr1_carry__0_i_9_n_3;
   wire sigRomAddr1_carry__0_n_0;
   wire sigRomAddr1_carry__0_n_1;
   wire sigRomAddr1_carry__0_n_2;
@@ -387,6 +389,31 @@ module blockdesign_toneplayer_0_0_toneplayer
   wire sigRomAddr1_carry_n_1;
   wire sigRomAddr1_carry_n_2;
   wire sigRomAddr1_carry_n_3;
+  wire [12:1]sigRomAddr2;
+  wire sigRomAddr2_carry__0_i_1_n_0;
+  wire sigRomAddr2_carry__0_i_2_n_0;
+  wire sigRomAddr2_carry__0_i_3_n_0;
+  wire sigRomAddr2_carry__0_i_4_n_0;
+  wire sigRomAddr2_carry__0_n_0;
+  wire sigRomAddr2_carry__0_n_1;
+  wire sigRomAddr2_carry__0_n_2;
+  wire sigRomAddr2_carry__0_n_3;
+  wire sigRomAddr2_carry__1_i_1_n_0;
+  wire sigRomAddr2_carry__1_i_2_n_0;
+  wire sigRomAddr2_carry__1_i_3_n_0;
+  wire sigRomAddr2_carry__1_i_4_n_0;
+  wire sigRomAddr2_carry__1_n_0;
+  wire sigRomAddr2_carry__1_n_1;
+  wire sigRomAddr2_carry__1_n_2;
+  wire sigRomAddr2_carry__1_n_3;
+  wire sigRomAddr2_carry_i_1_n_0;
+  wire sigRomAddr2_carry_i_2_n_0;
+  wire sigRomAddr2_carry_i_3_n_0;
+  wire sigRomAddr2_carry_i_4_n_0;
+  wire sigRomAddr2_carry_n_0;
+  wire sigRomAddr2_carry_n_1;
+  wire sigRomAddr2_carry_n_2;
+  wire sigRomAddr2_carry_n_3;
   wire \sigRomAddr[0]_i_3_n_0 ;
   wire \sigRomAddr[0]_i_4_n_0 ;
   wire \sigRomAddr[0]_i_5_n_0 ;
@@ -503,6 +530,8 @@ module blockdesign_toneplayer_0_0_toneplayer
   wire [3:3]\NLW_sampRateCounter_reg[28]_i_1_CO_UNCONNECTED ;
   wire [3:0]NLW_sigRomAddr1_carry_O_UNCONNECTED;
   wire [3:0]NLW_sigRomAddr1_carry__0_O_UNCONNECTED;
+  wire [3:1]NLW_sigRomAddr1_carry__0_i_9_CO_UNCONNECTED;
+  wire [3:0]NLW_sigRomAddr1_carry__0_i_9_O_UNCONNECTED;
   wire [3:0]NLW_sigRomAddr1_carry__1_O_UNCONNECTED;
   wire [3:0]NLW_sigRomAddr1_carry__2_O_UNCONNECTED;
   wire [3:3]\NLW_sigRomAddr_reg[28]_i_1_CO_UNCONNECTED ;
@@ -1926,72 +1955,75 @@ module blockdesign_toneplayer_0_0_toneplayer
         .DI({sigRomAddr1_carry__0_i_1_n_0,sigRomAddr1_carry__0_i_2_n_0,sigRomAddr1_carry__0_i_3_n_0,sigRomAddr1_carry__0_i_4_n_0}),
         .O(NLW_sigRomAddr1_carry__0_O_UNCONNECTED[3:0]),
         .S({sigRomAddr1_carry__0_i_5_n_0,sigRomAddr1_carry__0_i_6_n_0,sigRomAddr1_carry__0_i_7_n_0,sigRomAddr1_carry__0_i_8_n_0}));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__0_i_1
        (.I0(sigRomAddr_reg__0[14]),
         .I1(sigRomAddr_reg__0[15]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__0_i_1_n_0));
-  LUT5 #(
-    .INIT(32'hFFFFA800)) 
+  LUT4 #(
+    .INIT(16'hF220)) 
     sigRomAddr1_carry__0_i_2
        (.I0(sigRomAddr_reg[12]),
-        .I1(tone[1]),
-        .I2(tone[0]),
-        .I3(tone[2]),
-        .I4(sigRomAddr_reg__0[13]),
+        .I1(sigRomAddr2[12]),
+        .I2(sigRomAddr_reg__0[13]),
+        .I3(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__0_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hE3E00200)) 
+  LUT4 #(
+    .INIT(16'h2F02)) 
     sigRomAddr1_carry__0_i_3
        (.I0(sigRomAddr_reg[10]),
-        .I1(tone[0]),
-        .I2(tone[1]),
-        .I3(tone[2]),
-        .I4(sigRomAddr_reg[11]),
+        .I1(sigRomAddr2[10]),
+        .I2(sigRomAddr2[11]),
+        .I3(sigRomAddr_reg[11]),
         .O(sigRomAddr1_carry__0_i_3_n_0));
-  LUT5 #(
-    .INIT(32'hE3A80200)) 
+  LUT4 #(
+    .INIT(16'h2F02)) 
     sigRomAddr1_carry__0_i_4
        (.I0(sigRomAddr_reg[8]),
-        .I1(tone[2]),
-        .I2(tone[1]),
-        .I3(tone[0]),
-        .I4(sigRomAddr_reg[9]),
+        .I1(sigRomAddr2[8]),
+        .I2(sigRomAddr2[9]),
+        .I3(sigRomAddr_reg[9]),
         .O(sigRomAddr1_carry__0_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__0_i_5
        (.I0(sigRomAddr_reg__0[14]),
         .I1(sigRomAddr_reg__0[15]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__0_i_5_n_0));
-  LUT5 #(
-    .INIT(32'h0000666A)) 
+  LUT4 #(
+    .INIT(16'h0990)) 
     sigRomAddr1_carry__0_i_6
        (.I0(sigRomAddr_reg[12]),
-        .I1(tone[2]),
-        .I2(tone[0]),
-        .I3(tone[1]),
-        .I4(sigRomAddr_reg__0[13]),
+        .I1(sigRomAddr2[12]),
+        .I2(sigRomAddr_reg__0[13]),
+        .I3(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__0_i_6_n_0));
-  LUT5 #(
-    .INIT(32'h24812488)) 
+  LUT4 #(
+    .INIT(16'h9009)) 
     sigRomAddr1_carry__0_i_7
        (.I0(sigRomAddr_reg[10]),
-        .I1(sigRomAddr_reg[11]),
-        .I2(tone[0]),
-        .I3(tone[1]),
-        .I4(tone[2]),
+        .I1(sigRomAddr2[10]),
+        .I2(sigRomAddr_reg[11]),
+        .I3(sigRomAddr2[11]),
         .O(sigRomAddr1_carry__0_i_7_n_0));
-  LUT5 #(
-    .INIT(32'h24814448)) 
+  LUT4 #(
+    .INIT(16'h9009)) 
     sigRomAddr1_carry__0_i_8
        (.I0(sigRomAddr_reg[8]),
-        .I1(sigRomAddr_reg[9]),
-        .I2(tone[2]),
-        .I3(tone[1]),
-        .I4(tone[0]),
+        .I1(sigRomAddr2[8]),
+        .I2(sigRomAddr_reg[9]),
+        .I3(sigRomAddr2[9]),
         .O(sigRomAddr1_carry__0_i_8_n_0));
+  CARRY4 sigRomAddr1_carry__0_i_9
+       (.CI(sigRomAddr2_carry__1_n_0),
+        .CO({NLW_sigRomAddr1_carry__0_i_9_CO_UNCONNECTED[3:1],sigRomAddr1_carry__0_i_9_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_sigRomAddr1_carry__0_i_9_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,1'b0,1'b1}));
   CARRY4 sigRomAddr1_carry__1
        (.CI(sigRomAddr1_carry__0_n_0),
         .CO({sigRomAddr1_carry__1_n_0,sigRomAddr1_carry__1_n_1,sigRomAddr1_carry__1_n_2,sigRomAddr1_carry__1_n_3}),
@@ -1999,53 +2031,61 @@ module blockdesign_toneplayer_0_0_toneplayer
         .DI({sigRomAddr1_carry__1_i_1_n_0,sigRomAddr1_carry__1_i_2_n_0,sigRomAddr1_carry__1_i_3_n_0,sigRomAddr1_carry__1_i_4_n_0}),
         .O(NLW_sigRomAddr1_carry__1_O_UNCONNECTED[3:0]),
         .S({sigRomAddr1_carry__1_i_5_n_0,sigRomAddr1_carry__1_i_6_n_0,sigRomAddr1_carry__1_i_7_n_0,sigRomAddr1_carry__1_i_8_n_0}));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__1_i_1
        (.I0(sigRomAddr_reg__0[22]),
         .I1(sigRomAddr_reg__0[23]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_1_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__1_i_2
        (.I0(sigRomAddr_reg__0[20]),
         .I1(sigRomAddr_reg__0[21]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_2_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__1_i_3
        (.I0(sigRomAddr_reg__0[18]),
         .I1(sigRomAddr_reg__0[19]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_3_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__1_i_4
        (.I0(sigRomAddr_reg__0[16]),
         .I1(sigRomAddr_reg__0[17]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__1_i_5
        (.I0(sigRomAddr_reg__0[22]),
         .I1(sigRomAddr_reg__0[23]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_5_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__1_i_6
        (.I0(sigRomAddr_reg__0[20]),
         .I1(sigRomAddr_reg__0[21]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_6_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__1_i_7
        (.I0(sigRomAddr_reg__0[18]),
         .I1(sigRomAddr_reg__0[19]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_7_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__1_i_8
        (.I0(sigRomAddr_reg__0[16]),
         .I1(sigRomAddr_reg__0[17]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__1_i_8_n_0));
   CARRY4 sigRomAddr1_carry__2
        (.CI(sigRomAddr1_carry__1_n_0),
@@ -2054,126 +2094,235 @@ module blockdesign_toneplayer_0_0_toneplayer
         .DI({sigRomAddr1_carry__2_i_1_n_0,sigRomAddr1_carry__2_i_2_n_0,sigRomAddr1_carry__2_i_3_n_0,sigRomAddr1_carry__2_i_4_n_0}),
         .O(NLW_sigRomAddr1_carry__2_O_UNCONNECTED[3:0]),
         .S({sigRomAddr1_carry__2_i_5_n_0,sigRomAddr1_carry__2_i_6_n_0,sigRomAddr1_carry__2_i_7_n_0,sigRomAddr1_carry__2_i_8_n_0}));
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT3 #(
+    .INIT(8'h0B)) 
     sigRomAddr1_carry__2_i_1
        (.I0(sigRomAddr_reg__0[30]),
-        .I1(sigRomAddr_reg__0[31]),
+        .I1(sigRomAddr1_carry__0_i_9_n_3),
+        .I2(sigRomAddr_reg__0[31]),
         .O(sigRomAddr1_carry__2_i_1_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__2_i_2
        (.I0(sigRomAddr_reg__0[28]),
         .I1(sigRomAddr_reg__0[29]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__2_i_2_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__2_i_3
        (.I0(sigRomAddr_reg__0[26]),
         .I1(sigRomAddr_reg__0[27]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__2_i_3_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT3 #(
+    .INIT(8'hE0)) 
     sigRomAddr1_carry__2_i_4
        (.I0(sigRomAddr_reg__0[24]),
         .I1(sigRomAddr_reg__0[25]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__2_i_4_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h24)) 
     sigRomAddr1_carry__2_i_5
        (.I0(sigRomAddr_reg__0[30]),
-        .I1(sigRomAddr_reg__0[31]),
+        .I1(sigRomAddr1_carry__0_i_9_n_3),
+        .I2(sigRomAddr_reg__0[31]),
         .O(sigRomAddr1_carry__2_i_5_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__2_i_6
        (.I0(sigRomAddr_reg__0[28]),
         .I1(sigRomAddr_reg__0[29]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__2_i_6_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__2_i_7
        (.I0(sigRomAddr_reg__0[26]),
         .I1(sigRomAddr_reg__0[27]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__2_i_7_n_0));
-  LUT2 #(
-    .INIT(4'h1)) 
+  LUT3 #(
+    .INIT(8'h18)) 
     sigRomAddr1_carry__2_i_8
        (.I0(sigRomAddr_reg__0[24]),
         .I1(sigRomAddr_reg__0[25]),
+        .I2(sigRomAddr1_carry__0_i_9_n_3),
         .O(sigRomAddr1_carry__2_i_8_n_0));
-  LUT5 #(
-    .INIT(32'hACB00820)) 
+  LUT4 #(
+    .INIT(16'h2F02)) 
     sigRomAddr1_carry_i_1
        (.I0(sigRomAddr_reg[6]),
-        .I1(tone[2]),
-        .I2(tone[1]),
-        .I3(tone[0]),
-        .I4(sigRomAddr_reg[7]),
+        .I1(sigRomAddr2[6]),
+        .I2(sigRomAddr2[7]),
+        .I3(sigRomAddr_reg[7]),
         .O(sigRomAddr1_carry_i_1_n_0));
-  LUT5 #(
-    .INIT(32'hF3C30282)) 
+  LUT4 #(
+    .INIT(16'h2F02)) 
     sigRomAddr1_carry_i_2
        (.I0(sigRomAddr_reg[4]),
+        .I1(sigRomAddr2[4]),
+        .I2(sigRomAddr2[5]),
+        .I3(sigRomAddr_reg[5]),
+        .O(sigRomAddr1_carry_i_2_n_0));
+  LUT4 #(
+    .INIT(16'h2F02)) 
+    sigRomAddr1_carry_i_3
+       (.I0(sigRomAddr_reg[2]),
+        .I1(sigRomAddr2[2]),
+        .I2(sigRomAddr2[3]),
+        .I3(sigRomAddr_reg[3]),
+        .O(sigRomAddr1_carry_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hD900FFFF0000D900)) 
+    sigRomAddr1_carry_i_4
+       (.I0(tone[1]),
+        .I1(tone[2]),
+        .I2(tone[0]),
+        .I3(sigRomAddr_reg[0]),
+        .I4(sigRomAddr2[1]),
+        .I5(sigRomAddr_reg[1]),
+        .O(sigRomAddr1_carry_i_4_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    sigRomAddr1_carry_i_5
+       (.I0(sigRomAddr_reg[6]),
+        .I1(sigRomAddr2[6]),
+        .I2(sigRomAddr_reg[7]),
+        .I3(sigRomAddr2[7]),
+        .O(sigRomAddr1_carry_i_5_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    sigRomAddr1_carry_i_6
+       (.I0(sigRomAddr_reg[4]),
+        .I1(sigRomAddr2[4]),
+        .I2(sigRomAddr_reg[5]),
+        .I3(sigRomAddr2[5]),
+        .O(sigRomAddr1_carry_i_6_n_0));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    sigRomAddr1_carry_i_7
+       (.I0(sigRomAddr_reg[2]),
+        .I1(sigRomAddr2[2]),
+        .I2(sigRomAddr_reg[3]),
+        .I3(sigRomAddr2[3]),
+        .O(sigRomAddr1_carry_i_7_n_0));
+  LUT6 #(
+    .INIT(64'h5A65000000005A65)) 
+    sigRomAddr1_carry_i_8
+       (.I0(sigRomAddr_reg[0]),
         .I1(tone[0]),
         .I2(tone[2]),
         .I3(tone[1]),
-        .I4(sigRomAddr_reg[5]),
-        .O(sigRomAddr1_carry_i_2_n_0));
-  LUT5 #(
-    .INIT(32'hFCE80880)) 
-    sigRomAddr1_carry_i_3
-       (.I0(sigRomAddr_reg[2]),
+        .I4(sigRomAddr_reg[1]),
+        .I5(sigRomAddr2[1]),
+        .O(sigRomAddr1_carry_i_8_n_0));
+  CARRY4 sigRomAddr2_carry
+       (.CI(1'b0),
+        .CO({sigRomAddr2_carry_n_0,sigRomAddr2_carry_n_1,sigRomAddr2_carry_n_2,sigRomAddr2_carry_n_3}),
+        .CYINIT(getEndAddress),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(sigRomAddr2[4:1]),
+        .S({sigRomAddr2_carry_i_1_n_0,sigRomAddr2_carry_i_2_n_0,sigRomAddr2_carry_i_3_n_0,sigRomAddr2_carry_i_4_n_0}));
+  CARRY4 sigRomAddr2_carry__0
+       (.CI(sigRomAddr2_carry_n_0),
+        .CO({sigRomAddr2_carry__0_n_0,sigRomAddr2_carry__0_n_1,sigRomAddr2_carry__0_n_2,sigRomAddr2_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(sigRomAddr2[8:5]),
+        .S({sigRomAddr2_carry__0_i_1_n_0,sigRomAddr2_carry__0_i_2_n_0,sigRomAddr2_carry__0_i_3_n_0,sigRomAddr2_carry__0_i_4_n_0}));
+  LUT3 #(
+    .INIT(8'h5E)) 
+    sigRomAddr2_carry__0_i_1
+       (.I0(tone[2]),
+        .I1(tone[1]),
+        .I2(tone[0]),
+        .O(sigRomAddr2_carry__0_i_1_n_0));
+  LUT3 #(
+    .INIT(8'h24)) 
+    sigRomAddr2_carry__0_i_2
+       (.I0(tone[2]),
+        .I1(tone[1]),
+        .I2(tone[0]),
+        .O(sigRomAddr2_carry__0_i_2_n_0));
+  LUT3 #(
+    .INIT(8'hEA)) 
+    sigRomAddr2_carry__0_i_3
+       (.I0(tone[1]),
+        .I1(tone[0]),
+        .I2(tone[2]),
+        .O(sigRomAddr2_carry__0_i_3_n_0));
+  LUT3 #(
+    .INIT(8'hCB)) 
+    sigRomAddr2_carry__0_i_4
+       (.I0(tone[1]),
+        .I1(tone[2]),
+        .I2(tone[0]),
+        .O(sigRomAddr2_carry__0_i_4_n_0));
+  CARRY4 sigRomAddr2_carry__1
+       (.CI(sigRomAddr2_carry__0_n_0),
+        .CO({sigRomAddr2_carry__1_n_0,sigRomAddr2_carry__1_n_1,sigRomAddr2_carry__1_n_2,sigRomAddr2_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b1,1'b1,1'b1,1'b1}),
+        .O(sigRomAddr2[12:9]),
+        .S({sigRomAddr2_carry__1_i_1_n_0,sigRomAddr2_carry__1_i_2_n_0,sigRomAddr2_carry__1_i_3_n_0,sigRomAddr2_carry__1_i_4_n_0}));
+  LUT3 #(
+    .INIT(8'hA8)) 
+    sigRomAddr2_carry__1_i_1
+       (.I0(tone[2]),
+        .I1(tone[0]),
+        .I2(tone[1]),
+        .O(sigRomAddr2_carry__1_i_1_n_0));
+  LUT3 #(
+    .INIT(8'hC2)) 
+    sigRomAddr2_carry__1_i_2
+       (.I0(tone[2]),
+        .I1(tone[1]),
+        .I2(tone[0]),
+        .O(sigRomAddr2_carry__1_i_2_n_0));
+  LUT3 #(
+    .INIT(8'h0E)) 
+    sigRomAddr2_carry__1_i_3
+       (.I0(tone[1]),
+        .I1(tone[2]),
+        .I2(tone[0]),
+        .O(sigRomAddr2_carry__1_i_3_n_0));
+  LUT3 #(
+    .INIT(8'h82)) 
+    sigRomAddr2_carry__1_i_4
+       (.I0(tone[0]),
         .I1(tone[2]),
         .I2(tone[1]),
-        .I3(tone[0]),
-        .I4(sigRomAddr_reg[3]),
-        .O(sigRomAddr1_carry_i_3_n_0));
-  LUT5 #(
-    .INIT(32'h330F2208)) 
-    sigRomAddr1_carry_i_4
-       (.I0(sigRomAddr_reg[0]),
+        .O(sigRomAddr2_carry__1_i_4_n_0));
+  LUT3 #(
+    .INIT(8'h43)) 
+    sigRomAddr2_carry_i_1
+       (.I0(tone[1]),
         .I1(tone[2]),
         .I2(tone[0]),
-        .I3(tone[1]),
-        .I4(sigRomAddr_reg[1]),
-        .O(sigRomAddr1_carry_i_4_n_0));
-  LUT5 #(
-    .INIT(32'h44184188)) 
-    sigRomAddr1_carry_i_5
-       (.I0(sigRomAddr_reg[6]),
-        .I1(sigRomAddr_reg[7]),
-        .I2(tone[2]),
-        .I3(tone[1]),
-        .I4(tone[0]),
-        .O(sigRomAddr1_carry_i_5_n_0));
-  LUT5 #(
-    .INIT(32'h22811881)) 
-    sigRomAddr1_carry_i_6
-       (.I0(sigRomAddr_reg[4]),
-        .I1(sigRomAddr_reg[5]),
+        .O(sigRomAddr2_carry_i_1_n_0));
+  LUT3 #(
+    .INIT(8'hE8)) 
+    sigRomAddr2_carry_i_2
+       (.I0(tone[2]),
+        .I1(tone[1]),
         .I2(tone[0]),
-        .I3(tone[2]),
-        .I4(tone[1]),
-        .O(sigRomAddr1_carry_i_6_n_0));
-  LUT5 #(
-    .INIT(32'h22181448)) 
-    sigRomAddr1_carry_i_7
-       (.I0(sigRomAddr_reg[2]),
-        .I1(sigRomAddr_reg[3]),
+        .O(sigRomAddr2_carry_i_2_n_0));
+  LUT3 #(
+    .INIT(8'h74)) 
+    sigRomAddr2_carry_i_3
+       (.I0(tone[0]),
+        .I1(tone[1]),
         .I2(tone[2]),
-        .I3(tone[1]),
-        .I4(tone[0]),
-        .O(sigRomAddr1_carry_i_7_n_0));
-  LUT5 #(
-    .INIT(32'h81818812)) 
-    sigRomAddr1_carry_i_8
-       (.I0(sigRomAddr_reg[0]),
-        .I1(sigRomAddr_reg[1]),
-        .I2(tone[2]),
-        .I3(tone[0]),
-        .I4(tone[1]),
-        .O(sigRomAddr1_carry_i_8_n_0));
+        .O(sigRomAddr2_carry_i_3_n_0));
+  LUT3 #(
+    .INIT(8'h53)) 
+    sigRomAddr2_carry_i_4
+       (.I0(tone[2]),
+        .I1(tone[0]),
+        .I2(tone[1]),
+        .O(sigRomAddr2_carry_i_4_n_0));
   LUT4 #(
     .INIT(16'h8880)) 
     \sigRomAddr[0]_i_1 
@@ -2724,6 +2873,13 @@ module blockdesign_toneplayer_0_0_toneplayer
         .D(\sigRomAddr_reg[8]_i_1_n_6 ),
         .Q(sigRomAddr_reg[9]),
         .R(1'b0));
+  LUT3 #(
+    .INIT(8'hCB)) 
+    \toneAddress[7,0] 
+       (.I0(tone[0]),
+        .I1(tone[2]),
+        .I2(tone[1]),
+        .O(getEndAddress));
 endmodule
 `ifndef GLBL
 `define GLBL

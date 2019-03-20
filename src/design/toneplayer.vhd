@@ -92,7 +92,7 @@ begin
         end if;
         
         -- reset the sine period if needed
-        if (sigRomAddr >= getEndAddress(tone)) then
+        if (sigRomAddr >= getEndAddress(tone)-1) then
             sigRomAddr  <= getStartAddress(tone);
         end if;
 

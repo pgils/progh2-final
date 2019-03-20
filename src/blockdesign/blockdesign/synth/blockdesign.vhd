@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
---Date        : Wed Mar 20 12:45:48 2019
+--Date        : Wed Mar 20 13:47:22 2019
 --Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target blockdesign.bd
 --Design      : blockdesign
@@ -2614,16 +2614,6 @@ architecture STRUCTURE of blockdesign is
     douta : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component blockdesign_blk_mem_gen_0_1;
-  component blockdesign_toneplayer_0_0 is
-  port (
-    clk : in STD_LOGIC;
-    ena : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    tone : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    toneData : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    romAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    pin_mono : out STD_LOGIC
-  );
-  end component blockdesign_toneplayer_0_0;
   component blockdesign_keyboardHandler_0_0 is
   port (
     clk : in STD_LOGIC;
@@ -2646,6 +2636,16 @@ architecture STRUCTURE of blockdesign is
     sprRomData : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component blockdesign_sprite_0_0;
+  component blockdesign_toneplayer_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    ena : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    tone : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    toneData : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    romAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    pin_mono : out STD_LOGIC
+  );
+  end component blockdesign_toneplayer_0_0;
   signal PS2Clk_1 : STD_LOGIC;
   signal PS2Data_1 : STD_LOGIC;
   signal SW_MUTE_1 : STD_LOGIC;

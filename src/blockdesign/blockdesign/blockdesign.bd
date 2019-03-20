@@ -598,17 +598,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>toneplayer_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="toneplayer" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">blockdesign_toneplayer_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">toneplayer</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>keyboardHandler_0</spirit:instanceName>
         <spirit:componentRef spirit:library="module_ref" spirit:name="keyboardHandler" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -625,6 +614,17 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">blockdesign_sprite_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceName">sprite</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>toneplayer_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="toneplayer" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">blockdesign_toneplayer_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">toneplayer</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
@@ -715,8 +715,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_gpio_2_noteOut" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_1_background" spirit:portRef="clka"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_2_noteSprite" spirit:portRef="clka"/>
-        <spirit:internalPortReference spirit:componentRef="toneplayer_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="keyboardHandler_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ACLK"/>
@@ -726,7 +724,9 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M04_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M05_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="keyboardHandler_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="sprite_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="toneplayer_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>clk_wiz_0_locked</spirit:name>

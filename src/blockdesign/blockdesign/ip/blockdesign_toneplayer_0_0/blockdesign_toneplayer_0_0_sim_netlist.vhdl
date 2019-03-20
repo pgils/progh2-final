@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Mon Mar 18 22:32:42 2019
+-- Date        : Wed Mar 20 13:49:02 2019
 -- Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/sf_shared/PROGH2-final/src/blockdesign/blockdesign/ip/blockdesign_toneplayer_0_0/blockdesign_toneplayer_0_0_sim_netlist.vhdl
@@ -28,6 +28,7 @@ entity blockdesign_toneplayer_0_0_toneplayer is
 end blockdesign_toneplayer_0_0_toneplayer;
 
 architecture STRUCTURE of blockdesign_toneplayer_0_0_toneplayer is
+  signal getEndAddress : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^pin_mono\ : STD_LOGIC;
   signal pin_mono0 : STD_LOGIC;
   signal pin_mono1 : STD_LOGIC;
@@ -313,6 +314,7 @@ architecture STRUCTURE of blockdesign_toneplayer_0_0_toneplayer is
   signal \sigRomAddr1_carry__0_i_6_n_0\ : STD_LOGIC;
   signal \sigRomAddr1_carry__0_i_7_n_0\ : STD_LOGIC;
   signal \sigRomAddr1_carry__0_i_8_n_0\ : STD_LOGIC;
+  signal \sigRomAddr1_carry__0_i_9_n_3\ : STD_LOGIC;
   signal \sigRomAddr1_carry__0_n_0\ : STD_LOGIC;
   signal \sigRomAddr1_carry__0_n_1\ : STD_LOGIC;
   signal \sigRomAddr1_carry__0_n_2\ : STD_LOGIC;
@@ -353,6 +355,31 @@ architecture STRUCTURE of blockdesign_toneplayer_0_0_toneplayer is
   signal sigRomAddr1_carry_n_1 : STD_LOGIC;
   signal sigRomAddr1_carry_n_2 : STD_LOGIC;
   signal sigRomAddr1_carry_n_3 : STD_LOGIC;
+  signal sigRomAddr2 : STD_LOGIC_VECTOR ( 12 downto 1 );
+  signal \sigRomAddr2_carry__0_i_1_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_i_2_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_i_3_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_i_4_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_n_1\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_n_2\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__0_n_3\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_i_1_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_i_2_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_i_3_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_i_4_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_n_0\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_n_1\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_n_2\ : STD_LOGIC;
+  signal \sigRomAddr2_carry__1_n_3\ : STD_LOGIC;
+  signal sigRomAddr2_carry_i_1_n_0 : STD_LOGIC;
+  signal sigRomAddr2_carry_i_2_n_0 : STD_LOGIC;
+  signal sigRomAddr2_carry_i_3_n_0 : STD_LOGIC;
+  signal sigRomAddr2_carry_i_4_n_0 : STD_LOGIC;
+  signal sigRomAddr2_carry_n_0 : STD_LOGIC;
+  signal sigRomAddr2_carry_n_1 : STD_LOGIC;
+  signal sigRomAddr2_carry_n_2 : STD_LOGIC;
+  signal sigRomAddr2_carry_n_3 : STD_LOGIC;
   signal \sigRomAddr[0]_i_3_n_0\ : STD_LOGIC;
   signal \sigRomAddr[0]_i_4_n_0\ : STD_LOGIC;
   signal \sigRomAddr[0]_i_5_n_0\ : STD_LOGIC;
@@ -467,6 +494,8 @@ architecture STRUCTURE of blockdesign_toneplayer_0_0_toneplayer is
   signal \NLW_sampRateCounter_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal NLW_sigRomAddr1_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_sigRomAddr1_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \NLW_sigRomAddr1_carry__0_i_9_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \NLW_sigRomAddr1_carry__0_i_9_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_sigRomAddr1_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_sigRomAddr1_carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_sigRomAddr_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
@@ -2692,95 +2721,101 @@ sigRomAddr1_carry: unisim.vcomponents.CARRY4
       S(1) => \sigRomAddr1_carry__0_i_7_n_0\,
       S(0) => \sigRomAddr1_carry__0_i_8_n_0\
     );
-\sigRomAddr1_carry__0_i_1\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__0_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(14),
       I1 => \sigRomAddr_reg__0\(15),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__0_i_1_n_0\
     );
-\sigRomAddr1_carry__0_i_2\: unisim.vcomponents.LUT5
+\sigRomAddr1_carry__0_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFFA800"
+      INIT => X"F220"
     )
         port map (
       I0 => sigRomAddr_reg(12),
-      I1 => tone(1),
-      I2 => tone(0),
-      I3 => tone(2),
-      I4 => \sigRomAddr_reg__0\(13),
+      I1 => sigRomAddr2(12),
+      I2 => \sigRomAddr_reg__0\(13),
+      I3 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__0_i_2_n_0\
     );
-\sigRomAddr1_carry__0_i_3\: unisim.vcomponents.LUT5
+\sigRomAddr1_carry__0_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E3E00200"
+      INIT => X"2F02"
     )
         port map (
       I0 => sigRomAddr_reg(10),
-      I1 => tone(0),
-      I2 => tone(1),
-      I3 => tone(2),
-      I4 => sigRomAddr_reg(11),
+      I1 => sigRomAddr2(10),
+      I2 => sigRomAddr2(11),
+      I3 => sigRomAddr_reg(11),
       O => \sigRomAddr1_carry__0_i_3_n_0\
     );
-\sigRomAddr1_carry__0_i_4\: unisim.vcomponents.LUT5
+\sigRomAddr1_carry__0_i_4\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E3A80200"
+      INIT => X"2F02"
     )
         port map (
       I0 => sigRomAddr_reg(8),
-      I1 => tone(2),
-      I2 => tone(1),
-      I3 => tone(0),
-      I4 => sigRomAddr_reg(9),
+      I1 => sigRomAddr2(8),
+      I2 => sigRomAddr2(9),
+      I3 => sigRomAddr_reg(9),
       O => \sigRomAddr1_carry__0_i_4_n_0\
     );
-\sigRomAddr1_carry__0_i_5\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__0_i_5\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(14),
       I1 => \sigRomAddr_reg__0\(15),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__0_i_5_n_0\
     );
-\sigRomAddr1_carry__0_i_6\: unisim.vcomponents.LUT5
+\sigRomAddr1_carry__0_i_6\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0000666A"
+      INIT => X"0990"
     )
         port map (
       I0 => sigRomAddr_reg(12),
-      I1 => tone(2),
-      I2 => tone(0),
-      I3 => tone(1),
-      I4 => \sigRomAddr_reg__0\(13),
+      I1 => sigRomAddr2(12),
+      I2 => \sigRomAddr_reg__0\(13),
+      I3 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__0_i_6_n_0\
     );
-\sigRomAddr1_carry__0_i_7\: unisim.vcomponents.LUT5
+\sigRomAddr1_carry__0_i_7\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"24812488"
+      INIT => X"9009"
     )
         port map (
       I0 => sigRomAddr_reg(10),
-      I1 => sigRomAddr_reg(11),
-      I2 => tone(0),
-      I3 => tone(1),
-      I4 => tone(2),
+      I1 => sigRomAddr2(10),
+      I2 => sigRomAddr_reg(11),
+      I3 => sigRomAddr2(11),
       O => \sigRomAddr1_carry__0_i_7_n_0\
     );
-\sigRomAddr1_carry__0_i_8\: unisim.vcomponents.LUT5
+\sigRomAddr1_carry__0_i_8\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"24814448"
+      INIT => X"9009"
     )
         port map (
       I0 => sigRomAddr_reg(8),
-      I1 => sigRomAddr_reg(9),
-      I2 => tone(2),
-      I3 => tone(1),
-      I4 => tone(0),
+      I1 => sigRomAddr2(8),
+      I2 => sigRomAddr_reg(9),
+      I3 => sigRomAddr2(9),
       O => \sigRomAddr1_carry__0_i_8_n_0\
+    );
+\sigRomAddr1_carry__0_i_9\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \sigRomAddr2_carry__1_n_0\,
+      CO(3 downto 1) => \NLW_sigRomAddr1_carry__0_i_9_CO_UNCONNECTED\(3 downto 1),
+      CO(0) => \sigRomAddr1_carry__0_i_9_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"0000",
+      O(3 downto 0) => \NLW_sigRomAddr1_carry__0_i_9_O_UNCONNECTED\(3 downto 0),
+      S(3 downto 0) => B"0001"
     );
 \sigRomAddr1_carry__1\: unisim.vcomponents.CARRY4
      port map (
@@ -2800,76 +2835,84 @@ sigRomAddr1_carry: unisim.vcomponents.CARRY4
       S(1) => \sigRomAddr1_carry__1_i_7_n_0\,
       S(0) => \sigRomAddr1_carry__1_i_8_n_0\
     );
-\sigRomAddr1_carry__1_i_1\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(22),
       I1 => \sigRomAddr_reg__0\(23),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_1_n_0\
     );
-\sigRomAddr1_carry__1_i_2\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(20),
       I1 => \sigRomAddr_reg__0\(21),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_2_n_0\
     );
-\sigRomAddr1_carry__1_i_3\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_3\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(18),
       I1 => \sigRomAddr_reg__0\(19),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_3_n_0\
     );
-\sigRomAddr1_carry__1_i_4\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_4\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(16),
       I1 => \sigRomAddr_reg__0\(17),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_4_n_0\
     );
-\sigRomAddr1_carry__1_i_5\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_5\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(22),
       I1 => \sigRomAddr_reg__0\(23),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_5_n_0\
     );
-\sigRomAddr1_carry__1_i_6\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_6\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(20),
       I1 => \sigRomAddr_reg__0\(21),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_6_n_0\
     );
-\sigRomAddr1_carry__1_i_7\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_7\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(18),
       I1 => \sigRomAddr_reg__0\(19),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_7_n_0\
     );
-\sigRomAddr1_carry__1_i_8\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__1_i_8\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(16),
       I1 => \sigRomAddr_reg__0\(17),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__1_i_8_n_0\
     );
 \sigRomAddr1_carry__2\: unisim.vcomponents.CARRY4
@@ -2890,173 +2933,342 @@ sigRomAddr1_carry: unisim.vcomponents.CARRY4
       S(1) => \sigRomAddr1_carry__2_i_7_n_0\,
       S(0) => \sigRomAddr1_carry__2_i_8_n_0\
     );
-\sigRomAddr1_carry__2_i_1\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"2"
+      INIT => X"0B"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(30),
-      I1 => \sigRomAddr_reg__0\(31),
+      I1 => \sigRomAddr1_carry__0_i_9_n_3\,
+      I2 => \sigRomAddr_reg__0\(31),
       O => \sigRomAddr1_carry__2_i_1_n_0\
     );
-\sigRomAddr1_carry__2_i_2\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(28),
       I1 => \sigRomAddr_reg__0\(29),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__2_i_2_n_0\
     );
-\sigRomAddr1_carry__2_i_3\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_3\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(26),
       I1 => \sigRomAddr_reg__0\(27),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__2_i_3_n_0\
     );
-\sigRomAddr1_carry__2_i_4\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_4\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"E0"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(24),
       I1 => \sigRomAddr_reg__0\(25),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__2_i_4_n_0\
     );
-\sigRomAddr1_carry__2_i_5\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_5\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"24"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(30),
-      I1 => \sigRomAddr_reg__0\(31),
+      I1 => \sigRomAddr1_carry__0_i_9_n_3\,
+      I2 => \sigRomAddr_reg__0\(31),
       O => \sigRomAddr1_carry__2_i_5_n_0\
     );
-\sigRomAddr1_carry__2_i_6\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_6\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(28),
       I1 => \sigRomAddr_reg__0\(29),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__2_i_6_n_0\
     );
-\sigRomAddr1_carry__2_i_7\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_7\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(26),
       I1 => \sigRomAddr_reg__0\(27),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__2_i_7_n_0\
     );
-\sigRomAddr1_carry__2_i_8\: unisim.vcomponents.LUT2
+\sigRomAddr1_carry__2_i_8\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1"
+      INIT => X"18"
     )
         port map (
       I0 => \sigRomAddr_reg__0\(24),
       I1 => \sigRomAddr_reg__0\(25),
+      I2 => \sigRomAddr1_carry__0_i_9_n_3\,
       O => \sigRomAddr1_carry__2_i_8_n_0\
     );
-sigRomAddr1_carry_i_1: unisim.vcomponents.LUT5
+sigRomAddr1_carry_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"ACB00820"
+      INIT => X"2F02"
     )
         port map (
       I0 => sigRomAddr_reg(6),
-      I1 => tone(2),
-      I2 => tone(1),
-      I3 => tone(0),
-      I4 => sigRomAddr_reg(7),
+      I1 => sigRomAddr2(6),
+      I2 => sigRomAddr2(7),
+      I3 => sigRomAddr_reg(7),
       O => sigRomAddr1_carry_i_1_n_0
     );
-sigRomAddr1_carry_i_2: unisim.vcomponents.LUT5
+sigRomAddr1_carry_i_2: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"F3C30282"
+      INIT => X"2F02"
     )
         port map (
       I0 => sigRomAddr_reg(4),
+      I1 => sigRomAddr2(4),
+      I2 => sigRomAddr2(5),
+      I3 => sigRomAddr_reg(5),
+      O => sigRomAddr1_carry_i_2_n_0
+    );
+sigRomAddr1_carry_i_3: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"2F02"
+    )
+        port map (
+      I0 => sigRomAddr_reg(2),
+      I1 => sigRomAddr2(2),
+      I2 => sigRomAddr2(3),
+      I3 => sigRomAddr_reg(3),
+      O => sigRomAddr1_carry_i_3_n_0
+    );
+sigRomAddr1_carry_i_4: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D900FFFF0000D900"
+    )
+        port map (
+      I0 => tone(1),
+      I1 => tone(2),
+      I2 => tone(0),
+      I3 => sigRomAddr_reg(0),
+      I4 => sigRomAddr2(1),
+      I5 => sigRomAddr_reg(1),
+      O => sigRomAddr1_carry_i_4_n_0
+    );
+sigRomAddr1_carry_i_5: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => sigRomAddr_reg(6),
+      I1 => sigRomAddr2(6),
+      I2 => sigRomAddr_reg(7),
+      I3 => sigRomAddr2(7),
+      O => sigRomAddr1_carry_i_5_n_0
+    );
+sigRomAddr1_carry_i_6: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => sigRomAddr_reg(4),
+      I1 => sigRomAddr2(4),
+      I2 => sigRomAddr_reg(5),
+      I3 => sigRomAddr2(5),
+      O => sigRomAddr1_carry_i_6_n_0
+    );
+sigRomAddr1_carry_i_7: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"9009"
+    )
+        port map (
+      I0 => sigRomAddr_reg(2),
+      I1 => sigRomAddr2(2),
+      I2 => sigRomAddr_reg(3),
+      I3 => sigRomAddr2(3),
+      O => sigRomAddr1_carry_i_7_n_0
+    );
+sigRomAddr1_carry_i_8: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"5A65000000005A65"
+    )
+        port map (
+      I0 => sigRomAddr_reg(0),
       I1 => tone(0),
       I2 => tone(2),
       I3 => tone(1),
-      I4 => sigRomAddr_reg(5),
-      O => sigRomAddr1_carry_i_2_n_0
+      I4 => sigRomAddr_reg(1),
+      I5 => sigRomAddr2(1),
+      O => sigRomAddr1_carry_i_8_n_0
     );
-sigRomAddr1_carry_i_3: unisim.vcomponents.LUT5
+sigRomAddr2_carry: unisim.vcomponents.CARRY4
+     port map (
+      CI => '0',
+      CO(3) => sigRomAddr2_carry_n_0,
+      CO(2) => sigRomAddr2_carry_n_1,
+      CO(1) => sigRomAddr2_carry_n_2,
+      CO(0) => sigRomAddr2_carry_n_3,
+      CYINIT => getEndAddress(0),
+      DI(3 downto 0) => B"1111",
+      O(3 downto 0) => sigRomAddr2(4 downto 1),
+      S(3) => sigRomAddr2_carry_i_1_n_0,
+      S(2) => sigRomAddr2_carry_i_2_n_0,
+      S(1) => sigRomAddr2_carry_i_3_n_0,
+      S(0) => sigRomAddr2_carry_i_4_n_0
+    );
+\sigRomAddr2_carry__0\: unisim.vcomponents.CARRY4
+     port map (
+      CI => sigRomAddr2_carry_n_0,
+      CO(3) => \sigRomAddr2_carry__0_n_0\,
+      CO(2) => \sigRomAddr2_carry__0_n_1\,
+      CO(1) => \sigRomAddr2_carry__0_n_2\,
+      CO(0) => \sigRomAddr2_carry__0_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"1111",
+      O(3 downto 0) => sigRomAddr2(8 downto 5),
+      S(3) => \sigRomAddr2_carry__0_i_1_n_0\,
+      S(2) => \sigRomAddr2_carry__0_i_2_n_0\,
+      S(1) => \sigRomAddr2_carry__0_i_3_n_0\,
+      S(0) => \sigRomAddr2_carry__0_i_4_n_0\
+    );
+\sigRomAddr2_carry__0_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FCE80880"
+      INIT => X"5E"
     )
         port map (
-      I0 => sigRomAddr_reg(2),
+      I0 => tone(2),
+      I1 => tone(1),
+      I2 => tone(0),
+      O => \sigRomAddr2_carry__0_i_1_n_0\
+    );
+\sigRomAddr2_carry__0_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"24"
+    )
+        port map (
+      I0 => tone(2),
+      I1 => tone(1),
+      I2 => tone(0),
+      O => \sigRomAddr2_carry__0_i_2_n_0\
+    );
+\sigRomAddr2_carry__0_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"EA"
+    )
+        port map (
+      I0 => tone(1),
+      I1 => tone(0),
+      I2 => tone(2),
+      O => \sigRomAddr2_carry__0_i_3_n_0\
+    );
+\sigRomAddr2_carry__0_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"CB"
+    )
+        port map (
+      I0 => tone(1),
+      I1 => tone(2),
+      I2 => tone(0),
+      O => \sigRomAddr2_carry__0_i_4_n_0\
+    );
+\sigRomAddr2_carry__1\: unisim.vcomponents.CARRY4
+     port map (
+      CI => \sigRomAddr2_carry__0_n_0\,
+      CO(3) => \sigRomAddr2_carry__1_n_0\,
+      CO(2) => \sigRomAddr2_carry__1_n_1\,
+      CO(1) => \sigRomAddr2_carry__1_n_2\,
+      CO(0) => \sigRomAddr2_carry__1_n_3\,
+      CYINIT => '0',
+      DI(3 downto 0) => B"1111",
+      O(3 downto 0) => sigRomAddr2(12 downto 9),
+      S(3) => \sigRomAddr2_carry__1_i_1_n_0\,
+      S(2) => \sigRomAddr2_carry__1_i_2_n_0\,
+      S(1) => \sigRomAddr2_carry__1_i_3_n_0\,
+      S(0) => \sigRomAddr2_carry__1_i_4_n_0\
+    );
+\sigRomAddr2_carry__1_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"A8"
+    )
+        port map (
+      I0 => tone(2),
+      I1 => tone(0),
+      I2 => tone(1),
+      O => \sigRomAddr2_carry__1_i_1_n_0\
+    );
+\sigRomAddr2_carry__1_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"C2"
+    )
+        port map (
+      I0 => tone(2),
+      I1 => tone(1),
+      I2 => tone(0),
+      O => \sigRomAddr2_carry__1_i_2_n_0\
+    );
+\sigRomAddr2_carry__1_i_3\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"0E"
+    )
+        port map (
+      I0 => tone(1),
+      I1 => tone(2),
+      I2 => tone(0),
+      O => \sigRomAddr2_carry__1_i_3_n_0\
+    );
+\sigRomAddr2_carry__1_i_4\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"82"
+    )
+        port map (
+      I0 => tone(0),
       I1 => tone(2),
       I2 => tone(1),
-      I3 => tone(0),
-      I4 => sigRomAddr_reg(3),
-      O => sigRomAddr1_carry_i_3_n_0
+      O => \sigRomAddr2_carry__1_i_4_n_0\
     );
-sigRomAddr1_carry_i_4: unisim.vcomponents.LUT5
+sigRomAddr2_carry_i_1: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"330F2208"
+      INIT => X"43"
     )
         port map (
-      I0 => sigRomAddr_reg(0),
+      I0 => tone(1),
       I1 => tone(2),
       I2 => tone(0),
-      I3 => tone(1),
-      I4 => sigRomAddr_reg(1),
-      O => sigRomAddr1_carry_i_4_n_0
+      O => sigRomAddr2_carry_i_1_n_0
     );
-sigRomAddr1_carry_i_5: unisim.vcomponents.LUT5
+sigRomAddr2_carry_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"44184188"
+      INIT => X"E8"
     )
         port map (
-      I0 => sigRomAddr_reg(6),
-      I1 => sigRomAddr_reg(7),
-      I2 => tone(2),
-      I3 => tone(1),
-      I4 => tone(0),
-      O => sigRomAddr1_carry_i_5_n_0
-    );
-sigRomAddr1_carry_i_6: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"22811881"
-    )
-        port map (
-      I0 => sigRomAddr_reg(4),
-      I1 => sigRomAddr_reg(5),
+      I0 => tone(2),
+      I1 => tone(1),
       I2 => tone(0),
-      I3 => tone(2),
-      I4 => tone(1),
-      O => sigRomAddr1_carry_i_6_n_0
+      O => sigRomAddr2_carry_i_2_n_0
     );
-sigRomAddr1_carry_i_7: unisim.vcomponents.LUT5
+sigRomAddr2_carry_i_3: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"22181448"
+      INIT => X"74"
     )
         port map (
-      I0 => sigRomAddr_reg(2),
-      I1 => sigRomAddr_reg(3),
+      I0 => tone(0),
+      I1 => tone(1),
       I2 => tone(2),
-      I3 => tone(1),
-      I4 => tone(0),
-      O => sigRomAddr1_carry_i_7_n_0
+      O => sigRomAddr2_carry_i_3_n_0
     );
-sigRomAddr1_carry_i_8: unisim.vcomponents.LUT5
+sigRomAddr2_carry_i_4: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"81818812"
+      INIT => X"53"
     )
         port map (
-      I0 => sigRomAddr_reg(0),
-      I1 => sigRomAddr_reg(1),
-      I2 => tone(2),
-      I3 => tone(0),
-      I4 => tone(1),
-      O => sigRomAddr1_carry_i_8_n_0
+      I0 => tone(2),
+      I1 => tone(0),
+      I2 => tone(1),
+      O => sigRomAddr2_carry_i_4_n_0
     );
 \sigRomAddr[0]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -3894,6 +4106,16 @@ sigRomAddr1_carry_i_8: unisim.vcomponents.LUT5
       D => \sigRomAddr_reg[8]_i_1_n_6\,
       Q => sigRomAddr_reg(9),
       R => '0'
+    );
+\toneAddress[7,0]\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"CB"
+    )
+        port map (
+      I0 => tone(0),
+      I1 => tone(2),
+      I2 => tone(1),
+      O => getEndAddress(0)
     );
 end STRUCTURE;
 library IEEE;
