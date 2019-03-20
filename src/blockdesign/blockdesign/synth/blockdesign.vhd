@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
---Date        : Wed Mar 20 01:58:57 2019
+--Date        : Wed Mar 20 12:45:48 2019
 --Host        : xilinux running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target blockdesign.bd
 --Design      : blockdesign
@@ -2614,19 +2614,6 @@ architecture STRUCTURE of blockdesign is
     douta : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component blockdesign_blk_mem_gen_0_1;
-  component blockdesign_sprite_0_0 is
-  port (
-    clk : in STD_LOGIC;
-    rgb_out : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    hcount_in : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    vcount_in : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    bgRomAddr : out STD_LOGIC_VECTOR ( 18 downto 0 );
-    bgRomData : in STD_LOGIC;
-    noteData : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    sprRomAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    sprRomData : in STD_LOGIC_VECTOR ( 3 downto 0 )
-  );
-  end component blockdesign_sprite_0_0;
   component blockdesign_toneplayer_0_0 is
   port (
     clk : in STD_LOGIC;
@@ -2646,6 +2633,19 @@ architecture STRUCTURE of blockdesign is
     keyData : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component blockdesign_keyboardHandler_0_0;
+  component blockdesign_sprite_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rgb_out : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    hcount_in : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    vcount_in : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    bgRomAddr : out STD_LOGIC_VECTOR ( 18 downto 0 );
+    bgRomData : in STD_LOGIC;
+    noteData : in STD_LOGIC_VECTOR ( 6 downto 0 );
+    sprRomAddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    sprRomData : in STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  end component blockdesign_sprite_0_0;
   signal PS2Clk_1 : STD_LOGIC;
   signal PS2Data_1 : STD_LOGIC;
   signal SW_MUTE_1 : STD_LOGIC;

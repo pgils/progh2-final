@@ -51,14 +51,6 @@ architecture Behavioral of sprite is
     -- location map for the note sprite
     type T_noteloc_lut is array (7 downto 0) of integer;
     constant    noteSpriteLoc   : T_noteloc_lut := (
---        (V_MIN+061), -- 7
---        (V_MIN+094),
---        (V_MIN+130),
---        (V_MIN+163),
---        (V_MIN+199),
---        (V_MIN+233),
---        (V_MIN+269),
---        (V_MIN+302)  -- 0
         (V_MIN+302), -- 7
         (V_MIN+269),
         (V_MIN+233),
