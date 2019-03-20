@@ -172,8 +172,17 @@ set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
 
+# Add/Import constrs file and set constrs file properties
+set file "[file normalize "$origin_dir/src/constraints/timing.xdc"]"
+set file_added [add_files -norecurse -fileset $obj $file]
+set file "$origin_dir/src/constraints/timing.xdc"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
+set_property -name "file_type" -value "XDC" -objects $file_obj
+
 # Set 'constrs_1' fileset properties
 set obj [get_filesets constrs_1]
+set_property -name "target_constrs_file" -value "[file normalize "$origin_dir/src/constraints/timing.xdc"]" -objects $obj
 
 # Create 'sim_1' fileset (if not found)
 if {[string equal [get_filesets -quiet sim_1] ""]} {
@@ -209,6 +218,7 @@ if {[string equal [get_runs -quiet synth_1] ""]} {
   set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
 }
 set obj [get_runs synth_1]
+set_property -name "needs_refresh" -value "1" -objects $obj
 set_property -name "report_strategy" -value "Vivado Synthesis Default Reports" -objects $obj
 set_property -name "strategy" -value "Vivado Synthesis Defaults" -objects $obj
 
@@ -235,6 +245,7 @@ if {[string equal [get_runs -quiet impl_1] ""]} {
   set_property flow "Vivado Implementation 2017" [get_runs impl_1]
 }
 set obj [get_runs impl_1]
+set_property -name "needs_refresh" -value "1" -objects $obj
 set_property -name "report_strategy" -value "Vivado Implementation Default Reports" -objects $obj
 set_property -name "strategy" -value "Vivado Implementation Defaults" -objects $obj
 set_property -name "steps.write_bitstream.args.readback_file" -value "0" -objects $obj
