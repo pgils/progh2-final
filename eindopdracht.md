@@ -25,3 +25,5 @@
 |4.2    |**De nieuwe noot wordt random gegenereerd.**|M|
 |4.3    |**Het aansturen van noot en het vergelijken met de toetsenbord invoer wordt gedaan door de Microblaze.**|M|
 |4.4    |Op het 7-segmenten display wordt op de linker twee segmenten de scoren bijgehouden van het aantal keer foute invoer en op de rechter 2 segmenten het aantal keer goede invoer.|C|
+
+![MusicNoteTrainer state diagram](mnt_state.svg)
