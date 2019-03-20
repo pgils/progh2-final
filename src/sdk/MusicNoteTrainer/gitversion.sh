@@ -1,4 +1,5 @@
 #!/bin/sh
-echo -n "#define VERSION " > $1
 version=$(git describe --always --dirty --tags)
-echo "\"$version\"" >> $1
+[ -n "$1" ] &&
+  echo "#define VERSION \"$version\"" > $1
+echo "Version: $version"
